@@ -4,6 +4,8 @@ const val ANNOTATION_DATE_KEY = "annotation_date"
 
 const val INSULIN_UNITS_KEY = "insulin_units"
 
+const val POST_PRANDIAL_GLYCEMIA_KEY = "post_prandial_glycemia"
+
 const val MORNING_SNACK_KEY = "morning_snack"
 
 const val AFTERNOON_SNACK_KEY = "afternoon_snack"
