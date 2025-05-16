@@ -1,4 +1,4 @@
-package com.tecknobit.glukycore
+package com.tecknobit.glukycore.enums
 
 import kotlinx.serialization.Serializable
 
@@ -7,11 +7,11 @@ enum class MeasurementType {
 
     BREAKFAST,
 
-    FIRST_SNACK,
+    MORNING_SNACK,
 
     LUNCH,
 
-    SECOND_SNACK,
+    AFTERNOON_SNACK,
 
     DINNER,
 
