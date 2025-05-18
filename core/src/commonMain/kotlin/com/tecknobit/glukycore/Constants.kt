@@ -11,3 +11,5 @@ const val MORNING_SNACK_KEY = "morning_snack"
 const val AFTERNOON_SNACK_KEY = "afternoon_snack"
 
 const val BASAL_INSULIN_KEY = "basal_insulin"
+
+const val RAW_CONTENT_KEY = "raw_content"
