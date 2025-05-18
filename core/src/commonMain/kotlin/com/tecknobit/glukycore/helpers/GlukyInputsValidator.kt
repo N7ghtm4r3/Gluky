@@ -7,8 +7,10 @@ object GlukyInputsValidator : InputsValidator() {
 
     @Validator
     fun glycemiaValueIsValid(
-        glycemiaValue: String,
+        glycemiaValue: String?,
     ): Boolean {
+        if (glycemiaValue.isNullOrEmpty())
+            return true
         try {
             val glycemia = glycemiaValue.toInt()
             return glycemia >= 1
