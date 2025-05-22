@@ -19,3 +19,27 @@ const val AFTERNOON_SNACK_KEY = "afternoon_snack"
 const val BASAL_INSULIN_KEY = "basal_insulin"
 
 const val DAILY_NOTES_KEY = "daily_notes"
+
+const val FIRST_SET_KEY = "first_set"
+
+const val SECOND_SET_KEY = "second_set"
+
+const val THIRD_SET_KEY = "third_set"
+
+const val FOURTH_SET_KEY = "fourth_set"
+
+const val FIFTH_SET_KEY = "fifth_set"
+
+const val SIXTH_SET_KEY = "sixth_set"
+
+const val MAX_GLYCEMIC_VALUE_KEY = "max_glycemic_value"
+
+const val MIN_GLYCEMIC_VALUE_KEY = "min_glycemic_value"
+
+const val MEDIUM_GLYCEMIC_VALUE_KEY = "medium_glycemic_value"
+
+const val MAX_INSULIN_VALUE_KEY = "max_insulin_value"
+
+const val MIN_INSULIN_VALUE_KEY = "min_insulin_value"
+
+const val MEDIUM_INSULIN_VALUE_KEY = "medium_insulin_value"
