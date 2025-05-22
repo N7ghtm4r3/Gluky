@@ -39,3 +39,5 @@ const val MAX_INSULIN_VALUE_KEY = "max_insulin_value"
 const val MIN_INSULIN_VALUE_KEY = "min_insulin_value"
 
 const val MEDIUM_INSULIN_VALUE_KEY = "medium_insulin_value"
+
+const val GLYCEMIC_LABEL_TYPE_KEY = "label_type"
