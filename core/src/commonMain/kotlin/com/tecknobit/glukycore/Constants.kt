@@ -28,10 +28,6 @@ const val THIRD_SET_KEY = "third_set"
 
 const val FOURTH_SET_KEY = "fourth_set"
 
-const val FIFTH_SET_KEY = "fifth_set"
-
-const val SIXTH_SET_KEY = "sixth_set"
-
 const val MAX_GLYCEMIC_VALUE_KEY = "max_glycemic_value"
 
 const val MIN_GLYCEMIC_VALUE_KEY = "min_glycemic_value"
