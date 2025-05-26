@@ -4,11 +4,13 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.tecknobit.equinoxbackend.environment.services.builtin.entity.EquinoxItem;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import jakarta.persistence.Column;
+import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.MappedSuperclass;
+import org.hibernate.annotations.OnDelete;
 
-import static com.tecknobit.glukycore.ConstantsKt.ANNOTATION_DATE_KEY;
-import static com.tecknobit.glukycore.ConstantsKt.INSULIN_UNITS_KEY;
+import static com.tecknobit.glukycore.ConstantsKt.*;
+import static org.hibernate.annotations.OnDeleteAction.CASCADE;
 
 @MappedSuperclass
 public abstract class GlycemicMeasurementItem extends EquinoxItem {
@@ -23,6 +25,8 @@ public abstract class GlycemicMeasurementItem extends EquinoxItem {
     protected final int insulinUnits;
 
     @ManyToOne
+    @OnDelete(action = CASCADE)
+    @JoinColumn(name = MEASUREMENT_IDENTIFIER_KEY)
     protected DailyMeasurements dailyMeasurements;
 
     public GlycemicMeasurementItem(String id, long annotationDate, int glycemia, int insulinUnits) {

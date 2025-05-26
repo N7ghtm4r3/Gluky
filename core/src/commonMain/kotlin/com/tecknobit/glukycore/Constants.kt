@@ -2,6 +2,8 @@ package com.tecknobit.glukycore
 
 const val MEASUREMENTS_KEY = "measurements"
 
+const val MEASUREMENT_IDENTIFIER_KEY = "measurement_id"
+
 const val MEALS_KEY = "meals"
 
 const val BASAL_INSULIN_RECORDS_KEYS = "basal_insulin_records"
@@ -18,9 +20,15 @@ const val INSULIN_UNITS_KEY = "insulin_units"
 
 const val POST_PRANDIAL_GLYCEMIA_KEY = "post_prandial_glycemia"
 
+const val BREAKFAST_KEY = "breakfast"
+
 const val MORNING_SNACK_KEY = "morning_snack"
 
+const val LUNCH_KEY = "lunch"
+
 const val AFTERNOON_SNACK_KEY = "afternoon_snack"
+
+const val DINNER_KEY = "dinner"
 
 const val BASAL_INSULIN_KEY = "basal_insulin"
 
