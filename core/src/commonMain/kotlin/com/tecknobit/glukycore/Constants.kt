@@ -1,5 +1,11 @@
 package com.tecknobit.glukycore
 
+const val MEASUREMENTS_KEY = "measurements"
+
+const val MEALS_KEY = "meals"
+
+const val BASAL_INSULIN_RECORDS_KEYS = "basal_insulin_records"
+
 const val ANNOTATION_DATE_KEY = "annotation_date"
 
 const val CONTENT_KEY = "content"
@@ -35,6 +41,5 @@ const val LOWER_GLYCEMIA_KEY = "lower_glycemia"
 const val AVERAGE_GLYCEMIA_KEY = "average_glycemia"
 
 const val GLYCEMIC_LABEL_TYPE_KEY = "label_type"
-
 
 const val REPORTS_KEY = "reports"
