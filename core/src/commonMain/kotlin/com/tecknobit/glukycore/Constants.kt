@@ -8,6 +8,8 @@ const val MEALS_KEY = "meals"
 
 const val BASAL_INSULIN_RECORDS_KEYS = "basal_insulin_records"
 
+const val TARGET_DAY_KEY = "target_day"
+
 const val ANNOTATION_DATE_KEY = "annotation_date"
 
 const val CONTENT_KEY = "content"
