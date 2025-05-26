@@ -4,17 +4,21 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tecknobit.equinoxbackend.annotations.EmptyConstructor;
 import com.tecknobit.equinoxbackend.environment.services.builtin.entity.EquinoxItem;
+import com.tecknobit.equinoxcore.annotations.CustomParametersOrder;
 import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
 import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 
+import java.util.ArrayList;
+
 import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.CREATION_DATE_KEY;
 import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.OWNER_KEY;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 import static org.hibernate.annotations.OnDeleteAction.CASCADE;
 
+@SuppressWarnings("FieldCanBeLocal")
 @Entity
 @Table(
         name = MEASUREMENTS_KEY,
@@ -31,32 +35,32 @@ public class DailyMeasurements extends EquinoxItem {
 
     @OneToOne
     @JoinColumn(name = BREAKFAST_KEY)
-    private final Meal breakfast;
+    private Meal breakfast;
 
     @OneToOne
     @JoinColumn(name = MORNING_SNACK_KEY)
-    private final Meal morningSnack;
+    private Meal morningSnack;
 
     @OneToOne
     @JoinColumn(name = LUNCH_KEY)
-    private final Meal lunch;
+    private Meal lunch;
 
     @OneToOne
     @JoinColumn(name = AFTERNOON_SNACK_KEY)
-    private final Meal afternoonSnack;
+    private Meal afternoonSnack;
 
     @OneToOne
     @JoinColumn(name = DINNER_KEY)
-    private final Meal dinner;
+    private Meal dinner;
 
     @OneToOne
     @JoinColumn(name = BASAL_INSULIN_KEY)
-    private final BasalInsulin basalInsulin;
+    private BasalInsulin basalInsulin;
 
     @Lob
     @Column(
             name = DAILY_NOTES_KEY,
-            columnDefinition = "LONGTEXT",
+            columnDefinition = "LONGTEXT DEFAULT ''",
             nullable = false
     )
     private final String dailyNotes;
@@ -64,15 +68,19 @@ public class DailyMeasurements extends EquinoxItem {
     @ManyToOne
     @OnDelete(action = CASCADE)
     @JoinColumn(name = OWNER_KEY)
-    private GlukyUser owner;
+    private final GlukyUser owner;
 
     @EmptyConstructor
     public DailyMeasurements() {
-        this(null, 0, null, null, null, null, null, null, null);
+        this(null, -1, null, null, null, null, null, null, "", null);
+    }
+
+    public DailyMeasurements(String id, long creationDate, GlukyUser owner) {
+        this(id, creationDate, null, null, null, null, null, null, "", owner);
     }
 
     public DailyMeasurements(String id, long creationDate, Meal breakfast, Meal morningSnack, Meal lunch, Meal afternoonSnack,
-                             Meal dinner, BasalInsulin basalInsulin, String dailyNotes) {
+                             Meal dinner, BasalInsulin basalInsulin, String dailyNotes, GlukyUser owner) {
         super(id);
         this.creationDate = creationDate;
         this.breakfast = breakfast;
@@ -82,6 +90,7 @@ public class DailyMeasurements extends EquinoxItem {
         this.dinner = dinner;
         this.basalInsulin = basalInsulin;
         this.dailyNotes = dailyNotes;
+        this.owner = owner;
     }
 
     @JsonIgnore
@@ -119,6 +128,21 @@ public class DailyMeasurements extends EquinoxItem {
     @JsonGetter(DAILY_NOTES_KEY)
     public String getDailyNotes() {
         return dailyNotes;
+    }
+
+    @JsonIgnore
+    @CustomParametersOrder(order = {BREAKFAST_KEY, MORNING_SNACK_KEY, LUNCH_KEY, AFTERNOON_SNACK_KEY, DINNER_KEY})
+    public void attachMeals(ArrayList<Meal> measurements) {
+        breakfast = measurements.get(0);
+        morningSnack = measurements.get(1);
+        lunch = measurements.get(2);
+        afternoonSnack = measurements.get(3);
+        dinner = measurements.get(4);
+    }
+
+    @JsonIgnore
+    public void attachBasalInsulin(BasalInsulin basalInsulin) {
+        this.basalInsulin = basalInsulin;
     }
 
 }

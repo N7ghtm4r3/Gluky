@@ -15,25 +15,38 @@ import static org.hibernate.annotations.OnDeleteAction.CASCADE;
 @MappedSuperclass
 public abstract class GlycemicMeasurementItem extends EquinoxItem {
 
-    @Column(name = ANNOTATION_DATE_KEY)
+    @Column(
+            name = ANNOTATION_DATE_KEY,
+            columnDefinition = "BIGINT DEFAULT -1",
+            insertable = false
+    )
     protected final long annotationDate;
 
-    @Column
+    @Column(
+            columnDefinition = "INTEGER DEFAULT -1",
+            insertable = false
+    )
     protected final int glycemia;
 
-    @Column(name = INSULIN_UNITS_KEY)
+    @Column(
+            name = INSULIN_UNITS_KEY,
+            columnDefinition = "INTEGER DEFAULT -1",
+            insertable = false
+    )
     protected final int insulinUnits;
 
     @ManyToOne
     @OnDelete(action = CASCADE)
     @JoinColumn(name = MEASUREMENT_IDENTIFIER_KEY)
-    protected DailyMeasurements dailyMeasurements;
+    protected final DailyMeasurements dailyMeasurements;
 
-    public GlycemicMeasurementItem(String id, long annotationDate, int glycemia, int insulinUnits) {
+    public GlycemicMeasurementItem(String id, long annotationDate, int glycemia, int insulinUnits,
+                                   DailyMeasurements dailyMeasurements) {
         super(id);
         this.annotationDate = annotationDate;
         this.glycemia = glycemia;
         this.insulinUnits = insulinUnits;
+        this.dailyMeasurements = dailyMeasurements;
     }
 
     @JsonGetter(ANNOTATION_DATE_KEY)

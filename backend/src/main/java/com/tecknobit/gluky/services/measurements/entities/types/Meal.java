@@ -2,6 +2,7 @@ package com.tecknobit.gluky.services.measurements.entities.types;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.tecknobit.equinoxbackend.annotations.EmptyConstructor;
+import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.glukycore.enums.MeasurementType;
 import jakarta.persistence.*;
 import org.json.JSONObject;
@@ -16,25 +17,33 @@ public class Meal extends GlycemicMeasurementItem {
     @Enumerated(value = EnumType.STRING)
     private final MeasurementType type;
 
-    @Column
-    private final String content;
-
-    @Column(name = RAW_CONTENT_KEY)
+    @Column(
+            name = RAW_CONTENT_KEY,
+            columnDefinition = "TEXT DEFAULT ''",
+            insertable = false
+    )
     private final String rawContent;
 
-    @Column(name = POST_PRANDIAL_GLYCEMIA_KEY)
+    @Column(
+            name = POST_PRANDIAL_GLYCEMIA_KEY,
+            columnDefinition = "INTEGER DEFAULT -1",
+            insertable = false
+    )
     private final int postPrandialGlycemia;
 
     @EmptyConstructor
     public Meal() {
-        this(null, -1, 0, 0, null, null, null, 0);
+        this(null, null, null);
     }
 
-    public Meal(String id, long annotationDate, int glycemia, int insulinUnits, MeasurementType type, String content,
-                String rawContent, int postPrandialGlycemia) {
-        super(id, annotationDate, glycemia, insulinUnits);
+    public Meal(String id, MeasurementType type, DailyMeasurements dailyMeasurements) {
+        this(id, -1, -1, -1, dailyMeasurements, type, "", -1);
+    }
+
+    public Meal(String id, long annotationDate, int glycemia, int insulinUnits, DailyMeasurements dailyMeasurements,
+                MeasurementType type, String rawContent, int postPrandialGlycemia) {
+        super(id, annotationDate, glycemia, insulinUnits, dailyMeasurements);
         this.type = type;
-        this.content = content;
         this.rawContent = rawContent;
         this.postPrandialGlycemia = postPrandialGlycemia;
     }
@@ -44,12 +53,12 @@ public class Meal extends GlycemicMeasurementItem {
     }
 
     public String getContent() {
-        return content;
+        return ""; // TODO: 26/05/2025 RETURN content CORRECLTY
     }
 
     @JsonGetter(RAW_CONTENT_KEY)
     public JSONObject getRawContent() {
-        return new JSONObject(); // TODO: 26/05/2025 PARSE content CORRECLTY 
+        return new JSONObject(); // TODO: 26/05/2025 PARSE rawContent CORRECLTY
     }
 
     @JsonGetter(POST_PRANDIAL_GLYCEMIA_KEY)
