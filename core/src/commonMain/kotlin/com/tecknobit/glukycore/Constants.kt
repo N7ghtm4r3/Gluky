@@ -35,3 +35,6 @@ const val LOWER_GLYCEMIA_KEY = "lower_glycemia"
 const val AVERAGE_GLYCEMIA_KEY = "average_glycemia"
 
 const val GLYCEMIC_LABEL_TYPE_KEY = "label_type"
+
+
+const val REPORTS_KEY = "reports"
