@@ -38,6 +38,7 @@ bin/
 .kotlin
 local.properties
 gradle.properties
+resources
 
 ### VS Code ###
 .vscode/
