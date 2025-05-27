@@ -1,5 +1,6 @@
 package com.tecknobit.gluky.services.measurements.controller;
 
+import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.measurements.services.MeasurementsService;
 import com.tecknobit.gluky.services.shared.controllers.DefaultGlukyController;
 import com.tecknobit.glukycore.enums.MeasurementType;
@@ -82,7 +83,8 @@ public class MeasurementsController extends DefaultGlukyController {
     ) {
         if (!isMe(userId, token))
             return (T) failedResponse(NOT_AUTHORIZED_OR_WRONG_DETAILS_MESSAGE);
-        if (!measurementsService.isDayFilled(userId, targetDay))
+        DailyMeasurements measurements = measurementsService.getDailyMeasurements(userId, targetDay);
+        if (measurements == null)
             return (T) failedResponse(WRONG_PROCEDURE_MESSAGE);
         loadJsonHelper(payload);
         String glycemia = jsonHelper.getString(GLYCEMIA_KEY);
@@ -91,11 +93,14 @@ public class MeasurementsController extends DefaultGlukyController {
         String postPrandialGlycemia = jsonHelper.getString(POST_PRANDIAL_GLYCEMIA_KEY);
         if (!INSTANCE.isGlycemiaValueValid(postPrandialGlycemia))
             return (T) failedResponse(WRONG_GLYCEMIC_VALUE_MESSAGE);
-        JSONObject mealContent = jsonHelper.getJSONObject(CONTENT_KEY);
+        int insulinUnits = jsonHelper.getInt(INSULIN_UNITS_KEY, -1);
+        if (insulinUnits < -1)
+            return (T) failedResponse(WRONG_INSULIN_UNITS_VALUE_MESSAGE);
+        JSONObject mealContent = jsonHelper.getJSONObject(CONTENT_KEY, new JSONObject());
         if (!INSTANCE.isMealContentValid(mealContent.toString()))
             return (T) failedResponse(WRONG_MEAL_CONTENT_MESSAGE);
-        int insulinUnits = jsonHelper.getInt(INSULIN_UNITS_KEY, -1);
-        return (T) successResponse();
+        measurementsService.fillMeal(measurements, type, glycemia, postPrandialGlycemia, insulinUnits, mealContent);
+        return (T) successResponse(mealContent);
     }
 
 }

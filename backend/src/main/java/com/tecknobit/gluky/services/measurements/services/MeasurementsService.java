@@ -4,10 +4,13 @@ import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
+import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
 import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
+import com.tecknobit.glukycore.enums.MeasurementType;
 import jakarta.transaction.Transactional;
+import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -61,8 +64,10 @@ public class MeasurementsService {
         return dailyMeasurements;
     }
 
-    public boolean isDayFilled(String userId, String targetDay) {
-        return getDailyMeasurements(userId, targetDay) != null;
+    public void fillMeal(DailyMeasurements measurements, MeasurementType type, String glycemia,
+                         String postPrandialGlycemia, int insulinUnits, JSONObject content) {
+        GlycemicMeasurementItem meal = measurements.getMeasurement(type);
+        mealsService.fillMeal(meal, glycemia, postPrandialGlycemia, insulinUnits, content);
     }
 
     @Returner

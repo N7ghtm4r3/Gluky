@@ -6,8 +6,10 @@ import com.tecknobit.equinoxbackend.annotations.EmptyConstructor;
 import com.tecknobit.equinoxbackend.environment.services.builtin.entity.EquinoxItem;
 import com.tecknobit.equinoxcore.annotations.CustomParametersOrder;
 import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
+import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
 import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
+import com.tecknobit.glukycore.enums.MeasurementType;
 import jakarta.persistence.*;
 import org.hibernate.annotations.OnDelete;
 
@@ -143,6 +145,18 @@ public class DailyMeasurements extends EquinoxItem {
     @JsonIgnore
     public void attachBasalInsulin(BasalInsulin basalInsulin) {
         this.basalInsulin = basalInsulin;
+    }
+
+    @JsonIgnore
+    public GlycemicMeasurementItem getMeasurement(MeasurementType type) {
+        return switch (type) {
+            case BREAKFAST -> breakfast;
+            case MORNING_SNACK -> morningSnack;
+            case LUNCH -> lunch;
+            case AFTERNOON_SNACK -> afternoonSnack;
+            case DINNER -> dinner;
+            case BASAL_INSULIN -> basalInsulin;
+        };
     }
 
 }

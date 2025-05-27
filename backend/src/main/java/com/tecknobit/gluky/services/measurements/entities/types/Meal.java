@@ -5,7 +5,6 @@ import com.tecknobit.equinoxbackend.annotations.EmptyConstructor;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.glukycore.enums.MeasurementType;
 import jakarta.persistence.*;
-import org.json.JSONObject;
 
 import static com.tecknobit.glukycore.ConstantsKt.*;
 
@@ -13,13 +12,15 @@ import static com.tecknobit.glukycore.ConstantsKt.*;
 @Table(name = MEALS_KEY)
 public class Meal extends GlycemicMeasurementItem {
 
+    public static final String EMPTY_CONTENT = "{}";
+
     @Column
     @Enumerated(value = EnumType.STRING)
     private final MeasurementType type;
 
     @Column(
             name = RAW_CONTENT_KEY,
-            columnDefinition = "TEXT DEFAULT ''",
+            columnDefinition = "TEXT DEFAULT '" + EMPTY_CONTENT + "'",
             insertable = false
     )
     private final String rawContent;
@@ -37,7 +38,7 @@ public class Meal extends GlycemicMeasurementItem {
     }
 
     public Meal(String id, MeasurementType type, DailyMeasurements dailyMeasurements) {
-        this(id, -1, -1, -1, dailyMeasurements, type, "", -1);
+        this(id, -1, -1, -1, dailyMeasurements, type, EMPTY_CONTENT, -1);
     }
 
     public Meal(String id, long annotationDate, int glycemia, int insulinUnits, DailyMeasurements dailyMeasurements,
@@ -52,13 +53,9 @@ public class Meal extends GlycemicMeasurementItem {
         return type;
     }
 
-    public String getContent() {
-        return ""; // TODO: 26/05/2025 RETURN content CORRECLTY
-    }
-
     @JsonGetter(RAW_CONTENT_KEY)
-    public JSONObject getRawContent() {
-        return new JSONObject(); // TODO: 26/05/2025 PARSE rawContent CORRECLTY
+    public String getRawContent() {
+        return rawContent;
     }
 
     @JsonGetter(POST_PRANDIAL_GLYCEMIA_KEY)

@@ -27,8 +27,10 @@ object GlukyInputsValidator : InputsValidator() {
         rawMealContent: String,
     ): Boolean {
         val mealContent = Json.decodeFromString<JsonObject>(rawMealContent)
-        mealContent.values.forEach { quantity ->
-            if (quantity.treatsAsString().isBlank())
+        mealContent.entries.forEach { entry ->
+            if (entry.key.isBlank())
+                return false
+            if (entry.value.treatsAsString().isBlank())
                 return false
         }
         return true

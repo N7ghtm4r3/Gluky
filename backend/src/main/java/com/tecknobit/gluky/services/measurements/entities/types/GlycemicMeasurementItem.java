@@ -1,6 +1,7 @@
 package com.tecknobit.gluky.services.measurements.entities.types;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.tecknobit.equinoxbackend.environment.services.builtin.entity.EquinoxItem;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import jakarta.persistence.Column;
@@ -61,6 +62,11 @@ public abstract class GlycemicMeasurementItem extends EquinoxItem {
     @JsonGetter(INSULIN_UNITS_KEY)
     public int getInsulinUnits() {
         return insulinUnits;
+    }
+
+    @JsonIgnore
+    public boolean isFilled() {
+        return annotationDate != -1;
     }
 
 }
