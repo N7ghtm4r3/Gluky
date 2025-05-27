@@ -2,11 +2,14 @@ package com.tecknobit.glukycore.helpers
 
 import com.tecknobit.equinoxcore.annotations.Validator
 import com.tecknobit.equinoxcore.helpers.InputsValidator
+import com.tecknobit.equinoxcore.json.treatsAsString
+import kotlinx.serialization.json.Json
+import kotlinx.serialization.json.JsonObject
 
 object GlukyInputsValidator : InputsValidator() {
 
     @Validator
-    fun glycemiaValueIsValid(
+    fun isGlycemiaValueValid(
         glycemiaValue: String?,
     ): Boolean {
         if (glycemiaValue.isNullOrEmpty())
@@ -17,6 +20,18 @@ object GlukyInputsValidator : InputsValidator() {
         } catch (e: NumberFormatException) {
             return false
         }
+    }
+
+    @Validator
+    fun isMealContentValid(
+        rawMealContent: String,
+    ): Boolean {
+        val mealContent = Json.decodeFromString<JsonObject>(rawMealContent)
+        mealContent.values.forEach { quantity ->
+            if (quantity.treatsAsString().isBlank())
+                return false
+        }
+        return true
     }
 
 }

@@ -46,4 +46,5 @@ bin/
 ### Custom ###
 local.properties
 gradle.properties
-resources
+resources/profiles
+resources/reports

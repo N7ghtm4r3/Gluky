@@ -12,6 +12,8 @@ const val TARGET_DAY_KEY = "target_day"
 
 const val ANNOTATION_DATE_KEY = "annotation_date"
 
+const val MEASUREMENT_TYPE_KEY = "measurement_type"
+
 const val CONTENT_KEY = "content"
 
 const val GLYCEMIA_KEY = "glycemia"

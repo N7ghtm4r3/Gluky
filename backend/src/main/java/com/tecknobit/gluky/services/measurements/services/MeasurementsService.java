@@ -61,6 +61,10 @@ public class MeasurementsService {
         return dailyMeasurements;
     }
 
+    public boolean isDayFilled(String userId, String targetDay) {
+        return getDailyMeasurements(userId, targetDay) != null;
+    }
+
     @Returner
     private long normalizeTargetDay(String targetDay) {
         return formatter.formatAsTimestamp(targetDay);
