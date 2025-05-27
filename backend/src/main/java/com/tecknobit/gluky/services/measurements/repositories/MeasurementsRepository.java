@@ -51,4 +51,19 @@ public interface MeasurementsRepository extends JpaRepository<DailyMeasurements,
             @Param(MEASUREMENT_IDENTIFIER_KEY) String measurementsId
     );
 
+    @Transactional
+    @Modifying(
+            clearAutomatically = true
+    )
+    @Query(
+            value = "UPDATE " + MEASUREMENTS_KEY + " SET " +
+                    DAILY_NOTES_KEY + "=:" + DAILY_NOTES_KEY +
+                    _WHERE_ + IDENTIFIER_KEY + "=:" + MEASUREMENT_IDENTIFIER_KEY,
+            nativeQuery = true
+    )
+    void saveDailyNotes(
+            @Param(DAILY_NOTES_KEY) String dailyNotes,
+            @Param(MEASUREMENT_IDENTIFIER_KEY) String measurementsId
+    );
+
 }

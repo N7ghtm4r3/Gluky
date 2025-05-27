@@ -132,4 +132,27 @@ public class MeasurementsController extends DefaultGlukyController {
         return (T) successResponse();
     }
 
+    @PutMapping(
+            path = "/{" + TARGET_DAY_KEY + "}/" + DAILY_NOTES_KEY,
+            headers = {
+                    TOKEN_KEY
+            }
+    )
+    public <T> T saveDailyNotes(
+            @PathVariable(USER_IDENTIFIER_KEY) String userId,
+            @RequestHeader(TOKEN_KEY) String token,
+            @PathVariable(TARGET_DAY_KEY) String targetDay, // TODO: TO WARN ABOUT THE REQUIRED "dd-MM-yyyy" FORMAT
+            @RequestBody Map<String, Object> payload
+    ) {
+        if (!isMe(userId, token))
+            return (T) failedResponse(NOT_AUTHORIZED_OR_WRONG_DETAILS_MESSAGE);
+        DailyMeasurements measurements = measurementsService.getDailyMeasurements(userId, targetDay);
+        if (measurements == null)
+            return (T) failedResponse(WRONG_PROCEDURE_MESSAGE);
+        loadJsonHelper(payload);
+        String dailyNotes = jsonHelper.getString(DAILY_NOTES_KEY, "");
+        measurementsService.saveDailyNotes(measurements, dailyNotes);
+        return (T) successResponse();
+    }
+
 }

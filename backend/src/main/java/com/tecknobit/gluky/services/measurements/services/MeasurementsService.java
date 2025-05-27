@@ -66,6 +66,11 @@ public class MeasurementsService {
         return dailyMeasurements;
     }
 
+    @Returner
+    private long normalizeTargetDay(String targetDay) {
+        return formatter.formatAsTimestamp(targetDay);
+    }
+
     public void fillMeal(DailyMeasurements measurements, MeasurementType type, String glycemia,
                          String postPrandialGlycemia, int insulinUnits, JSONObject content) {
         GlycemicMeasurementItem meal = measurements.getMeasurement(type);
@@ -77,9 +82,9 @@ public class MeasurementsService {
         basalInsulinService.fillBasalInsulin(basalInsulin, glycemia, insulinUnits);
     }
 
-    @Returner
-    private long normalizeTargetDay(String targetDay) {
-        return formatter.formatAsTimestamp(targetDay);
+    public void saveDailyNotes(DailyMeasurements measurements, String dailyNotes) {
+        String measurementsId = measurements.getId();
+        measurementsRepository.saveDailyNotes(dailyNotes, measurementsId);
     }
 
 }
