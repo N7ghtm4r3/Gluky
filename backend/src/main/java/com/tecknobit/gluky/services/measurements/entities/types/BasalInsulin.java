@@ -5,10 +5,10 @@ import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 
-import static com.tecknobit.glukycore.ConstantsKt.BASAL_INSULIN_RECORDS_KEYS;
+import static com.tecknobit.glukycore.ConstantsKt.BASAL_INSULIN_RECORDS_KEY;
 
 @Entity
-@Table(name = BASAL_INSULIN_RECORDS_KEYS)
+@Table(name = BASAL_INSULIN_RECORDS_KEY)
 public class BasalInsulin extends GlycemicMeasurementItem {
 
     @EmptyConstructor

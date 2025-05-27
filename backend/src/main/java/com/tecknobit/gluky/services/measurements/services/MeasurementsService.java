@@ -7,6 +7,8 @@ import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
 import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
 import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository;
+import com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService;
+import com.tecknobit.gluky.services.measurements.services.types.MealsService;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.glukycore.enums.MeasurementType;
 import jakarta.transaction.Transactional;
@@ -68,6 +70,11 @@ public class MeasurementsService {
                          String postPrandialGlycemia, int insulinUnits, JSONObject content) {
         GlycemicMeasurementItem meal = measurements.getMeasurement(type);
         mealsService.fillMeal(meal, glycemia, postPrandialGlycemia, insulinUnits, content);
+    }
+
+    public void fillBasalInsulin(DailyMeasurements measurements, String glycemia, int insulinUnits) {
+        BasalInsulin basalInsulin = measurements.getBasalInsulin();
+        basalInsulinService.fillBasalInsulin(basalInsulin, glycemia, insulinUnits);
     }
 
     @Returner

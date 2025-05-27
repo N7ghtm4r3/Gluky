@@ -6,7 +6,7 @@ const val MEASUREMENT_IDENTIFIER_KEY = "measurement_id"
 
 const val MEALS_KEY = "meals"
 
-const val BASAL_INSULIN_RECORDS_KEYS = "basal_insulin_records"
+const val BASAL_INSULIN_RECORDS_KEY = "basal_insulin_records"
 
 const val TARGET_DAY_KEY = "target_day"
 

@@ -16,22 +16,24 @@ import static org.hibernate.annotations.OnDeleteAction.CASCADE;
 @MappedSuperclass
 public abstract class GlycemicMeasurementItem extends EquinoxItem {
 
+    public static final int UNSET_VALUE = -1;
+
     @Column(
             name = ANNOTATION_DATE_KEY,
-            columnDefinition = "BIGINT DEFAULT -1",
+            columnDefinition = "BIGINT DEFAULT " + UNSET_VALUE,
             insertable = false
     )
     protected final long annotationDate;
 
     @Column(
-            columnDefinition = "INTEGER DEFAULT -1",
+            columnDefinition = "INTEGER DEFAULT " + UNSET_VALUE,
             insertable = false
     )
     protected final int glycemia;
 
     @Column(
             name = INSULIN_UNITS_KEY,
-            columnDefinition = "INTEGER DEFAULT -1",
+            columnDefinition = "INTEGER DEFAULT " + UNSET_VALUE,
             insertable = false
     )
     protected final int insulinUnits;

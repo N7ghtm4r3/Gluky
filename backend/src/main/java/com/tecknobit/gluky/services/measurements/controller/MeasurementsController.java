@@ -12,6 +12,7 @@ import java.util.Map;
 
 import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.*;
 import static com.tecknobit.equinoxcore.network.EquinoxBaseEndpointsSet.BASE_EQUINOX_ENDPOINT;
+import static com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.UNSET_VALUE;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 import static com.tecknobit.glukycore.helpers.GlukyInputsValidator.INSTANCE;
 
@@ -93,14 +94,42 @@ public class MeasurementsController extends DefaultGlukyController {
         String postPrandialGlycemia = jsonHelper.getString(POST_PRANDIAL_GLYCEMIA_KEY);
         if (!INSTANCE.isGlycemiaValueValid(postPrandialGlycemia))
             return (T) failedResponse(WRONG_GLYCEMIC_VALUE_MESSAGE);
-        int insulinUnits = jsonHelper.getInt(INSULIN_UNITS_KEY, -1);
-        if (insulinUnits < -1)
+        int insulinUnits = jsonHelper.getInt(INSULIN_UNITS_KEY, UNSET_VALUE);
+        if (insulinUnits < UNSET_VALUE)
             return (T) failedResponse(WRONG_INSULIN_UNITS_VALUE_MESSAGE);
         JSONObject mealContent = jsonHelper.getJSONObject(CONTENT_KEY, new JSONObject());
         if (!INSTANCE.isMealContentValid(mealContent.toString()))
             return (T) failedResponse(WRONG_MEAL_CONTENT_MESSAGE);
         measurementsService.fillMeal(measurements, type, glycemia, postPrandialGlycemia, insulinUnits, mealContent);
         return (T) successResponse(mealContent);
+    }
+
+    @PutMapping(
+            path = "/{" + TARGET_DAY_KEY + "}/" + BASAL_INSULIN_KEY,
+            headers = {
+                    TOKEN_KEY
+            }
+    )
+    public <T> T fillBasalInsulin(
+            @PathVariable(USER_IDENTIFIER_KEY) String userId,
+            @RequestHeader(TOKEN_KEY) String token,
+            @PathVariable(TARGET_DAY_KEY) String targetDay, // TODO: TO WARN ABOUT THE REQUIRED "dd-MM-yyyy" FORMAT
+            @RequestBody Map<String, Object> payload
+    ) {
+        if (!isMe(userId, token))
+            return (T) failedResponse(NOT_AUTHORIZED_OR_WRONG_DETAILS_MESSAGE);
+        DailyMeasurements measurements = measurementsService.getDailyMeasurements(userId, targetDay);
+        if (measurements == null)
+            return (T) failedResponse(WRONG_PROCEDURE_MESSAGE);
+        loadJsonHelper(payload);
+        String glycemia = jsonHelper.getString(GLYCEMIA_KEY);
+        if (!INSTANCE.isGlycemiaValueValid(glycemia))
+            return (T) failedResponse(WRONG_GLYCEMIC_VALUE_MESSAGE);
+        int insulinUnits = jsonHelper.getInt(INSULIN_UNITS_KEY, UNSET_VALUE);
+        if (insulinUnits < UNSET_VALUE)
+            return (T) failedResponse(WRONG_INSULIN_UNITS_VALUE_MESSAGE);
+        measurementsService.fillBasalInsulin(measurements, glycemia, insulinUnits);
+        return (T) successResponse();
     }
 
 }

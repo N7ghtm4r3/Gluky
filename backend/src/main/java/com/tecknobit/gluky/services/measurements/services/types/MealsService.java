@@ -1,10 +1,9 @@
-package com.tecknobit.gluky.services.measurements.services;
+package com.tecknobit.gluky.services.measurements.services.types;
 
-import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
 import com.tecknobit.gluky.services.measurements.entities.types.Meal;
-import com.tecknobit.gluky.services.measurements.repositories.MealsRepository;
+import com.tecknobit.gluky.services.measurements.repositories.types.MealsRepository;
 import com.tecknobit.glukycore.enums.MeasurementType;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,7 +14,7 @@ import java.util.ArrayList;
 import static com.tecknobit.equinoxbackend.environment.services.builtin.controller.EquinoxController.generateIdentifier;
 
 @Service
-public class MealsService {
+public class MealsService extends GlycemicMeasurementsService {
 
     private final MealsRepository mealsRepository;
 
@@ -56,13 +55,6 @@ public class MealsService {
                     mealId
             );
         }
-    }
-
-    @Returner
-    private int convertGlycemicValue(String glycemicValue) {
-        if (glycemicValue == null || glycemicValue.isBlank())
-            return -1;
-        return Integer.parseInt(glycemicValue);
     }
 
 }
