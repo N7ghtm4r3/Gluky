@@ -10,8 +10,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 import static com.tecknobit.equinoxbackend.environment.services.builtin.service.EquinoxItemsHelper._WHERE_;
-import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.IDENTIFIER_KEY;
-import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.OWNER_KEY;
+import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.*;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 
 @Repository
@@ -61,10 +60,10 @@ public interface MealsRepository extends GlycemicMeasurementsRepository<Meal> {
     @Query(
             value = "SELECT ms.* FROM " + MEALS_KEY + " AS ms " +
                     "INNER JOIN " + MEASUREMENTS_KEY + " AS m ON ms." + MEASUREMENT_IDENTIFIER_KEY + "=m." + IDENTIFIER_KEY +
-                    _WHERE_ + "ms." + ANNOTATION_DATE_KEY + " BETWEEN :" + FROM_DATE_KEY + " AND :" + TO_DATE_KEY +
+                    _WHERE_ + "m." + CREATION_DATE_KEY + " BETWEEN :" + FROM_DATE_KEY + " AND :" + TO_DATE_KEY +
                     " AND m." + OWNER_KEY + "=:" + OWNER_KEY +
-                    " AND DAYNAME(FROM_UNIXTIME(" + ANNOTATION_DATE_KEY + "/ 1000)) =:" + GLYCEMIC_TREND_GROUPING_DAY_KEY +
-                    " ORDER BY " + ANNOTATION_DATE_KEY,
+                    " AND DAYNAME(FROM_UNIXTIME(" + CREATION_DATE_KEY + "/ 1000)) =:" + GLYCEMIC_TREND_GROUPING_DAY_KEY +
+                    " ORDER BY " + CREATION_DATE_KEY,
             nativeQuery = true
     )
     List<Meal> retrieveMeasurements(
@@ -78,9 +77,9 @@ public interface MealsRepository extends GlycemicMeasurementsRepository<Meal> {
     @Query(
             value = "SELECT ms.* FROM " + MEALS_KEY + " AS ms " +
                     "INNER JOIN " + MEASUREMENTS_KEY + " AS m ON ms." + MEASUREMENT_IDENTIFIER_KEY + "=m." + IDENTIFIER_KEY +
-                    _WHERE_ + "ms." + ANNOTATION_DATE_KEY + " BETWEEN :" + FROM_DATE_KEY + " AND :" + TO_DATE_KEY +
+                    _WHERE_ + "m." + CREATION_DATE_KEY + " BETWEEN :" + FROM_DATE_KEY + " AND :" + TO_DATE_KEY +
                     " AND m." + OWNER_KEY + "=:" + OWNER_KEY +
-                    " ORDER BY " + ANNOTATION_DATE_KEY,
+                    " ORDER BY " + CREATION_DATE_KEY,
             nativeQuery = true
     )
     List<Meal> retrieveMeasurements(

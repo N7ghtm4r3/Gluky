@@ -11,6 +11,8 @@ import static com.tecknobit.glukycore.ConstantsKt.*;
 @DTO
 public class GlycemicTrendDataContainer {
 
+    public static final int MAX_ALLOWED_SETS = 4;
+
     private final GlycemicTrendData breakfast;
 
     private final GlycemicTrendData morningSnack;
