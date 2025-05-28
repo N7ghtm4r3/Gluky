@@ -1,6 +1,5 @@
 package com.tecknobit.gluky.services.measurements.services;
 
-import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
@@ -19,11 +18,10 @@ import org.springframework.stereotype.Service;
 import java.util.ArrayList;
 
 import static com.tecknobit.equinoxbackend.environment.services.builtin.controller.EquinoxController.generateIdentifier;
+import static com.tecknobit.gluky.services.shared.controllers.DefaultGlukyController.dayFormatter;
 
 @Service
 public class MeasurementsService {
-
-    private static final TimeFormatter formatter = TimeFormatter.getInstance("dd-MM-yyyy");
 
     private final MeasurementsRepository measurementsRepository;
 
@@ -68,7 +66,7 @@ public class MeasurementsService {
 
     @Returner
     private long normalizeTargetDay(String targetDay) {
-        return formatter.formatAsTimestamp(targetDay);
+        return dayFormatter.formatAsTimestamp(targetDay);
     }
 
     public void fillMeal(DailyMeasurements measurements, MeasurementType type, String glycemia,
