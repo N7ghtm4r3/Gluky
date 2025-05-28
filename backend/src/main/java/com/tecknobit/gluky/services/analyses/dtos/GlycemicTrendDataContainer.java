@@ -2,8 +2,14 @@ package com.tecknobit.gluky.services.analyses.dtos;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
 import com.tecknobit.equinoxcore.annotations.DTO;
+import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
+import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
+import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.glukycore.enums.GlycemicTrendLabelType;
+import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
+import com.tecknobit.glukycore.enums.MeasurementType;
 
+import java.util.HashMap;
 import java.util.List;
 
 import static com.tecknobit.glukycore.ConstantsKt.*;
@@ -13,27 +19,23 @@ public class GlycemicTrendDataContainer {
 
     public static final int MAX_ALLOWED_SETS = 4;
 
-    private final GlycemicTrendData breakfast;
+    private GlycemicTrendData breakfast;
 
-    private final GlycemicTrendData morningSnack;
+    private GlycemicTrendData morningSnack;
 
-    private final GlycemicTrendData lunch;
+    private GlycemicTrendData lunch;
 
-    private final GlycemicTrendData afternoonSnack;
+    private GlycemicTrendData afternoonSnack;
 
-    private final GlycemicTrendData dinner;
+    private GlycemicTrendData dinner;
 
-    private final GlycemicTrendData basalInsulin;
+    private GlycemicTrendData basalInsulin;
 
-    public GlycemicTrendDataContainer(GlycemicTrendData breakfast, GlycemicTrendData morningSnack, GlycemicTrendData lunch,
-                                      GlycemicTrendData afternoonSnack, GlycemicTrendData dinner,
-                                      GlycemicTrendData basalInsulin) {
-        this.breakfast = breakfast;
-        this.morningSnack = morningSnack;
-        this.lunch = lunch;
-        this.afternoonSnack = afternoonSnack;
-        this.dinner = dinner;
-        this.basalInsulin = basalInsulin;
+    public GlycemicTrendDataContainer(GlycemicTrendPeriod period,
+                                      HashMap<MeasurementType, HashMap<Integer, List<Meal>>> meals,
+                                      HashMap<MeasurementType, HashMap<Integer, List<BasalInsulin>>> basalInsulinRecords) {
+
+
     }
 
     public GlycemicTrendData getBreakfast() {
@@ -81,12 +83,10 @@ public class GlycemicTrendDataContainer {
 
         private final GlycemicTrendLabelType type;
 
-        public GlycemicTrendData(GlycemiaPoint higherGlycemia, GlycemiaPoint lowerGlycemia, GlycemiaPoint averageGlycemia,
-                                 List<GlycemiaPoint> firstSet, List<GlycemiaPoint> secondSet, List<GlycemiaPoint> thirdSet,
-                                 List<GlycemiaPoint> fourthSet, GlycemicTrendLabelType type) {
-            this.higherGlycemia = higherGlycemia;
-            this.lowerGlycemia = lowerGlycemia;
-            this.averageGlycemia = averageGlycemia;
+        public GlycemicTrendData(HashMap<Integer, List<GlycemicMeasurementItem>> data) {
+            this.higherGlycemia = null;
+            this.lowerGlycemia = null;
+            this.averageGlycemia = null;
             this.firstSet = firstSet;
             this.secondSet = secondSet;
             this.thirdSet = thirdSet;

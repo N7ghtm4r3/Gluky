@@ -27,7 +27,7 @@ public class GlycemicItemsOrganizer {
     }
 
     @Returner
-    public <T extends GlycemicMeasurementItem> HashMap<MeasurementType, HashMap<Integer, List<T>>> organizeItems(
+    public <T extends GlycemicMeasurementItem> HashMap<MeasurementType, HashMap<Integer, List<T>>> perform(
             GlycemicTrendPeriod period,
             List<T> items
     ) {

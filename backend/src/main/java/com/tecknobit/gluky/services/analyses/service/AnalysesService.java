@@ -40,7 +40,11 @@ public class AnalysesService {
         List<Meal> meals = mealsService.retrieveMeasurements(userId, groupingDay, from, to);
         List<BasalInsulin> basalInsulinRecords = basalInsulinService.retrieveMeasurements(userId, groupingDay, from, to);
         GlycemicItemsOrganizer organizer = GlycemicItemsOrganizer.getOrganizer();
-        return null;
+        return new GlycemicTrendDataContainer(
+                period,
+                organizer.perform(period, meals),
+                organizer.perform(period, basalInsulinRecords)
+        );
     }
 
     private long convertToStartOfTheDay(long timestamp) {
