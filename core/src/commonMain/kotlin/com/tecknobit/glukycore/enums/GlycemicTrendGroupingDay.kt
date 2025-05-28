@@ -3,22 +3,24 @@ package com.tecknobit.glukycore.enums
 import kotlinx.serialization.Serializable
 
 @Serializable
-enum class GlycemicTrendGroupingDay {
+enum class GlycemicTrendGroupingDay(
+    val capitalized: String,
+) {
 
-    ALL,
+    ALL("All"),
 
-    SUNDAY,
+    SUNDAY("Sunday"),
 
-    MONDAY,
+    MONDAY("Monday"),
 
-    TUESDAY,
+    TUESDAY("Tuesday"),
 
-    WEDNESDAY,
+    WEDNESDAY("Wednesday"),
 
-    THURSDAY,
+    THURSDAY("Thursday"),
 
-    FRIDAY,
+    FRIDAY("Friday"),
 
-    SATURDAY
+    SATURDAY("Saturday")
 
 }

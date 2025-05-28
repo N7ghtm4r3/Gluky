@@ -127,6 +127,7 @@ public class GlycemicTrendDataContainer {
             return fourthSet;
         }
 
+        @JsonGetter(GLYCEMIC_LABEL_TYPE_KEY)
         public GlycemicTrendLabelType getType() {
             return type;
         }

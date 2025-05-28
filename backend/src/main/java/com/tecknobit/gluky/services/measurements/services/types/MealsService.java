@@ -14,12 +14,13 @@ import java.util.ArrayList;
 import static com.tecknobit.equinoxbackend.environment.services.builtin.controller.EquinoxController.generateIdentifier;
 
 @Service
-public class MealsService extends GlycemicMeasurementsService {
+public class MealsService extends GlycemicMeasurementsService<Meal, MealsRepository> {
 
     private final MealsRepository mealsRepository;
 
     @Autowired
     public MealsService(MealsRepository mealsRepository) {
+        super(mealsRepository);
         this.mealsRepository = mealsRepository;
     }
 

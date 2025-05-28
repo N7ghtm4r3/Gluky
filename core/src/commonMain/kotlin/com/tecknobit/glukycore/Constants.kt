@@ -14,6 +14,8 @@ const val ANNOTATION_DATE_KEY = "annotation_date"
 
 const val MEASUREMENT_TYPE_KEY = "measurement_type"
 
+const val TYPE_KEY = "type"
+
 const val CONTENT_KEY = "content"
 
 const val GLYCEMIA_KEY = "glycemia"
@@ -37,6 +39,14 @@ const val DINNER_KEY = "dinner"
 const val BASAL_INSULIN_KEY = "basal_insulin"
 
 const val DAILY_NOTES_KEY = "daily_notes"
+
+const val GLYCEMIC_TREND_PERIOD_KEY = "period"
+
+const val GLYCEMIC_TREND_GROUPING_DAY_KEY = "grouping_day"
+
+const val FROM_DATE_KEY = "from"
+
+const val TO_DATE_KEY = "to"
 
 const val FIRST_SET_KEY = "first_set"
 
