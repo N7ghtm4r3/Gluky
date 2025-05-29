@@ -251,8 +251,3 @@ public class GlycemicTrendDataContainer {
     }
 
 }
-
-
-
-
-

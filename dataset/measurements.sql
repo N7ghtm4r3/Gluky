@@ -27,13 +27,13 @@ INSERT INTO measurements (
 ('m0410', 1744243200000, '', 'afternoon_10b', 'basal_10b', 'breakfast_10b', 'dinner_10b', 'lunch_10b', 'morning_10b', '4794a3c834214306aee8b6a5816e597a'),
 
 -- 🔹 Maggio 2025
-('m0501', 1746144000000, '', 'afternoon_1c', 'basal_1c', 'breakfast_1c', 'dinner_1c', 'lunch_1c', 'morning_1c', '4794a3c834214306aee8b6a5816e597a'),
-('m0502', 1746230400000, '', 'afternoon_2c', 'basal_2c', 'breakfast_2c', 'dinner_2c', 'lunch_2c', 'morning_2c', '4794a3c834214306aee8b6a5816e597a'),
-('m0503', 1746316800000, '', 'afternoon_3c', 'basal_3c', 'breakfast_3c', 'dinner_3c', 'lunch_3c', 'morning_3c', '4794a3c834214306aee8b6a5816e597a'),
-('m0504', 1746403200000, '', 'afternoon_4c', 'basal_4c', 'breakfast_4c', 'dinner_4c', 'lunch_4c', 'morning_4c', '4794a3c834214306aee8b6a5816e597a'),
-('m0505', 1746489600000, '', 'afternoon_5c', 'basal_5c', 'breakfast_5c', 'dinner_5c', 'lunch_5c', 'morning_5c', '4794a3c834214306aee8b6a5816e597a'),
-('m0506', 1746576000000, '', 'afternoon_6c', 'basal_6c', 'breakfast_6c', 'dinner_6c', 'lunch_6c', 'morning_6c', '4794a3c834214306aee8b6a5816e597a'),
-('m0507', 1746662400000, '', 'afternoon_7c', 'basal_7c', 'breakfast_7c', 'dinner_7c', 'lunch_7c', 'morning_7c', '4794a3c834214306aee8b6a5816e597a'),
-('m0508', 1746748800000, '', 'afternoon_8c', 'basal_8c', 'breakfast_8c', 'dinner_8c', 'lunch_8c', 'morning_8c', '4794a3c834214306aee8b6a5816e597a'),
-('m0509', 1746835200000, '', 'afternoon_9c', 'basal_9c', 'breakfast_9c', 'dinner_9c', 'lunch_9c', 'morning_9c', '4794a3c834214306aee8b6a5816e597a'),
-('m0510', 1746921600000, '', 'afternoon_10c', 'basal_10c', 'breakfast_10c', 'dinner_10c', 'lunch_10c', 'morning_10c', '4794a3c834214306aee8b6a5816e597a');
+('m0501', 1746057600000, '', 'afternoon_1c', 'basal_1c', 'breakfast_1c', 'dinner_1c', 'lunch_1c', 'morning_1c', '4794a3c834214306aee8b6a5816e597a'),
+('m0502', 1746144000000, '', 'afternoon_2c', 'basal_2c', 'breakfast_2c', 'dinner_2c', 'lunch_2c', 'morning_2c', '4794a3c834214306aee8b6a5816e597a'),
+('m0503', 1746230400000, '', 'afternoon_3c', 'basal_3c', 'breakfast_3c', 'dinner_3c', 'lunch_3c', 'morning_3c', '4794a3c834214306aee8b6a5816e597a'),
+('m0504', 1746316800000, '', 'afternoon_4c', 'basal_4c', 'breakfast_4c', 'dinner_4c', 'lunch_4c', 'morning_4c', '4794a3c834214306aee8b6a5816e597a'),
+('m0505', 1746403200000, '', 'afternoon_5c', 'basal_5c', 'breakfast_5c', 'dinner_5c', 'lunch_5c', 'morning_5c', '4794a3c834214306aee8b6a5816e597a'),
+('m0506', 1746489600000, '', 'afternoon_6c', 'basal_6c', 'breakfast_6c', 'dinner_6c', 'lunch_6c', 'morning_6c', '4794a3c834214306aee8b6a5816e597a'),
+('m0507', 1746576000000, '', 'afternoon_7c', 'basal_7c', 'breakfast_7c', 'dinner_7c', 'lunch_7c', 'morning_7c', '4794a3c834214306aee8b6a5816e597a'),
+('m0508', 1746662400000, '', 'afternoon_8c', 'basal_8c', 'breakfast_8c', 'dinner_8c', 'lunch_8c', 'morning_8c', '4794a3c834214306aee8b6a5816e597a'),
+('m0509', 1746748800000, '', 'afternoon_9c', 'basal_9c', 'breakfast_9c', 'dinner_9c', 'lunch_9c', 'morning_9c', '4794a3c834214306aee8b6a5816e597a'),
+('m0510', 1746835200000, '', 'afternoon_10c', 'basal_10c', 'breakfast_10c', 'dinner_10c', 'lunch_10c', 'morning_10c', '4794a3c834214306aee8b6a5816e597a');
