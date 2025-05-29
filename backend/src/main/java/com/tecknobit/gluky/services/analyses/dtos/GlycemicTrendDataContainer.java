@@ -41,8 +41,8 @@ public class GlycemicTrendDataContainer {
     public GlycemicTrendDataContainer(GlycemicTrendPeriod period,
                                       HashMap<MeasurementType, HashMap<Integer, List<Meal>>> meals,
                                       HashMap<MeasurementType, HashMap<Integer, List<BasalInsulin>>> basalInsulinRecords) {
-        for (MeasurementType type : meals.keySet())
-            loadSpecificTrend(type, period, meals.get(type));
+        for (MeasurementType mealType : MeasurementType.Companion.meals())
+            loadSpecificTrend(mealType, period, meals.get(mealType));
         loadSpecificTrend(BASAL_INSULIN, period, basalInsulinRecords.get(BASAL_INSULIN));
     }
 
@@ -63,6 +63,8 @@ public class GlycemicTrendDataContainer {
             GlycemicTrendPeriod period,
             HashMap<Integer, List<T>> mealMap
     ) {
+        if (mealMap == null || mealMap.isEmpty())
+            return null;
         return new GlycemicTrendData(
                 period,
                 mealMap
@@ -100,7 +102,7 @@ public class GlycemicTrendDataContainer {
 
         private final GlycemicTrendLabelType type;
 
-        private final List<GlycemiaPoint>[] setsContainer;
+        private final List<GlycemiaPoint>[] sets;
 
         private final GlycemiaPoint higherGlycemia;
 
@@ -111,7 +113,7 @@ public class GlycemicTrendDataContainer {
         public <T extends GlycemicMeasurementItem> GlycemicTrendData(GlycemicTrendPeriod period,
                                                                      HashMap<Integer, List<T>> measurementsMapped) {
             type = Companion.periodToRelatedLabel(period);
-            setsContainer = new List[MAX_ALLOWED_SETS];
+            sets = new List[MAX_ALLOWED_SETS];
             loadSets(measurementsMapped);
             higherGlycemia = findHigherGlycemia();
             lowerGlycemia = findLowerGlycemia();
@@ -121,7 +123,7 @@ public class GlycemicTrendDataContainer {
         private <T extends GlycemicMeasurementItem> void loadSets(HashMap<Integer, List<T>> measurementsMapped) {
             int indexSet = 0;
             for (List<T> measurements : measurementsMapped.values()) {
-                setsContainer[indexSet] = convertToPoints(measurements);
+                sets[indexSet] = convertToPoints(measurements);
                 indexSet++;
             }
         }
@@ -139,7 +141,7 @@ public class GlycemicTrendDataContainer {
         private GlycemiaPoint findHigherGlycemia() {
             GlycemiaPoint[] higherPoints = new GlycemiaPoint[MAX_ALLOWED_SETS];
             for (int j = 0; j < MAX_ALLOWED_SETS; j++) {
-                List<GlycemiaPoint> comparingSet = setsContainer[j];
+                List<GlycemiaPoint> comparingSet = sets[j];
                 if (comparingSet == null || comparingSet.isEmpty())
                     break;
                 higherPoints[j] = comparingSet.stream()
@@ -160,7 +162,7 @@ public class GlycemicTrendDataContainer {
         private GlycemiaPoint findLowerGlycemia() {
             GlycemiaPoint[] lowerPoints = new GlycemiaPoint[MAX_ALLOWED_SETS];
             for (int j = 0; j < MAX_ALLOWED_SETS; j++) {
-                List<GlycemiaPoint> comparingSet = setsContainer[j];
+                List<GlycemiaPoint> comparingSet = sets[j];
                 if (comparingSet == null || comparingSet.isEmpty())
                     break;
                 lowerPoints[j] = comparingSet.stream()
@@ -175,7 +177,6 @@ public class GlycemicTrendDataContainer {
                 if (comparingPoint.value < lowerGlycemiaPoint.value)
                     lowerGlycemiaPoint = comparingPoint;
             }
-            assert setsContainer[0] != null;
             return lowerGlycemiaPoint;
         }
 
@@ -183,7 +184,7 @@ public class GlycemicTrendDataContainer {
             double totalGlycemias = 0;
             int totalRecords = 0;
             for (int j = 0; j < MAX_ALLOWED_SETS; j++) {
-                List<GlycemiaPoint> points = setsContainer[j];
+                List<GlycemiaPoint> points = sets[j];
                 if (points == null || points.isEmpty())
                     break;
                 totalGlycemias += points.stream()
@@ -201,22 +202,22 @@ public class GlycemicTrendDataContainer {
 
         @JsonGetter(FIRST_SET_KEY)
         public List<GlycemiaPoint> getFirstSet() {
-            return setsContainer[0];
+            return sets[0];
         }
 
         @JsonGetter(SECOND_SET_KEY)
         public List<GlycemiaPoint> getSecondSet() {
-            return setsContainer[1];
+            return sets[1];
         }
 
         @JsonGetter(THIRD_SET_KEY)
         public List<GlycemiaPoint> getThirdSet() {
-            return setsContainer[2];
+            return sets[2];
         }
 
         @JsonGetter(FOURTH_SET_KEY)
         public List<GlycemiaPoint> getFourthSet() {
-            return setsContainer[3];
+            return sets[3];
         }
 
         @JsonGetter(HIGHER_GLYCEMIA_KEY)
@@ -250,3 +251,8 @@ public class GlycemicTrendDataContainer {
     }
 
 }
+
+
+
+
+
