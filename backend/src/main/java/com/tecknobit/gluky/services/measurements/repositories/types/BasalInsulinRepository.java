@@ -52,8 +52,7 @@ public interface BasalInsulinRepository extends GlycemicMeasurementsRepository<B
     @Query(
             value = "SELECT bs.* FROM " + BASAL_INSULIN_RECORDS_KEY + " AS bs " +
                     "INNER JOIN " + MEASUREMENTS_KEY + " AS m ON bs." + MEASUREMENT_IDENTIFIER_KEY + "=m." + IDENTIFIER_KEY +
-                    _WHERE_ + "m." + CREATION_DATE_KEY + " >= :" + FROM_DATE_KEY +
-                    " AND m." + CREATION_DATE_KEY + "< :" + TO_DATE_KEY +
+                    _WHERE_ + "m." + CREATION_DATE_KEY + " BETWEEN :" + FROM_DATE_KEY + " AND :" + TO_DATE_KEY +
                     " AND m." + OWNER_KEY + "=:" + OWNER_KEY +
                     " AND DAYNAME(FROM_UNIXTIME(" + CREATION_DATE_KEY + "/ 1000)) =:" + GLYCEMIC_TREND_GROUPING_DAY_KEY +
                     " ORDER BY " + CREATION_DATE_KEY,
@@ -70,8 +69,7 @@ public interface BasalInsulinRepository extends GlycemicMeasurementsRepository<B
     @Query(
             value = "SELECT bs.* FROM " + BASAL_INSULIN_RECORDS_KEY + " AS bs " +
                     "INNER JOIN " + MEASUREMENTS_KEY + " AS m ON bs." + MEASUREMENT_IDENTIFIER_KEY + "=m." + IDENTIFIER_KEY +
-                    _WHERE_ + "m." + CREATION_DATE_KEY + " >= :" + FROM_DATE_KEY +
-                    " AND m." + CREATION_DATE_KEY + "< :" + TO_DATE_KEY +
+                    _WHERE_ + "m." + CREATION_DATE_KEY + " BETWEEN :" + FROM_DATE_KEY + " AND :" + TO_DATE_KEY +
                     " AND m." + OWNER_KEY + "=:" + OWNER_KEY +
                     " ORDER BY " + CREATION_DATE_KEY,
             nativeQuery = true

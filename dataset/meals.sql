@@ -140,7 +140,7 @@ INSERT INTO meals (id, annotation_date, glycemia, insulin_units, post_prandial_g
         ('morning_3c',   1746230400000, 101, 2, 116, '{"yogurt":125}',              'MORNING_SNACK',     'm0503'),
         ('afternoon_3c', 1746230400000, 109, 3, 124, '{"frutta":150}',              'AFTERNOON_SNACK',     'm0503'),
 
-        ('breakfast_4c', 1746316800000, 109, 3, 124, '{"pane":75,"miele":25}',     'BREAKFAST', 'm0404'),
+        ('breakfast_4c', 1746316800000, 109, 3, 124, '{"pane":75,"miele":25}',     'BREAKFAST', 'm0504'),
         ('lunch_4c',     1746316800000, 114, 4, 129, '{"riso":90,"verdure":60}',    'LUNCH',     'm0504'),
         ('dinner_4c',    1746316800000, 104, 3, 119, '{"pollo":130,"insalata":40}', 'DINNER',    'm0504'),
         ('morning_4c',   1746316800000, 99,  2, 114, '{"yogurt":120}',              'MORNING_SNACK',     'm0504'),
