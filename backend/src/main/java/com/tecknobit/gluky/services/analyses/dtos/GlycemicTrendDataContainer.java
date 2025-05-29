@@ -1,7 +1,9 @@
 package com.tecknobit.gluky.services.analyses.dtos;
 
 import com.fasterxml.jackson.annotation.JsonGetter;
+import com.tecknobit.equinoxcore.annotations.Assembler;
 import com.tecknobit.equinoxcore.annotations.DTO;
+import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
 import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
 import com.tecknobit.gluky.services.measurements.entities.types.Meal;
@@ -9,10 +11,15 @@ import com.tecknobit.glukycore.enums.GlycemicTrendLabelType;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 import com.tecknobit.glukycore.enums.MeasurementType;
 
+import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
 
+import static com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPointComparator;
 import static com.tecknobit.glukycore.ConstantsKt.*;
+import static com.tecknobit.glukycore.enums.GlycemicTrendLabelType.Companion;
+import static com.tecknobit.glukycore.enums.MeasurementType.BASAL_INSULIN;
 
 @DTO
 public class GlycemicTrendDataContainer {
@@ -34,8 +41,32 @@ public class GlycemicTrendDataContainer {
     public GlycemicTrendDataContainer(GlycemicTrendPeriod period,
                                       HashMap<MeasurementType, HashMap<Integer, List<Meal>>> meals,
                                       HashMap<MeasurementType, HashMap<Integer, List<BasalInsulin>>> basalInsulinRecords) {
+        for (MeasurementType type : meals.keySet())
+            loadSpecificTrend(type, period, meals.get(type));
+        loadSpecificTrend(BASAL_INSULIN, period, basalInsulinRecords.get(BASAL_INSULIN));
+    }
 
+    private <T extends GlycemicMeasurementItem> void loadSpecificTrend(MeasurementType type, GlycemicTrendPeriod period,
+                                                                       HashMap<Integer, List<T>> trendData) {
+        switch (type) {
+            case BREAKFAST -> breakfast = convertToTrendData(period, trendData);
+            case MORNING_SNACK -> morningSnack = convertToTrendData(period, trendData);
+            case LUNCH -> lunch = convertToTrendData(period, trendData);
+            case AFTERNOON_SNACK -> afternoonSnack = convertToTrendData(period, trendData);
+            case DINNER -> dinner = convertToTrendData(period, trendData);
+            case BASAL_INSULIN -> basalInsulin = convertToTrendData(period, trendData);
+        }
+    }
 
+    @Returner
+    private <T extends GlycemicMeasurementItem> GlycemicTrendData convertToTrendData(
+            GlycemicTrendPeriod period,
+            HashMap<Integer, List<T>> mealMap
+    ) {
+        return new GlycemicTrendData(
+                period,
+                mealMap
+        );
     }
 
     public GlycemicTrendData getBreakfast() {
@@ -67,31 +98,109 @@ public class GlycemicTrendDataContainer {
 
     public static class GlycemicTrendData {
 
+        private final GlycemicTrendLabelType type;
+
+        private final List<GlycemiaPoint>[] setsContainer;
+
         private final GlycemiaPoint higherGlycemia;
 
         private final GlycemiaPoint lowerGlycemia;
 
-        private final GlycemiaPoint averageGlycemia;
+        private final double averageGlycemia;
 
-        private final List<GlycemiaPoint> firstSet;
+        public <T extends GlycemicMeasurementItem> GlycemicTrendData(GlycemicTrendPeriod period,
+                                                                     HashMap<Integer, List<T>> measurementsMapped) {
+            type = Companion.periodToRelatedLabel(period);
+            setsContainer = new List[MAX_ALLOWED_SETS];
+            loadSets(measurementsMapped);
+            higherGlycemia = findHigherGlycemia();
+            lowerGlycemia = findLowerGlycemia();
+            this.averageGlycemia = 0;
+        }
 
-        private final List<GlycemiaPoint> secondSet;
+        private <T extends GlycemicMeasurementItem> void loadSets(HashMap<Integer, List<T>> measurementsMapped) {
+            int indexSet = 0;
+            for (List<T> measurements : measurementsMapped.values()) {
+                setsContainer[indexSet] = convertToPoints(measurements);
+                indexSet++;
+            }
+        }
 
-        private final List<GlycemiaPoint> thirdSet;
+        @Assembler
+        private <T extends GlycemicMeasurementItem> List<GlycemiaPoint> convertToPoints(List<T> measurements) {
+            if (measurements == null || measurements.isEmpty())
+                return null;
+            List<GlycemiaPoint> points = new ArrayList<>();
+            for (GlycemicMeasurementItem measurement : measurements)
+                points.add(new GlycemiaPoint(measurement.getAnnotationDate(), measurement.getGlycemia()));
+            return points;
+        }
 
-        private final List<GlycemiaPoint> fourthSet;
+        private GlycemiaPoint findHigherGlycemia() {
+            GlycemiaPoint[] higherPoints = new GlycemiaPoint[MAX_ALLOWED_SETS];
+            for (int j = 0; j < MAX_ALLOWED_SETS; j++) {
+                List<GlycemiaPoint> comparingSet = setsContainer[j];
+                if (comparingSet == null || comparingSet.isEmpty())
+                    break;
+                higherPoints[j] = comparingSet.stream()
+                        .max(new GlycemiaPointComparator())
+                        .orElse(null);
+            }
+            GlycemiaPoint higherGlycemiaPoint = higherPoints[0];
+            for (int j = 1; j < MAX_ALLOWED_SETS; j++) {
+                GlycemiaPoint comparingPoint = higherPoints[j];
+                if (comparingPoint == null)
+                    break;
+                if (comparingPoint.value > higherGlycemiaPoint.value)
+                    higherGlycemiaPoint = comparingPoint;
+            }
+            return higherGlycemiaPoint;
+        }
 
-        private final GlycemicTrendLabelType type;
+        private GlycemiaPoint findLowerGlycemia() {
+            GlycemiaPoint[] lowerPoints = new GlycemiaPoint[MAX_ALLOWED_SETS];
+            for (int j = 0; j < MAX_ALLOWED_SETS; j++) {
+                List<GlycemiaPoint> comparingSet = setsContainer[j];
+                if (comparingSet == null || comparingSet.isEmpty())
+                    break;
+                lowerPoints[j] = comparingSet.stream()
+                        .min(new GlycemiaPointComparator())
+                        .orElse(null);
+            }
+            GlycemiaPoint lowerGlycemiaPoint = lowerPoints[0];
+            for (int j = 1; j < MAX_ALLOWED_SETS; j++) {
+                GlycemiaPoint comparingPoint = lowerPoints[j];
+                if (comparingPoint == null)
+                    break;
+                if (comparingPoint.value < lowerGlycemiaPoint.value)
+                    lowerGlycemiaPoint = comparingPoint;
+            }
+            return lowerGlycemiaPoint;
+        }
 
-        public GlycemicTrendData(HashMap<Integer, List<GlycemicMeasurementItem>> data) {
-            this.higherGlycemia = null;
-            this.lowerGlycemia = null;
-            this.averageGlycemia = null;
-            this.firstSet = firstSet;
-            this.secondSet = secondSet;
-            this.thirdSet = thirdSet;
-            this.fourthSet = fourthSet;
-            this.type = type;
+        @JsonGetter(GLYCEMIC_LABEL_TYPE_KEY)
+        public GlycemicTrendLabelType getType() {
+            return type;
+        }
+
+        @JsonGetter(FIRST_SET_KEY)
+        public List<GlycemiaPoint> getFirstSet() {
+            return setsContainer[0];
+        }
+
+        @JsonGetter(SECOND_SET_KEY)
+        public List<GlycemiaPoint> getSecondSet() {
+            return setsContainer[1];
+        }
+
+        @JsonGetter(THIRD_SET_KEY)
+        public List<GlycemiaPoint> getThirdSet() {
+            return setsContainer[2];
+        }
+
+        @JsonGetter(FOURTH_SET_KEY)
+        public List<GlycemiaPoint> getFourthSet() {
+            return setsContainer[3];
         }
 
         @JsonGetter(HIGHER_GLYCEMIA_KEY)
@@ -105,52 +214,19 @@ public class GlycemicTrendDataContainer {
         }
 
         @JsonGetter(AVERAGE_GLYCEMIA_KEY)
-        public GlycemiaPoint getAverageGlycemia() {
+        public double getAverageGlycemia() {
             return averageGlycemia;
         }
 
-        @JsonGetter(FIRST_SET_KEY)
-        public List<GlycemiaPoint> getFirstSet() {
-            return firstSet;
-        }
+        public record GlycemiaPoint(long date, double value) {
 
-        @JsonGetter(SECOND_SET_KEY)
-        public List<GlycemiaPoint> getSecondSet() {
-            return secondSet;
-        }
+            public static final class GlycemiaPointComparator implements Comparator<GlycemiaPoint> {
 
-        @JsonGetter(THIRD_SET_KEY)
-        public List<GlycemiaPoint> getThirdSet() {
-            return thirdSet;
-        }
+                @Override
+                public int compare(GlycemiaPoint o1, GlycemiaPoint o2) {
+                    return (int) (o1.value - o2.value);
+                }
 
-        @JsonGetter(FOURTH_SET_KEY)
-        public List<GlycemiaPoint> getFourthSet() {
-            return fourthSet;
-        }
-
-        @JsonGetter(GLYCEMIC_LABEL_TYPE_KEY)
-        public GlycemicTrendLabelType getType() {
-            return type;
-        }
-
-        public static class GlycemiaPoint {
-
-            private final long date;
-
-            private final double value;
-
-            public GlycemiaPoint(long date, double value) {
-                this.date = date;
-                this.value = value;
-            }
-
-            public long getDate() {
-                return date;
-            }
-
-            public double getValue() {
-                return value;
             }
 
         }
