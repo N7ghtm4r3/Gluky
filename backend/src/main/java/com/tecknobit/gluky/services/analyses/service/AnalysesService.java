@@ -54,7 +54,7 @@ public class AnalysesService implements ResourcesManager {
 
     public String generateReport(GlukyUser user, GlycemicTrendPeriod period, GlycemicTrendGroupingDay groupingDay,
                                  long from, long to) throws IOException {
-        ReportGenerator generator = new ReportGenerator(user, "");
+        ReportGenerator generator = new ReportGenerator(user, period, "");
         generator.generate();
         return "";
     }

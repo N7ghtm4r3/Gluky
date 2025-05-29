@@ -14,10 +14,14 @@ import com.itextpdf.layout.element.Paragraph;
 import com.tecknobit.apimanager.apis.ResourcesUtils;
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
+import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 
 import java.io.IOException;
+import java.util.Locale;
+import java.util.ResourceBundle;
 
 import static com.itextpdf.kernel.geom.PageSize.A4;
+import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
 
 public class ReportGenerator {
 
@@ -37,15 +41,21 @@ public class ReportGenerator {
 
     private final Document document;
 
+    private final Translator translator;
+
+    private final GlycemicTrendPeriod period;
+
     private PdfFont comicneue;
 
     private PdfFont fredoka;
 
-    public ReportGenerator(GlukyUser user, String reportPath) throws IOException {
+    public ReportGenerator(GlukyUser user, GlycemicTrendPeriod period, String reportPath) throws IOException {
         reportPath = "resources/reports/test.pdf";
         this.user = user;
+        this.period = period;
         pdfDocument = new PdfDocument(new PdfWriter(reportPath));
         document = new Document(pdfDocument, A4);
+        translator = new Translator(user.getLanguage());
         setTheme();
     }
 
@@ -69,7 +79,16 @@ public class ReportGenerator {
     private void generateHeader() {
         document.add(h1(user.getCompleteName()));
         document.add(new LineSeparator(new SolidLine()));
-        document.add(h2("Weekly report"));
+        document.add(h2(translator.getTranslatedText(getPeriodTitleKey())));
+    }
+
+    private Translator.TranslatorKey getPeriodTitleKey() {
+        return switch (period) {
+            case ONE_WEEK -> WEEKLY_REPORT;
+            case ONE_MONTH -> MONTHLY_REPORT;
+            case THREE_MONTHS -> THREE_MONTHS_REPORT;
+            case FOUR_MONTHS -> FOUR_MONTHS_REPORT;
+        };
     }
 
     @Returner
@@ -88,6 +107,34 @@ public class ReportGenerator {
                 .setFont(fredoka)
                 .setFontSize(size)
                 .setMultipliedLeading(1f);
+    }
+
+    static class Translator {
+
+        record TranslatorKey(String keyValue) {
+
+            static final TranslatorKey WEEKLY_REPORT = new TranslatorKey("weekly_report");
+
+            static final TranslatorKey MONTHLY_REPORT = new TranslatorKey("monthly_report");
+
+            static final TranslatorKey THREE_MONTHS_REPORT = new TranslatorKey("three_months_report");
+
+            static final TranslatorKey FOUR_MONTHS_REPORT = new TranslatorKey("four_months_report");
+
+        }
+
+        private static final String REPORT_MESSAGES = "lang/report_messages";
+
+        private final ResourceBundle resources;
+
+        public Translator(String language) {
+            resources = ResourceBundle.getBundle(REPORT_MESSAGES, Locale.forLanguageTag(language));
+        }
+
+        public String getTranslatedText(TranslatorKey key) {
+            return resources.getString(key.keyValue());
+        }
+
     }
 
 }
