@@ -6,4 +6,6 @@ object GlukyEndpointsSet : EquinoxBaseEndpointsSet() {
 
     const val ANALYSES_ENDPOINT = "/analyses"
 
+    const val REPORTS_ENDPOINT = "/reports"
+
 }

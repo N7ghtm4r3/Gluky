@@ -21,11 +21,6 @@ import static java.util.Calendar.*;
 
 public class GlycemicItemsOrganizer {
 
-    private static final GlycemicItemsOrganizer organizer = new GlycemicItemsOrganizer();
-
-    private GlycemicItemsOrganizer() {
-    }
-
     @Returner
     public <T extends GlycemicMeasurementItem> HashMap<MeasurementType, HashMap<Integer, List<T>>> perform(
             GlycemicTrendPeriod period,
@@ -93,10 +88,6 @@ public class GlycemicItemsOrganizer {
             return BASAL_INSULIN;
         else
             return ((Meal) item).getType();
-    }
-
-    public static GlycemicItemsOrganizer getOrganizer() {
-        return organizer;
     }
 
 }
