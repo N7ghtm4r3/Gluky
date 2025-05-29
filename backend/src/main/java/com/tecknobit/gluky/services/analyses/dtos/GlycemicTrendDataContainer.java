@@ -115,7 +115,7 @@ public class GlycemicTrendDataContainer {
             loadSets(measurementsMapped);
             higherGlycemia = findHigherGlycemia();
             lowerGlycemia = findLowerGlycemia();
-            this.averageGlycemia = 0;
+            averageGlycemia = computeAverageGlycemia();
         }
 
         private <T extends GlycemicMeasurementItem> void loadSets(HashMap<Integer, List<T>> measurementsMapped) {
@@ -175,7 +175,23 @@ public class GlycemicTrendDataContainer {
                 if (comparingPoint.value < lowerGlycemiaPoint.value)
                     lowerGlycemiaPoint = comparingPoint;
             }
+            assert setsContainer[0] != null;
             return lowerGlycemiaPoint;
+        }
+
+        private double computeAverageGlycemia() {
+            double totalGlycemias = 0;
+            int totalRecords = 0;
+            for (int j = 0; j < MAX_ALLOWED_SETS; j++) {
+                List<GlycemiaPoint> points = setsContainer[j];
+                if (points == null || points.isEmpty())
+                    break;
+                totalGlycemias += points.stream()
+                        .mapToDouble(GlycemiaPoint::value)
+                        .sum();
+                totalRecords += points.size();
+            }
+            return totalGlycemias / totalRecords;
         }
 
         @JsonGetter(GLYCEMIC_LABEL_TYPE_KEY)
