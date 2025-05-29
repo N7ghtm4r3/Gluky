@@ -12,6 +12,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static com.tecknobit.gluky.services.shared.controllers.DefaultGlukyController.dayFormatter;
 import static com.tecknobit.glukycore.helpers.GlukyInputsValidator.UNSET_CUSTOM_DATE;
@@ -36,7 +37,7 @@ public class AnalysesService {
         if (from == UNSET_CUSTOM_DATE)
             from = to - period.getMillis();
         from = convertToStartOfTheDay(from);
-        to = convertToStartOfTheDay(to);
+        to = convertToStartOfTheDay(to + TimeUnit.DAYS.toMillis(1));
         List<Meal> meals = mealsService.retrieveMeasurements(userId, groupingDay, from, to);
         List<BasalInsulin> basalInsulinRecords = basalInsulinService.retrieveMeasurements(userId, groupingDay, from, to);
         GlycemicItemsOrganizer organizer = GlycemicItemsOrganizer.getOrganizer();
