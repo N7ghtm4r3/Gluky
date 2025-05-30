@@ -255,17 +255,18 @@ public class ReportGenerator {
             return new Rectangle(0, pageSize.getBottom(), pageSize.getWidth(), 65);
         }
 
-        private void addBannerContent(PdfDocument pdfDocument, PdfCanvas pdfCanvas, Rectangle bannerContainer) throws IOException {
+        private void addBannerContent(PdfDocument pdfDocument, PdfCanvas pdfCanvas,
+                                      Rectangle bannerContainer) throws IOException {
             PdfFormXObject pdfXObject = new PdfFormXObject(bannerContainer);
             Canvas canvas = new Canvas(pdfXObject, pdfDocument);
-            Table table = new Table(UnitValue.createPercentArray(new float[]{0.7f, 0.7f, 0.7f, 3}));
+            Table table = new Table(UnitValue.createPercentArray(new float[]{0.5f, 0.5f, 0.5f, 3}));
             table.setWidth(UnitValue.createPercentValue(100));
             table.addCell(playStoreIcon(pdfDocument));
             table.addCell(appStoreIcon(pdfDocument));
             table.addCell(githubIcon(pdfDocument));
             canvas.add(table);
             canvas.close();
-            pdfCanvas.addXObjectAt(pdfXObject, 0, -(bannerContainer.getHeight() / 2) + 10);
+            pdfCanvas.addXObjectAt(pdfXObject, document.getLeftMargin(), -(bannerContainer.getHeight() / 2) + 10);
         }
 
         @Wrapper
