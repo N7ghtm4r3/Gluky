@@ -13,24 +13,30 @@ import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.action.PdfAction;
 import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEvent;
 import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEventHandler;
 import com.itextpdf.kernel.pdf.event.PdfDocumentEvent;
+import com.itextpdf.kernel.pdf.xobject.PdfFormXObject;
+import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.properties.BorderRadius;
 import com.itextpdf.layout.properties.HorizontalAlignment;
 import com.itextpdf.layout.properties.UnitValue;
 import com.itextpdf.layout.properties.VerticalAlignment;
+import com.itextpdf.svg.converter.SvgConverter;
 import com.tecknobit.apimanager.apis.ResourcesUtils;
 import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.equinoxcore.annotations.Returner;
+import com.tecknobit.equinoxcore.annotations.Wrapper;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -90,7 +96,7 @@ public class ReportGenerator {
     private void setTheme() throws IOException {
         fredoka = loadFont(FREDOKA);
         comicneue = loadFont(COMICNEUE);
-        pdfDocument.addEventHandler(END_PAGE, new Footer(document, comicneue));
+        pdfDocument.addEventHandler(END_PAGE, new Footer(resourceUtils, document, comicneue));
     }
 
     private PdfFont loadFont(String font) throws IOException {
@@ -194,11 +200,28 @@ public class ReportGenerator {
 
     private static class Footer extends AbstractPdfDocumentEventHandler {
 
+        private static final String PLAYSTORE_ICON = "playstore.svg";
+
+        private static final String PLAYSTORE_URL = "https://play.google.com/store/apps/details?id=com.tecknobit.gluky";
+
+        private static final String APPSTORE_ICON = "appstore.svg";
+
+        private static final String APPSTORE_URL = "https://apps.apple.com/it/app/gluky"; // TODO: 30/05/2025 TO SET
+
+        private static final String GITHUB_ICON = "github.svg";
+
+        private static final String GITHUB_URL = "https://github.com/N7ghtm4r3/Gluky-Clients";
+
+        private static final float ICON_SIZE = 17f;
+
+        private final ResourcesUtils<Class<ReportGenerator>> resourcesUtils;
+
         private final Document document;
 
         private final PdfFont comicneue;
 
-        private Footer(Document document, PdfFont comicneue) {
+        private Footer(ResourcesUtils<Class<ReportGenerator>> resourcesUtils, Document document, PdfFont comicneue) {
+            this.resourcesUtils = resourcesUtils;
             this.document = document;
             this.comicneue = comicneue;
         }
@@ -208,31 +231,72 @@ public class ReportGenerator {
             PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
             PdfPage page = docEvent.getPage();
             PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamAfter(), page.getResources(), docEvent.getDocument());
-            addBanner(pdfCanvas, page);
-            addPageCount(pdfCanvas, page.getPageSize());
-            pdfCanvas.release();
+            Rectangle backgroundBanner = createBackgroundBanner(pdfCanvas, page);
+            try {
+                addBannerContent(event.getDocument(), pdfCanvas, backgroundBanner);
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            } finally {
+                pdfCanvas.release();
+            }
         }
 
-        private void addBanner(PdfCanvas pdfCanvas, PdfPage page) {
+        private Rectangle createBackgroundBanner(PdfCanvas pdfCanvas, PdfPage page) {
+            Rectangle backgroundBanner = createFooterBanner(page.getPageSize());
             pdfCanvas.setFillColor(new DeviceRgb(46, 191, 165))
-                    .rectangle(createFooterBanner(page.getPageSize()))
+                    .rectangle(backgroundBanner)
                     .fill()
                     .stroke();
-        }
-
-        private void addPageCount(PdfCanvas pdfCanvas, Rectangle pageSize) {
-            float middleX = (pageSize.getWidth() - (pageSize.getLeft() + pageSize.getRight())) / 2;
-            pdfCanvas.beginText();
-            pdfCanvas.setFontAndSize(comicneue, 22)
-                    .setFillColor(ColorConstants.WHITE)
-                    .moveText(middleX, pageSize.getBottom() + document.getBottomMargin() - 20)
-                    .showText("this is a footer")
-                    .endText();
+            return backgroundBanner;
         }
 
         @Returner
         private Rectangle createFooterBanner(Rectangle pageSize) {
-            return new Rectangle(0, pageSize.getBottom(), pageSize.getWidth(), 75);
+            return new Rectangle(0, pageSize.getBottom(), pageSize.getWidth(), 65);
+        }
+
+        private void addBannerContent(PdfDocument pdfDocument, PdfCanvas pdfCanvas, Rectangle bannerContainer) throws IOException {
+            PdfFormXObject pdfXObject = new PdfFormXObject(bannerContainer);
+            Canvas canvas = new Canvas(pdfXObject, pdfDocument);
+            Table table = new Table(UnitValue.createPercentArray(new float[]{0.7f, 0.7f, 0.7f, 3}));
+            table.setWidth(UnitValue.createPercentValue(100));
+            table.addCell(playStoreIcon(pdfDocument));
+            table.addCell(appStoreIcon(pdfDocument));
+            table.addCell(githubIcon(pdfDocument));
+            canvas.add(table);
+            canvas.close();
+            pdfCanvas.addXObjectAt(pdfXObject, 0, -(bannerContainer.getHeight() / 2) + 10);
+        }
+
+        @Wrapper
+        private Cell playStoreIcon(PdfDocument pdfDocument) throws IOException {
+            return iconCell(pdfDocument, PLAYSTORE_ICON, PLAYSTORE_URL);
+        }
+
+        @Wrapper
+        private Cell appStoreIcon(PdfDocument pdfDocument) throws IOException {
+            return iconCell(pdfDocument, APPSTORE_ICON, APPSTORE_URL);
+        }
+
+        @Wrapper
+        private Cell githubIcon(PdfDocument pdfDocument) throws IOException {
+            return iconCell(pdfDocument, GITHUB_ICON, GITHUB_URL);
+        }
+
+        private Cell iconCell(PdfDocument pdfDocument, String icon, String url) throws IOException {
+            Cell cell = new Cell();
+            cell.setBorder(null);
+            cell.add(iconData(pdfDocument, icon, url));
+            return cell;
+        }
+
+        private Image iconData(PdfDocument pdfDocument, String icon, String url) throws IOException {
+            InputStream svgInput = resourcesUtils.getResourceStream(icon);
+            Image imageIcon = SvgConverter.convertToImage(svgInput, pdfDocument);
+            imageIcon.setAction(PdfAction.createURI(url));
+            imageIcon.setWidth(ICON_SIZE);
+            imageIcon.setWidth(ICON_SIZE);
+            return imageIcon;
         }
 
     }

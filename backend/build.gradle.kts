@@ -24,7 +24,7 @@ dependencies {
     implementation(libs.equinox.backend)
     implementation(libs.equinox.core)
     implementation(libs.json)
-    implementation(libs.itext7.core)
+    implementation(libs.itext.core)
     implementation(project(":core"))
 }
 
