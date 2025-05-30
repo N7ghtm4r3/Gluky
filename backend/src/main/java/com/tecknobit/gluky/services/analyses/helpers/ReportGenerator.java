@@ -52,6 +52,7 @@ public class ReportGenerator {
 
     private static final String COMICNEUE = "font/comicneue.ttf";
 
+    // TODO: 30/05/2025 TO USE THE REAL LOGO
     private static final String LOGO = "logo.png";
 
     private static final float LOGO_SIZE = 65f;
@@ -123,21 +124,18 @@ public class ReportGenerator {
         periodTitleSection();
     }
 
+    @Returner
     private Cell userCompleteName() {
-        Cell cell = new Cell();
-        cell.setBorder(NO_BORDER);
         Paragraph completeName = h1(user.getCompleteName())
                 .simulateBold();
-        cell.add(completeName);
+        ArrangerCell cell = new ArrangerCell(completeName);
         cell.setVerticalAlignment(VerticalAlignment.BOTTOM);
         return cell;
     }
 
-    // TODO: 30/05/2025 TO USE THE REAL LOGO 
+    @Returner
     private Cell logo() throws IOException {
-        Cell cell = new Cell();
-        cell.setBorder(NO_BORDER);
-        cell.add(loadLogo());
+        ArrangerCell cell = new ArrangerCell(loadLogo());
         cell.setPaddingBottom(5f);
         return cell;
     }
@@ -300,8 +298,9 @@ public class ReportGenerator {
             return iconCell(pdfDocument, GITHUB_ICON, GITHUB_URL);
         }
 
+        @Returner
         private Cell iconCell(PdfDocument pdfDocument, String icon, String url) throws IOException {
-            return footerCell(iconData(pdfDocument, icon, url));
+            return new ArrangerCell(iconData(pdfDocument, icon, url));
         }
 
         private Image iconData(PdfDocument pdfDocument, String icon, String url) throws IOException {
@@ -317,30 +316,30 @@ public class ReportGenerator {
             Paragraph pageCount = new Paragraph(translator.getI18NText(PAGE) + " " + currentPageNumber)
                     .setFont(comicneue)
                     .setFontColor(ColorConstants.WHITE);
-            return footerCell(pageCount).setTextAlignment(CENTER);
+            return new ArrangerCell(pageCount).setTextAlignment(CENTER);
         }
 
         private Cell generatedWithGluky() {
             Paragraph pageCount = new Paragraph(translator.getI18NText(GENERATED_WITH_GLUKY))
                     .setFont(comicneue)
                     .setFontColor(ColorConstants.WHITE);
-            return footerCell(pageCount).setTextAlignment(CENTER);
+            return new ArrangerCell(pageCount).setTextAlignment(CENTER);
         }
 
-        @Returner
-        private Cell footerCell(IBlockElement content) {
-            Cell cell = new Cell();
-            cell.setBorder(NO_BORDER);
-            cell.add(content);
-            return cell;
+    }
+
+    private static class ArrangerCell extends Cell {
+
+        public ArrangerCell(IElement content) {
+            setBorder(NO_BORDER);
+            arrange(content);
         }
 
-        @Returner
-        private Cell footerCell(Image content) {
-            Cell cell = new Cell();
-            cell.setBorder(NO_BORDER);
-            cell.add(content);
-            return cell;
+        private void arrange(IElement content) {
+            if (content instanceof Image)
+                add((Image) content);
+            else if (content instanceof IBlockElement)
+                add((IBlockElement) content);
         }
 
     }
