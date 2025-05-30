@@ -19,7 +19,6 @@ import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEvent;
 import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEventHandler;
 import com.itextpdf.kernel.pdf.event.PdfDocumentEvent;
-import com.itextpdf.kernel.pdf.xobject.PdfFormXObject;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
@@ -96,7 +95,7 @@ public class ReportGenerator {
     private void setTheme() throws IOException {
         fredoka = loadFont(FREDOKA);
         comicneue = loadFont(COMICNEUE);
-        pdfDocument.addEventHandler(END_PAGE, new Footer(resourceUtils, document, comicneue));
+        pdfDocument.addEventHandler(END_PAGE, new Footer(resourceUtils, document, comicneue, translator));
     }
 
     private PdfFont loadFont(String font) throws IOException {
@@ -222,10 +221,14 @@ public class ReportGenerator {
 
         private int currentPageNumber;
 
-        private Footer(ResourcesUtils<Class<ReportGenerator>> resourcesUtils, Document document, PdfFont comicneue) {
+        private final Translator translator;
+
+        private Footer(ResourcesUtils<Class<ReportGenerator>> resourcesUtils, Document document, PdfFont comicneue,
+                       Translator translator) {
             this.resourcesUtils = resourcesUtils;
             this.document = document;
             this.comicneue = comicneue;
+            this.translator = translator;
         }
 
         @Override
@@ -236,7 +239,7 @@ public class ReportGenerator {
             currentPageNumber = pdfDocument.getPageNumber(page);
             Rectangle backgroundBanner = createBackgroundBanner(pdfCanvas, page);
             try {
-                addBannerContent(pdfDocument, page, pdfCanvas, backgroundBanner);
+                addBannerContent(pdfDocument, page, backgroundBanner);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } finally {
@@ -258,19 +261,23 @@ public class ReportGenerator {
             return new Rectangle(0, pageSize.getBottom(), pageSize.getWidth(), 65);
         }
 
-        private void addBannerContent(PdfDocument pdfDocument, PdfPage page, PdfCanvas pdfCanvas,
-                                      Rectangle bannerContainer) throws IOException {
-            PdfFormXObject pdfXObject = new PdfFormXObject(bannerContainer);
-            Canvas canvas = new Canvas(page, bannerContainer);
-            Table table = new Table(UnitValue.createPercentArray(new float[]{0.5f, 0.5f, 0.5f, 3}));
+        private void addBannerContent(PdfDocument pdfDocument, PdfPage page, Rectangle bannerContainer) throws IOException {
+            Canvas canvas = new Canvas(page, getBannerRootArea(bannerContainer));
+            Table table = new Table(UnitValue.createPercentArray(new float[]{0.3f, 0.3f, 0.3f, 1.5f, 1.5f}));
             table.setWidth(UnitValue.createPercentValue(100));
             table.addCell(playStoreIcon(pdfDocument));
             table.addCell(appStoreIcon(pdfDocument));
             table.addCell(githubIcon(pdfDocument));
-            //table.addCell(pageCount());
+            table.addCell(pageCount());
             canvas.add(table);
             canvas.close();
-            pdfCanvas.addXObjectAt(pdfXObject, document.getLeftMargin(), -(bannerContainer.getHeight() / 2) + 10);
+        }
+
+        @Returner
+        private Rectangle getBannerRootArea(Rectangle bannerContainer) {
+            float bannerHeight = bannerContainer.getHeight();
+            float middleY = -(bannerHeight / 2) + 10;
+            return new Rectangle(document.getLeftMargin(), middleY, bannerContainer.getWidth(), bannerHeight);
         }
 
         @Wrapper
@@ -301,10 +308,13 @@ public class ReportGenerator {
             return imageIcon;
         }
 
-        /*private Cell pageCount() {
-
-            return footerCell();
-        }*/
+        private Cell pageCount() {
+            Paragraph pageCount = new Paragraph(translator.getI18NText(PAGE) + " " + currentPageNumber)
+                    .setFont(comicneue)
+                    .setFontColor(ColorConstants.WHITE)
+                    .setHorizontalAlignment(HorizontalAlignment.CENTER);
+            return footerCell(pageCount);
+        }
 
         @Returner
         private Cell footerCell(IBlockElement content) {
@@ -335,6 +345,8 @@ public class ReportGenerator {
             static final TranslatorKey THREE_MONTHS_REPORT = new TranslatorKey("three_months_report");
 
             static final TranslatorKey FOUR_MONTHS_REPORT = new TranslatorKey("four_months_report");
+
+            static final TranslatorKey PAGE = new TranslatorKey("page");
 
         }
 
