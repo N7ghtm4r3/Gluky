@@ -39,8 +39,9 @@ import java.io.InputStream;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-import static com.itextpdf.kernel.geom.PageSize.A4;
 import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.END_PAGE;
+import static com.itextpdf.layout.borders.Border.NO_BORDER;
+import static com.itextpdf.layout.properties.TextAlignment.CENTER;
 import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
 
 public class ReportGenerator {
@@ -53,27 +54,29 @@ public class ReportGenerator {
 
     private static final String LOGO = "logo.png";
 
+    private static final float LOGO_SIZE = 65f;
+
     private static final float H1_SIZE = 22f;
 
     private static final float H2_SIZE = 18f;
 
-    private static final float SUBTITLE_SIZE = 10f;
-
-    private final ResourcesUtils<Class<ReportGenerator>> resourceUtils;
-
-    private final PdfDocument pdfDocument;
+    private static final float SUBTITLE_SIZE = 11f;
 
     private final GlukyUser user;
-
-    private final Document document;
-
-    private final Translator translator;
 
     private final GlycemicTrendPeriod period;
 
     private final long from;
 
     private final long to;
+
+    private final ResourcesUtils<Class<ReportGenerator>> resourceUtils;
+
+    private final PdfDocument pdfDocument;
+
+    private final Document document;
+
+    private final Translator translator;
 
     private PdfFont comicneue;
 
@@ -87,7 +90,7 @@ public class ReportGenerator {
         this.to = to;
         resourceUtils = new ResourcesUtils<>(ReportGenerator.class);
         pdfDocument = new PdfDocument(new PdfWriter(reportPath));
-        document = new Document(pdfDocument, A4);
+        document = new Document(pdfDocument);
         translator = new Translator(user.getLanguage());
         setTheme();
     }
@@ -122,7 +125,7 @@ public class ReportGenerator {
 
     private Cell userCompleteName() {
         Cell cell = new Cell();
-        cell.setBorder(null);
+        cell.setBorder(NO_BORDER);
         Paragraph completeName = h1(user.getCompleteName())
                 .simulateBold();
         cell.add(completeName);
@@ -133,8 +136,9 @@ public class ReportGenerator {
     // TODO: 30/05/2025 TO USE THE REAL LOGO 
     private Cell logo() throws IOException {
         Cell cell = new Cell();
-        cell.setBorder(null);
+        cell.setBorder(NO_BORDER);
         cell.add(loadLogo());
+        cell.setPaddingBottom(5f);
         return cell;
     }
 
@@ -142,8 +146,8 @@ public class ReportGenerator {
         ImageData logoData = ImageDataFactory.create(resourceUtils.getResourceStream(LOGO).readAllBytes());
         Image logo = new Image(logoData);
         logo.setHorizontalAlignment(HorizontalAlignment.RIGHT);
-        logo.setWidth(75);
-        logo.setHeight(75);
+        logo.setWidth(LOGO_SIZE);
+        logo.setHeight(LOGO_SIZE);
         logo.setBorderRadius(new BorderRadius(10));
         return logo;
     }
@@ -194,7 +198,7 @@ public class ReportGenerator {
         return new Paragraph(text)
                 .setFont(comicneue)
                 .setFontSize(SUBTITLE_SIZE)
-                .setFontColor(ColorConstants.LIGHT_GRAY);
+                .setFontColor(ColorConstants.GRAY);
     }
 
     private static class Footer extends AbstractPdfDocumentEventHandler {
@@ -269,6 +273,7 @@ public class ReportGenerator {
             table.addCell(appStoreIcon(pdfDocument));
             table.addCell(githubIcon(pdfDocument));
             table.addCell(pageCount());
+            table.addCell(generatedWithGluky());
             canvas.add(table);
             canvas.close();
         }
@@ -311,15 +316,21 @@ public class ReportGenerator {
         private Cell pageCount() {
             Paragraph pageCount = new Paragraph(translator.getI18NText(PAGE) + " " + currentPageNumber)
                     .setFont(comicneue)
-                    .setFontColor(ColorConstants.WHITE)
-                    .setHorizontalAlignment(HorizontalAlignment.CENTER);
-            return footerCell(pageCount);
+                    .setFontColor(ColorConstants.WHITE);
+            return footerCell(pageCount).setTextAlignment(CENTER);
+        }
+
+        private Cell generatedWithGluky() {
+            Paragraph pageCount = new Paragraph(translator.getI18NText(GENERATED_WITH_GLUKY))
+                    .setFont(comicneue)
+                    .setFontColor(ColorConstants.WHITE);
+            return footerCell(pageCount).setTextAlignment(CENTER);
         }
 
         @Returner
         private Cell footerCell(IBlockElement content) {
             Cell cell = new Cell();
-            cell.setBorder(null);
+            cell.setBorder(NO_BORDER);
             cell.add(content);
             return cell;
         }
@@ -327,7 +338,7 @@ public class ReportGenerator {
         @Returner
         private Cell footerCell(Image content) {
             Cell cell = new Cell();
-            cell.setBorder(null);
+            cell.setBorder(NO_BORDER);
             cell.add(content);
             return cell;
         }
@@ -347,6 +358,8 @@ public class ReportGenerator {
             static final TranslatorKey FOUR_MONTHS_REPORT = new TranslatorKey("four_months_report");
 
             static final TranslatorKey PAGE = new TranslatorKey("page");
+
+            static final TranslatorKey GENERATED_WITH_GLUKY = new TranslatorKey("generated_with_gluky");
 
         }
 
