@@ -40,6 +40,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.END_PAGE;
+import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.START_PAGE;
 import static com.itextpdf.layout.borders.Border.NO_BORDER;
 import static com.itextpdf.layout.properties.TextAlignment.CENTER;
 import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
@@ -47,6 +48,8 @@ import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Tran
 public class ReportGenerator {
 
     private static final TimeFormatter formatter = TimeFormatter.getInstance("dd/MM/yyyy");
+
+    private static final DeviceRgb PRIMARY_COLOR = new DeviceRgb(46, 191, 165);
 
     private static final String FREDOKA = "font/fredoka.ttf";
 
@@ -99,6 +102,7 @@ public class ReportGenerator {
     private void setTheme() throws IOException {
         fredoka = loadFont(FREDOKA);
         comicneue = loadFont(COMICNEUE);
+        pdfDocument.addEventHandler(START_PAGE, new Header(resourceUtils));
         pdfDocument.addEventHandler(END_PAGE, new Footer(resourceUtils, document, comicneue, translator));
     }
 
@@ -199,6 +203,40 @@ public class ReportGenerator {
                 .setFontColor(ColorConstants.GRAY);
     }
 
+    private static class Header extends AbstractPdfDocumentEventHandler {
+
+        private final ResourcesUtils<Class<ReportGenerator>> resourcesUtils;
+
+        private Header(ResourcesUtils<Class<ReportGenerator>> resourcesUtils) {
+            this.resourcesUtils = resourcesUtils;
+        }
+
+        @Override
+        protected void onAcceptedEvent(AbstractPdfDocumentEvent event) {
+            PdfPage page = ((PdfDocumentEvent) event).getPage();
+            Rectangle pageSize = page.getPageSize();
+            PdfCanvas canvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), event.getDocument());
+            canvas.saveState();
+            canvas.setFillColor(ColorConstants.LIGHT_GRAY);
+            float startX = pageSize.getLeft();
+            float startY = pageSize.getTop();
+            float waveWidth = 200f;
+            float waveHeight = 50f;
+            canvas.moveTo(startX, startY);
+            canvas.lineTo(startX + waveWidth, startY);
+            canvas.curveTo(
+                    startX + waveWidth * 0.75f, startY - waveHeight / 2,
+                    startX + waveWidth * 0.25f, startY - waveHeight,
+                    startX, startY - waveHeight
+            );
+            canvas.lineTo(startX, startY);
+            canvas.setFillColor(PRIMARY_COLOR);
+            canvas.fill();
+            canvas.restoreState();
+        }
+
+    }
+
     private static class Footer extends AbstractPdfDocumentEventHandler {
 
         private static final String PLAYSTORE_ICON = "playstore.svg";
@@ -251,7 +289,7 @@ public class ReportGenerator {
 
         private Rectangle createBackgroundBanner(PdfCanvas pdfCanvas, PdfPage page) {
             Rectangle backgroundBanner = createFooterBanner(page.getPageSize());
-            pdfCanvas.setFillColor(new DeviceRgb(46, 191, 165))
+            pdfCanvas.setFillColor(PRIMARY_COLOR)
                     .rectangle(backgroundBanner)
                     .fill()
                     .stroke();
