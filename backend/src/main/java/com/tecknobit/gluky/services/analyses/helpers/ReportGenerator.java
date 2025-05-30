@@ -6,11 +6,18 @@ import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
 import com.itextpdf.kernel.colors.ColorConstants;
+import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
+import com.itextpdf.kernel.geom.Rectangle;
 import com.itextpdf.kernel.pdf.PdfDocument;
+import com.itextpdf.kernel.pdf.PdfPage;
 import com.itextpdf.kernel.pdf.PdfWriter;
+import com.itextpdf.kernel.pdf.canvas.PdfCanvas;
 import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
+import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEvent;
+import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEventHandler;
+import com.itextpdf.kernel.pdf.event.PdfDocumentEvent;
 import com.itextpdf.layout.Document;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.properties.BorderRadius;
@@ -28,6 +35,7 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 import static com.itextpdf.kernel.geom.PageSize.A4;
+import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.END_PAGE;
 import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
 
 public class ReportGenerator {
@@ -82,6 +90,7 @@ public class ReportGenerator {
     private void setTheme() throws IOException {
         fredoka = loadFont(FREDOKA);
         comicneue = loadFont(COMICNEUE);
+        pdfDocument.addEventHandler(END_PAGE, new Footer(document, comicneue));
     }
 
     private PdfFont loadFont(String font) throws IOException {
@@ -181,6 +190,51 @@ public class ReportGenerator {
                 .setFont(comicneue)
                 .setFontSize(SUBTITLE_SIZE)
                 .setFontColor(ColorConstants.LIGHT_GRAY);
+    }
+
+    private static class Footer extends AbstractPdfDocumentEventHandler {
+
+        private final Document document;
+
+        private final PdfFont comicneue;
+
+        private Footer(Document document, PdfFont comicneue) {
+            this.document = document;
+            this.comicneue = comicneue;
+        }
+
+        @Override
+        protected void onAcceptedEvent(AbstractPdfDocumentEvent event) {
+            PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
+            PdfPage page = docEvent.getPage();
+            PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamAfter(), page.getResources(), docEvent.getDocument());
+            addBanner(pdfCanvas, page);
+            addPageCount(pdfCanvas, page.getPageSize());
+            pdfCanvas.release();
+        }
+
+        private void addBanner(PdfCanvas pdfCanvas, PdfPage page) {
+            pdfCanvas.setFillColor(new DeviceRgb(46, 191, 165))
+                    .rectangle(createFooterBanner(page.getPageSize()))
+                    .fill()
+                    .stroke();
+        }
+
+        private void addPageCount(PdfCanvas pdfCanvas, Rectangle pageSize) {
+            float middleX = (pageSize.getWidth() - (pageSize.getLeft() + pageSize.getRight())) / 2;
+            pdfCanvas.beginText();
+            pdfCanvas.setFontAndSize(comicneue, 22)
+                    .setFillColor(ColorConstants.WHITE)
+                    .moveText(middleX, pageSize.getBottom() + document.getBottomMargin() - 20)
+                    .showText("this is a footer")
+                    .endText();
+        }
+
+        @Returner
+        private Rectangle createFooterBanner(Rectangle pageSize) {
+            return new Rectangle(0, pageSize.getBottom(), pageSize.getWidth(), 75);
+        }
+
     }
 
     static class Translator {
