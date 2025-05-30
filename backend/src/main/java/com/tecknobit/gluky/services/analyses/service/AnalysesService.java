@@ -11,6 +11,7 @@ import com.tecknobit.gluky.services.measurements.services.types.MealsService;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
+import kotlin.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -36,12 +37,9 @@ public class AnalysesService implements ResourcesManager {
 
     public GlycemicTrendDataContainer getGlycemicTrend(String userId, GlycemicTrendPeriod period,
                                                        GlycemicTrendGroupingDay groupingDay, long from, long to) {
-        if (to == UNSET_CUSTOM_DATE)
-            to = System.currentTimeMillis();
-        if (from == UNSET_CUSTOM_DATE)
-            from = to - period.getMillis();
-        from = convertToStartOfTheDay(from);
-        to = convertToStartOfTheDay(to + TimeUnit.DAYS.toMillis(1));
+        Pair<Long, Long> normalizedDates = normalizeDates(from, to, period);
+        from = convertToStartOfTheDay(normalizedDates.getFirst());
+        to = convertToStartOfTheDay(normalizedDates.getSecond() + TimeUnit.DAYS.toMillis(1));
         List<Meal> meals = mealsService.retrieveMeasurements(userId, groupingDay, from, to);
         List<BasalInsulin> basalInsulinRecords = basalInsulinService.retrieveMeasurements(userId, groupingDay, from, to);
         GlycemicItemsOrganizer organizer = new GlycemicItemsOrganizer();
@@ -54,9 +52,19 @@ public class AnalysesService implements ResourcesManager {
 
     public String generateReport(GlukyUser user, GlycemicTrendPeriod period, GlycemicTrendGroupingDay groupingDay,
                                  long from, long to) throws IOException {
-        ReportGenerator generator = new ReportGenerator(user, period, "");
+        Pair<Long, Long> normalizedDates = normalizeDates(from, to, period);
+        ReportGenerator generator = new ReportGenerator(user, period, normalizedDates.getFirst(),
+                normalizedDates.getSecond(), "");
         generator.generate();
         return "";
+    }
+
+    private Pair<Long, Long> normalizeDates(long from, long to, GlycemicTrendPeriod period) {
+        if (to == UNSET_CUSTOM_DATE)
+            to = System.currentTimeMillis();
+        if (from == UNSET_CUSTOM_DATE)
+            from = to - period.getMillis();
+        return new Pair<>(from, to);
     }
 
     private long convertToStartOfTheDay(long timestamp) {

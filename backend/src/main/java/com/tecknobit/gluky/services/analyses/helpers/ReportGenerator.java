@@ -3,15 +3,22 @@ package com.tecknobit.gluky.services.analyses.helpers;
 import com.itextpdf.io.font.FontProgram;
 import com.itextpdf.io.font.FontProgramFactory;
 import com.itextpdf.io.font.PdfEncodings;
+import com.itextpdf.io.image.ImageData;
+import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.font.PdfFont;
 import com.itextpdf.kernel.font.PdfFontFactory;
 import com.itextpdf.kernel.pdf.PdfDocument;
 import com.itextpdf.kernel.pdf.PdfWriter;
 import com.itextpdf.kernel.pdf.canvas.draw.SolidLine;
 import com.itextpdf.layout.Document;
-import com.itextpdf.layout.element.LineSeparator;
-import com.itextpdf.layout.element.Paragraph;
+import com.itextpdf.layout.element.*;
+import com.itextpdf.layout.properties.BorderRadius;
+import com.itextpdf.layout.properties.HorizontalAlignment;
+import com.itextpdf.layout.properties.UnitValue;
+import com.itextpdf.layout.properties.VerticalAlignment;
 import com.tecknobit.apimanager.apis.ResourcesUtils;
+import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
@@ -25,15 +32,21 @@ import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Tran
 
 public class ReportGenerator {
 
-    private static final ResourcesUtils<Class<ReportGenerator>> resourceUtils = new ResourcesUtils<>(ReportGenerator.class);
+    private static final TimeFormatter formatter = TimeFormatter.getInstance("dd/MM/yyyy");
 
     private static final String FREDOKA = "font/fredoka.ttf";
 
     private static final String COMICNEUE = "font/comicneue.ttf";
 
+    private static final String LOGO = "logo.png";
+
     private static final float H1_SIZE = 22f;
 
     private static final float H2_SIZE = 18f;
+
+    private static final float SUBTITLE_SIZE = 10f;
+
+    private final ResourcesUtils<Class<ReportGenerator>> resourceUtils;
 
     private final PdfDocument pdfDocument;
 
@@ -45,14 +58,21 @@ public class ReportGenerator {
 
     private final GlycemicTrendPeriod period;
 
+    private final long from;
+
+    private final long to;
+
     private PdfFont comicneue;
 
     private PdfFont fredoka;
 
-    public ReportGenerator(GlukyUser user, GlycemicTrendPeriod period, String reportPath) throws IOException {
+    public ReportGenerator(GlukyUser user, GlycemicTrendPeriod period, long from, long to, String reportPath) throws IOException {
         reportPath = "resources/reports/test.pdf";
         this.user = user;
         this.period = period;
+        this.from = from;
+        this.to = to;
+        resourceUtils = new ResourcesUtils<>(ReportGenerator.class);
         pdfDocument = new PdfDocument(new PdfWriter(reportPath));
         document = new Document(pdfDocument, A4);
         translator = new Translator(user.getLanguage());
@@ -76,10 +96,57 @@ public class ReportGenerator {
         return pdfDocument;
     }
 
-    private void generateHeader() {
-        document.add(h1(user.getCompleteName()));
+    private void generateHeader() throws IOException {
+        Table table = new Table(UnitValue.createPercentArray(new float[]{1, 1}));
+        table.setWidth(UnitValue.createPercentValue(100));
+        table.addCell(userCompleteName());
+        table.addCell(logo());
+        document.add(table);
         document.add(new LineSeparator(new SolidLine()));
-        document.add(h2(translator.getTranslatedText(getPeriodTitleKey())));
+        periodTitleSection();
+    }
+
+    private Cell userCompleteName() {
+        Cell cell = new Cell();
+        cell.setBorder(null);
+        Paragraph completeName = h1(user.getCompleteName())
+                .simulateBold();
+        cell.add(completeName);
+        cell.setVerticalAlignment(VerticalAlignment.BOTTOM);
+        return cell;
+    }
+
+    // TODO: 30/05/2025 TO USE THE REAL LOGO 
+    private Cell logo() throws IOException {
+        Cell cell = new Cell();
+        cell.setBorder(null);
+        cell.add(loadLogo());
+        return cell;
+    }
+
+    private Image loadLogo() throws IOException {
+        ImageData logoData = ImageDataFactory.create(resourceUtils.getResourceStream(LOGO).readAllBytes());
+        Image logo = new Image(logoData);
+        logo.setHorizontalAlignment(HorizontalAlignment.RIGHT);
+        logo.setWidth(75);
+        logo.setHeight(75);
+        logo.setBorderRadius(new BorderRadius(10));
+        return logo;
+    }
+
+    private void periodTitleSection() {
+        Paragraph title = h2(translator.getI18NText(getPeriodTitleKey()))
+                .setMultipliedLeading(0)
+                .setPaddingTop(15);
+        document.add(title);
+        gapPeriod();
+    }
+
+    private void gapPeriod() {
+        String from = formatter.formatAsString(this.from);
+        String to = formatter.formatAsString(this.to);
+        Paragraph gap = subtitle(from + " - " + to);
+        document.add(gap);
     }
 
     private Translator.TranslatorKey getPeriodTitleKey() {
@@ -105,8 +172,15 @@ public class ReportGenerator {
     private Paragraph header(String text, float size) {
         return new Paragraph(text)
                 .setFont(fredoka)
-                .setFontSize(size)
-                .setMultipliedLeading(1f);
+                .setFontSize(size);
+    }
+
+    @Returner
+    private Paragraph subtitle(String text) {
+        return new Paragraph(text)
+                .setFont(comicneue)
+                .setFontSize(SUBTITLE_SIZE)
+                .setFontColor(ColorConstants.LIGHT_GRAY);
     }
 
     static class Translator {
@@ -131,7 +205,7 @@ public class ReportGenerator {
             resources = ResourceBundle.getBundle(REPORT_MESSAGES, Locale.forLanguageTag(language));
         }
 
-        public String getTranslatedText(TranslatorKey key) {
+        public String getI18NText(TranslatorKey key) {
             return resources.getString(key.keyValue());
         }
 
