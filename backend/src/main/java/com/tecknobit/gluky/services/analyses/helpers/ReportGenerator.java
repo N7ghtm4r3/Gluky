@@ -220,6 +220,8 @@ public class ReportGenerator {
 
         private final PdfFont comicneue;
 
+        private int currentPageNumber;
+
         private Footer(ResourcesUtils<Class<ReportGenerator>> resourcesUtils, Document document, PdfFont comicneue) {
             this.resourcesUtils = resourcesUtils;
             this.document = document;
@@ -228,12 +230,13 @@ public class ReportGenerator {
 
         @Override
         protected void onAcceptedEvent(AbstractPdfDocumentEvent event) {
-            PdfDocumentEvent docEvent = (PdfDocumentEvent) event;
-            PdfPage page = docEvent.getPage();
-            PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamAfter(), page.getResources(), docEvent.getDocument());
+            PdfDocument pdfDocument = event.getDocument();
+            PdfPage page = ((PdfDocumentEvent) event).getPage();
+            PdfCanvas pdfCanvas = new PdfCanvas(page.newContentStreamAfter(), page.getResources(), pdfDocument);
+            currentPageNumber = pdfDocument.getPageNumber(page);
             Rectangle backgroundBanner = createBackgroundBanner(pdfCanvas, page);
             try {
-                addBannerContent(event.getDocument(), pdfCanvas, backgroundBanner);
+                addBannerContent(pdfDocument, page, pdfCanvas, backgroundBanner);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             } finally {
@@ -255,15 +258,16 @@ public class ReportGenerator {
             return new Rectangle(0, pageSize.getBottom(), pageSize.getWidth(), 65);
         }
 
-        private void addBannerContent(PdfDocument pdfDocument, PdfCanvas pdfCanvas,
+        private void addBannerContent(PdfDocument pdfDocument, PdfPage page, PdfCanvas pdfCanvas,
                                       Rectangle bannerContainer) throws IOException {
             PdfFormXObject pdfXObject = new PdfFormXObject(bannerContainer);
-            Canvas canvas = new Canvas(pdfXObject, pdfDocument);
+            Canvas canvas = new Canvas(page, bannerContainer);
             Table table = new Table(UnitValue.createPercentArray(new float[]{0.5f, 0.5f, 0.5f, 3}));
             table.setWidth(UnitValue.createPercentValue(100));
             table.addCell(playStoreIcon(pdfDocument));
             table.addCell(appStoreIcon(pdfDocument));
             table.addCell(githubIcon(pdfDocument));
+            //table.addCell(pageCount());
             canvas.add(table);
             canvas.close();
             pdfCanvas.addXObjectAt(pdfXObject, document.getLeftMargin(), -(bannerContainer.getHeight() / 2) + 10);
@@ -285,10 +289,7 @@ public class ReportGenerator {
         }
 
         private Cell iconCell(PdfDocument pdfDocument, String icon, String url) throws IOException {
-            Cell cell = new Cell();
-            cell.setBorder(null);
-            cell.add(iconData(pdfDocument, icon, url));
-            return cell;
+            return footerCell(iconData(pdfDocument, icon, url));
         }
 
         private Image iconData(PdfDocument pdfDocument, String icon, String url) throws IOException {
@@ -298,6 +299,27 @@ public class ReportGenerator {
             imageIcon.setWidth(ICON_SIZE);
             imageIcon.setWidth(ICON_SIZE);
             return imageIcon;
+        }
+
+        /*private Cell pageCount() {
+
+            return footerCell();
+        }*/
+
+        @Returner
+        private Cell footerCell(IBlockElement content) {
+            Cell cell = new Cell();
+            cell.setBorder(null);
+            cell.add(content);
+            return cell;
+        }
+
+        @Returner
+        private Cell footerCell(Image content) {
+            Cell cell = new Cell();
+            cell.setBorder(null);
+            cell.add(content);
+            return cell;
         }
 
     }
