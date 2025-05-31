@@ -37,6 +37,7 @@ import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 import com.tecknobit.glukycore.enums.MeasurementType;
+import org.json.JSONObject;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,6 +51,8 @@ import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.END_PAGE;
 import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.START_PAGE;
 import static com.itextpdf.layout.borders.Border.NO_BORDER;
 import static com.itextpdf.layout.properties.TextAlignment.CENTER;
+import static com.itextpdf.layout.properties.TextAlignment.LEFT;
+import static com.itextpdf.layout.properties.VerticalAlignment.MIDDLE;
 import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 
@@ -348,7 +351,13 @@ public class ReportGenerator {
 
     @Returner
     private Cell mealContent(String content) {
-        return measurementCell(new Paragraph(content));
+        JSONObject jContent = new JSONObject(content);
+        com.itextpdf.layout.element.List list = new com.itextpdf.layout.element.List();
+        for (String mealKey : jContent.keySet()) {
+            String mealQuantity = "(" + jContent.get(mealKey) + ")";
+            list.add(new ListItem(mealKey + " " + mealQuantity));
+        }
+        return measurementCell(list).setTextAlignment(LEFT);
     }
 
     @Returner
@@ -360,7 +369,8 @@ public class ReportGenerator {
     private Cell measurementCell(IElement content) {
         return new ArrangerCell(content, new SolidBorder(0.5f))
                 .setFont(comicneue)
-                .setTextAlignment(CENTER);
+                .setTextAlignment(CENTER)
+                .setVerticalAlignment(MIDDLE);
     }
 
     @Returner
