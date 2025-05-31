@@ -50,9 +50,9 @@ import java.util.ResourceBundle;
 import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.END_PAGE;
 import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.START_PAGE;
 import static com.itextpdf.layout.borders.Border.NO_BORDER;
-import static com.itextpdf.layout.properties.TextAlignment.CENTER;
-import static com.itextpdf.layout.properties.TextAlignment.LEFT;
+import static com.itextpdf.layout.properties.TextAlignment.*;
 import static com.itextpdf.layout.properties.VerticalAlignment.MIDDLE;
+import static com.tecknobit.equinoxbackend.resourcesutils.ResourcesManager.RESOURCES_PATH;
 import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 
@@ -97,6 +97,8 @@ public class ReportGenerator {
 
     private final ResourcesUtils<Class<ReportGenerator>> resourceUtils;
 
+    private final String reportPath;
+
     private final PdfDocument pdfDocument;
 
     private final Document document;
@@ -110,15 +112,15 @@ public class ReportGenerator {
     private PdfFont comicneue;
 
     public ReportGenerator(GlukyUser user, GlycemicTrendPeriod period, long from, long to,
-                           List<DailyMeasurements> dailyMeasurements, String reportPath) throws IOException {
-        reportPath = "resources/reports/test.pdf";
+                           List<DailyMeasurements> dailyMeasurements, String reportId) throws IOException {
         this.user = user;
         this.period = period;
         this.from = from;
         this.to = to;
         this.dailyMeasurements = dailyMeasurements;
         resourceUtils = new ResourcesUtils<>(ReportGenerator.class);
-        pdfDocument = new PdfDocument(new PdfWriter(reportPath));
+        reportPath = REPORTS_KEY + "/" + reportId + ".pdf";
+        pdfDocument = new PdfDocument(new PdfWriter(RESOURCES_PATH + reportPath));
         document = new Document(pdfDocument);
         locale = Locale.forLanguageTag(user.getLanguage());
         translator = new Translator(locale);
@@ -139,11 +141,12 @@ public class ReportGenerator {
         return PdfFontFactory.createFont(fontProgram, PdfEncodings.WINANSI);
     }
 
-    public PdfDocument generate() throws IOException {
+    public String generate() throws IOException {
         generateHeader();
         arrangeContent();
+        pdfDocument.close();
         document.close();
-        return pdfDocument;
+        return reportPath;
     }
 
     private void generateHeader() throws IOException {
@@ -211,8 +214,8 @@ public class ReportGenerator {
         SimpleDateFormat dayFormatter = new SimpleDateFormat("EEEE dd", locale);
         SimpleDateFormat monthFormatter = new SimpleDateFormat("MMMM yyyy", locale);
         HashSet<String> headersMonths = new HashSet<>();
-        for (int j = 0; j < dailyMeasurements.size(); j++) {
-            DailyMeasurements measurements = dailyMeasurements.get(j);
+        DailyMeasurements lastMeasurements = dailyMeasurements.get(dailyMeasurements.size() - 1);
+        for (DailyMeasurements measurements : dailyMeasurements) {
             long creationDate = measurements.getCreationDate();
             String headerMonth = capitalize(monthFormatter.format(creationDate));
             if (!headersMonths.contains(headerMonth)) {
@@ -221,7 +224,10 @@ public class ReportGenerator {
             }
             document.add(dayIndicator(dayFormatter, creationDate));
             document.add(dailyRecord(measurements));
-            if ((j + 1) % 2 == 0)
+            String dailyNotes = measurements.getDailyNotes();
+            if (!dailyNotes.isEmpty())
+                attachDailyNotes(dailyNotes);
+            if (measurements != lastMeasurements)
                 document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         }
     }
@@ -371,6 +377,20 @@ public class ReportGenerator {
                 .setFont(comicneue)
                 .setTextAlignment(CENTER)
                 .setVerticalAlignment(MIDDLE);
+    }
+
+    @Returner
+    private void attachDailyNotes(String dailyNotes) {
+        Paragraph dailyNotesTitle = new Paragraph(translator.getI18NText(DAILY_NOTES))
+                .setFont(comicneue)
+                .setFontSize(12)
+                .simulateBold();
+        document.add(dailyNotesTitle);
+        Paragraph dailyNotesText = new Paragraph(dailyNotes)
+                .setFont(comicneue)
+                .setFontSize(12)
+                .setTextAlignment(JUSTIFIED);
+        document.add(dailyNotesText);
     }
 
     @Returner
@@ -632,6 +652,8 @@ public class ReportGenerator {
             static final TranslatorKey DINNER = new TranslatorKey("dinner");
 
             static final TranslatorKey BASAL_INSULIN = new TranslatorKey("basal_insulin");
+
+            static final TranslatorKey DAILY_NOTES = new TranslatorKey("daily_notes");
 
         }
 

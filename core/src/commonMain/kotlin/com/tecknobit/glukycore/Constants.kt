@@ -66,6 +66,10 @@ const val GLYCEMIC_LABEL_TYPE_KEY = "label_type"
 
 const val REPORTS_KEY = "reports"
 
+const val REPORT_IDENTIFIER_KEY = "report_id"
+
+const val REPORT_URL = "report_url"
+
 const val NORMAL_GLYCEMIA = 70
 
 const val MEDIUM_HIGH_GLYCEMIA = 180
