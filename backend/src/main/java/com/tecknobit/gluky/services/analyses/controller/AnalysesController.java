@@ -7,8 +7,6 @@ import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.io.IOException;
-
 import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.*;
 import static com.tecknobit.equinoxcore.network.EquinoxBaseEndpointsSet.BASE_EQUINOX_ENDPOINT;
 import static com.tecknobit.glukycore.ConstantsKt.*;
@@ -85,8 +83,7 @@ public class AnalysesController extends DefaultGlukyController {
             return (T) failedResponse(WRONG_CUSTOM_TREND_PERIOD_MESSAGE);
         try {
             return (T) successResponse(analysesService.generateReport(me, period, groupingDay, from, to));
-        } catch (IOException e) {
-            e.printStackTrace(); // TODO: 29/05/2025 TO REMOVE 
+        } catch (Exception e) {
             return (T) failedResponse(WRONG_PROCEDURE_MESSAGE);
         }
     }

@@ -39,6 +39,8 @@ public class AnalysesService implements ResourcesManager {
         to = normalizedDates.getSecond();
         List<DailyMeasurements> dailyMeasurements = measurementsService.getMultipleDailyMeasurements(user.getId(), period,
                 groupingDay, from, to);
+        if (dailyMeasurements.isEmpty())
+            throw new IllegalStateException("No measurements data available");
         ReportGenerator generator = new ReportGenerator(user, period, normalizedDates.getFirst(),
                 normalizedDates.getSecond(), dailyMeasurements, "");
         generator.generate();

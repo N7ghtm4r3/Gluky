@@ -21,6 +21,8 @@ import com.itextpdf.kernel.pdf.event.AbstractPdfDocumentEventHandler;
 import com.itextpdf.kernel.pdf.event.PdfDocumentEvent;
 import com.itextpdf.layout.Canvas;
 import com.itextpdf.layout.Document;
+import com.itextpdf.layout.borders.Border;
+import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.*;
 import com.itextpdf.layout.properties.BorderRadius;
 import com.itextpdf.layout.properties.HorizontalAlignment;
@@ -32,8 +34,11 @@ import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.equinoxcore.annotations.Wrapper;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
+import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
+import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
+import com.tecknobit.glukycore.enums.MeasurementType;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,8 +55,6 @@ import static com.itextpdf.layout.properties.TextAlignment.CENTER;
 import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
 
 public class ReportGenerator {
-
-    private static final TimeFormatter formatter = TimeFormatter.getInstance("dd/MM/yyyy");
 
     private static final DeviceRgb PRIMARY_COLOR = new DeviceRgb(46, 191, 165);
 
@@ -71,6 +74,8 @@ public class ReportGenerator {
     private static final float H3_SIZE = 14f;
 
     private static final float SUBTITLE_SIZE = 11f;
+
+    private static final String NOT_APPLICABLE_TEXT = "N/A";
 
     private final GlukyUser user;
 
@@ -178,6 +183,7 @@ public class ReportGenerator {
     }
 
     private void gapPeriod() {
+        TimeFormatter formatter = TimeFormatter.getInstance("dd/MM/yyyy");
         String from = formatter.formatAsString(this.from);
         String to = formatter.formatAsString(this.to);
         Paragraph gap = subtitle(from + " - " + to);
@@ -205,6 +211,30 @@ public class ReportGenerator {
                 headersMonths.add(headerMonth);
             }
             document.add(dayIndicator(dayFormatter, creationDate));
+            document.add(dailyRecord(measurements));
+        }
+    }
+
+    @Returner
+    private Table dailyRecord(DailyMeasurements measurements) {
+        Table table = new Table(UnitValue.createPercentArray(new float[]{1, 0.8f, 1.5f, 1, 1.7f, 2.5f}));
+        table.setWidth(UnitValue.createPercentValue(100));
+        setHeaders(table);
+        fillRow(table, measurements);
+        return table;
+    }
+
+    private void setHeaders(Table table) {
+        Translator.TranslatorKey[] headers = new Translator.TranslatorKey[]{MEASUREMENT, TIME, PRE_PRANDIAL, INSULIN_UNITS,
+                POST_PRANDIAL, CONTENT};
+        for (Translator.TranslatorKey key : headers) {
+            Cell headerCell = new Cell();
+            headerCell.add(new Paragraph(translator.getI18NText(key)));
+            headerCell.setBackgroundColor(PRIMARY_COLOR);
+            headerCell.setFontColor(ColorConstants.WHITE);
+            headerCell.setTextAlignment(CENTER);
+            headerCell.setFont(fredoka);
+            table.addHeaderCell(headerCell);
         }
     }
 
@@ -218,6 +248,78 @@ public class ReportGenerator {
     private String capitalize(String uncapitalizedString) {
         String firstChar = String.valueOf(uncapitalizedString.charAt(0));
         return uncapitalizedString.replaceFirst(firstChar, firstChar.toUpperCase());
+    }
+
+    private void fillRow(Table table, DailyMeasurements measurements) {
+        for (MeasurementType type : MeasurementType.getEntries()) {
+            table.addCell(measurementCell(new Paragraph(getMeasurementTypeText(type))));
+            GlycemicMeasurementItem item = measurements.getMeasurement(type);
+            boolean isMeal = item instanceof Meal;
+            table.addCell(timeCell(item.getAnnotationDate()));
+            table.addCell(prePrandial(item.getGlycemia()));
+            table.addCell(insulinUnits(item.getInsulinUnits()));
+            if (isMeal)
+                table.addCell(postPrandial(((Meal) item).getPostPrandialGlycemia()));
+            else
+                table.addCell(notApplicabile());
+        }
+    }
+
+    @Returner
+    private String getMeasurementTypeText(MeasurementType type) {
+        return translator.getI18NText(switch (type) {
+            case BREAKFAST -> BREAKFAST;
+            case MORNING_SNACK -> MORNING_SNACK;
+            case LUNCH -> LUNCH;
+            case AFTERNOON_SNACK -> AFTERNOON_SNACK;
+            case DINNER -> DINNER;
+            case BASAL_INSULIN -> BASAL_INSULIN;
+        });
+    }
+
+    @Returner
+    private Cell timeCell(long annotationDate) {
+        TimeFormatter timeFormatter = TimeFormatter.getInstance("HH:mm");
+        return measurementCell(new Paragraph(timeFormatter.formatAsString(annotationDate)));
+    }
+
+    @Wrapper
+    @Returner
+    private Cell prePrandial(int prePrandialGlycemia) {
+        return glycemia(prePrandialGlycemia);
+    }
+
+    @Returner
+    private Cell insulinUnits(int insulinUnits) {
+        return intValueCell(insulinUnits);
+    }
+
+    @Wrapper
+    @Returner
+    private Cell postPrandial(int postPrandialGlycemia) {
+        return glycemia(postPrandialGlycemia);
+    }
+
+    @Returner
+    private Cell glycemia(int glycemia) {
+        return intValueCell(glycemia);
+    }
+
+    @Returner
+    private Cell intValueCell(int value) {
+        return measurementCell(new Paragraph(String.valueOf(value)));
+    }
+
+    @Returner
+    private Cell notApplicabile() {
+        return measurementCell(new Paragraph(NOT_APPLICABLE_TEXT));
+    }
+
+    @Returner
+    private Cell measurementCell(IElement content) {
+        return new ArrangerCell(content, new SolidBorder(0.5f))
+                .setFont(comicneue)
+                .setTextAlignment(CENTER);
     }
 
     @Returner
@@ -423,7 +525,11 @@ public class ReportGenerator {
     private static class ArrangerCell extends Cell {
 
         public ArrangerCell(IElement content) {
-            setBorder(NO_BORDER);
+            this(content, NO_BORDER);
+        }
+
+        public ArrangerCell(IElement content, Border border) {
+            setBorder(border);
             arrange(content);
         }
 
@@ -451,6 +557,30 @@ public class ReportGenerator {
             static final TranslatorKey PAGE = new TranslatorKey("page");
 
             static final TranslatorKey GENERATED_WITH_GLUKY = new TranslatorKey("generated_with_gluky");
+
+            static final TranslatorKey MEASUREMENT = new TranslatorKey("measurement");
+
+            static final TranslatorKey TIME = new TranslatorKey("time");
+
+            static final TranslatorKey PRE_PRANDIAL = new TranslatorKey("pre-prandial");
+
+            static final TranslatorKey POST_PRANDIAL = new TranslatorKey("post-prandial");
+
+            static final TranslatorKey INSULIN_UNITS = new TranslatorKey("insulin_units");
+
+            static final TranslatorKey CONTENT = new TranslatorKey("content");
+
+            static final TranslatorKey BREAKFAST = new TranslatorKey("breakfast");
+
+            static final TranslatorKey MORNING_SNACK = new TranslatorKey("morning_snack");
+
+            static final TranslatorKey LUNCH = new TranslatorKey("lunch");
+
+            static final TranslatorKey AFTERNOON_SNACK = new TranslatorKey("afternoon_snack");
+
+            static final TranslatorKey DINNER = new TranslatorKey("dinner");
+
+            static final TranslatorKey BASAL_INSULIN = new TranslatorKey("basal_insulin");
 
         }
 
