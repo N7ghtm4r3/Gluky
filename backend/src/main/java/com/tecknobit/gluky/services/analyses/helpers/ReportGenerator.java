@@ -102,7 +102,7 @@ public class ReportGenerator {
     private void setTheme() throws IOException {
         fredoka = loadFont(FREDOKA);
         comicneue = loadFont(COMICNEUE);
-        pdfDocument.addEventHandler(START_PAGE, new Header(resourceUtils));
+        pdfDocument.addEventHandler(START_PAGE, new Header());
         pdfDocument.addEventHandler(END_PAGE, new Footer(resourceUtils, document, comicneue, translator));
     }
 
@@ -205,32 +205,30 @@ public class ReportGenerator {
 
     private static class Header extends AbstractPdfDocumentEventHandler {
 
-        private final ResourcesUtils<Class<ReportGenerator>> resourcesUtils;
-
-        private Header(ResourcesUtils<Class<ReportGenerator>> resourcesUtils) {
-            this.resourcesUtils = resourcesUtils;
-        }
-
         @Override
         protected void onAcceptedEvent(AbstractPdfDocumentEvent event) {
             PdfPage page = ((PdfDocumentEvent) event).getPage();
             Rectangle pageSize = page.getPageSize();
             PdfCanvas canvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), event.getDocument());
-            canvas.saveState();
-            canvas.setFillColor(ColorConstants.LIGHT_GRAY);
             float startX = pageSize.getLeft();
             float startY = pageSize.getTop();
-            float waveWidth = 200f;
-            float waveHeight = 50f;
+            float waveWidth = pageSize.getWidth() * 0.7f;
+            float waveHeight = 70f;
+            canvas.saveState();
+            canvas.setFillColor(PRIMARY_COLOR);
             canvas.moveTo(startX, startY);
             canvas.lineTo(startX + waveWidth, startY);
             canvas.curveTo(
-                    startX + waveWidth * 0.75f, startY - waveHeight / 2,
-                    startX + waveWidth * 0.25f, startY - waveHeight,
+                    startX + waveWidth * 0.85f, startY,
+                    startX + waveWidth * 0.65f, startY - waveHeight,
+                    startX + waveWidth * 0.5f, startY - waveHeight
+            );
+            canvas.curveTo(
+                    startX + waveWidth * 0.35f, startY - waveHeight,
+                    startX + waveWidth * 0.20f, startY,
                     startX, startY - waveHeight
             );
             canvas.lineTo(startX, startY);
-            canvas.setFillColor(PRIMARY_COLOR);
             canvas.fill();
             canvas.restoreState();
         }
