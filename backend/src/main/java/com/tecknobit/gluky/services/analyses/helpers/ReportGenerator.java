@@ -31,11 +31,14 @@ import com.tecknobit.apimanager.apis.ResourcesUtils;
 import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.equinoxcore.annotations.Wrapper;
+import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
+import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
@@ -64,6 +67,8 @@ public class ReportGenerator {
 
     private static final float H2_SIZE = 18f;
 
+    private static final float H3_SIZE = 16f;
+
     private static final float SUBTITLE_SIZE = 11f;
 
     private final GlukyUser user;
@@ -73,6 +78,10 @@ public class ReportGenerator {
     private final long from;
 
     private final long to;
+
+    private final List<Meal> meals;
+
+    private final List<BasalInsulin> basalInsulinRecords;
 
     private final ResourcesUtils<Class<ReportGenerator>> resourceUtils;
 
@@ -86,12 +95,15 @@ public class ReportGenerator {
 
     private PdfFont fredoka;
 
-    public ReportGenerator(GlukyUser user, GlycemicTrendPeriod period, long from, long to, String reportPath) throws IOException {
+    public ReportGenerator(GlukyUser user, GlycemicTrendPeriod period, long from, long to, List<Meal> meals,
+                           List<BasalInsulin> basalInsulinRecords, String reportPath) throws IOException {
         reportPath = "resources/reports/test.pdf";
         this.user = user;
         this.period = period;
         this.from = from;
         this.to = to;
+        this.meals = meals;
+        this.basalInsulinRecords = basalInsulinRecords;
         resourceUtils = new ResourcesUtils<>(ReportGenerator.class);
         pdfDocument = new PdfDocument(new PdfWriter(reportPath));
         document = new Document(pdfDocument);
@@ -104,6 +116,7 @@ public class ReportGenerator {
         comicneue = loadFont(COMICNEUE);
         pdfDocument.addEventHandler(START_PAGE, new Header());
         pdfDocument.addEventHandler(END_PAGE, new Footer(resourceUtils, document, comicneue, translator));
+        document.setBottomMargin(65);
     }
 
     private PdfFont loadFont(String font) throws IOException {
@@ -114,6 +127,7 @@ public class ReportGenerator {
 
     public PdfDocument generate() throws IOException {
         generateHeader();
+        arrangeContent();
         document.close();
         return pdfDocument;
     }
@@ -178,6 +192,9 @@ public class ReportGenerator {
         };
     }
 
+    private void arrangeContent() {
+    }
+
     @Returner
     private Paragraph h1(String text) {
         return header(text, H1_SIZE);
@@ -186,6 +203,11 @@ public class ReportGenerator {
     @Returner
     private Paragraph h2(String text) {
         return header(text, H2_SIZE);
+    }
+
+    @Returner
+    private Paragraph h3(String text) {
+        return header(text, H3_SIZE);
     }
 
     @Returner

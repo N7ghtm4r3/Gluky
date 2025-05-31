@@ -9,16 +9,23 @@ import com.tecknobit.gluky.services.measurements.repositories.MeasurementsReposi
 import com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService;
 import com.tecknobit.gluky.services.measurements.services.types.MealsService;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
+import com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay;
+import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 import com.tecknobit.glukycore.enums.MeasurementType;
 import jakarta.transaction.Transactional;
+import kotlin.Pair;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.List;
+import java.util.concurrent.TimeUnit;
 
 import static com.tecknobit.equinoxbackend.environment.services.builtin.controller.EquinoxController.generateIdentifier;
 import static com.tecknobit.gluky.services.shared.controllers.DefaultGlukyController.dayFormatter;
+import static com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.ALL;
+import static com.tecknobit.glukycore.helpers.GlukyInputsValidator.UNSET_CUSTOM_DATE;
 
 @Service
 public class MeasurementsService {
@@ -83,6 +90,30 @@ public class MeasurementsService {
     public void saveDailyNotes(DailyMeasurements measurements, String dailyNotes) {
         String measurementsId = measurements.getId();
         measurementsRepository.saveDailyNotes(dailyNotes, measurementsId);
+    }
+
+    public List<DailyMeasurements> getMultipleDailyMeasurements(String userId, GlycemicTrendPeriod period,
+                                                                GlycemicTrendGroupingDay groupingDay, long from, long to) {
+        Pair<Long, Long> normalizedDates = normalizeDates(from, to, period);
+        from = convertToStartOfTheDay(normalizedDates.getFirst());
+        to = convertToStartOfTheDay(normalizedDates.getSecond() + TimeUnit.DAYS.toMillis(1));
+        if (groupingDay == null || groupingDay == ALL)
+            return measurementsRepository.retrieveMeasurements(userId, from, to);
+        else
+            return measurementsRepository.retrieveMeasurements(userId, groupingDay.getCapitalized(), from, to);
+    }
+
+    public Pair<Long, Long> normalizeDates(long from, long to, GlycemicTrendPeriod period) {
+        if (to == UNSET_CUSTOM_DATE)
+            to = System.currentTimeMillis();
+        if (from == UNSET_CUSTOM_DATE)
+            from = to - period.getMillis();
+        return new Pair<>(from, to);
+    }
+
+    private long convertToStartOfTheDay(long timestamp) {
+        String date = dayFormatter.formatAsString(timestamp);
+        return dayFormatter.formatAsTimestamp(date);
     }
 
 }

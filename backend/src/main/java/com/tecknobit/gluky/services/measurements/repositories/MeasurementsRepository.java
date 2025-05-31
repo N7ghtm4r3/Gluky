@@ -8,6 +8,8 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 import static com.tecknobit.equinoxbackend.environment.services.builtin.service.EquinoxItemsHelper._WHERE_;
 import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.*;
 import static com.tecknobit.glukycore.ConstantsKt.*;
@@ -64,6 +66,34 @@ public interface MeasurementsRepository extends JpaRepository<DailyMeasurements,
     void saveDailyNotes(
             @Param(DAILY_NOTES_KEY) String dailyNotes,
             @Param(MEASUREMENT_IDENTIFIER_KEY) String measurementsId
+    );
+
+    @Query(
+            value = "SELECT * FROM " + MEASUREMENTS_KEY +
+                    _WHERE_ + CREATION_DATE_KEY + " BETWEEN :" + FROM_DATE_KEY + " AND :" + TO_DATE_KEY +
+                    " AND " + OWNER_KEY + "=:" + OWNER_KEY +
+                    " AND DAYNAME(FROM_UNIXTIME(" + CREATION_DATE_KEY + "/ 1000)) =:" + GLYCEMIC_TREND_GROUPING_DAY_KEY +
+                    " ORDER BY " + CREATION_DATE_KEY,
+            nativeQuery = true
+    )
+    List<DailyMeasurements> retrieveMeasurements(
+            @Param(OWNER_KEY) String owner,
+            @Param(GLYCEMIC_TREND_GROUPING_DAY_KEY) String groupingDay,
+            @Param(FROM_DATE_KEY) long from,
+            @Param(TO_DATE_KEY) long to
+    );
+
+    @Query(
+            value = "SELECT * FROM " + MEASUREMENTS_KEY +
+                    _WHERE_ + CREATION_DATE_KEY + " BETWEEN :" + FROM_DATE_KEY + " AND :" + TO_DATE_KEY +
+                    " AND " + OWNER_KEY + "=:" + OWNER_KEY +
+                    " ORDER BY " + CREATION_DATE_KEY,
+            nativeQuery = true
+    )
+    List<DailyMeasurements> retrieveMeasurements(
+            @Param(OWNER_KEY) String owner,
+            @Param(FROM_DATE_KEY) long from,
+            @Param(TO_DATE_KEY) long to
     );
 
 }

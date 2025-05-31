@@ -2,11 +2,8 @@ package com.tecknobit.gluky.services.analyses.helpers;
 
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.equinoxcore.annotations.Wrapper;
-import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
 import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
-import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
-import com.tecknobit.glukycore.enums.MeasurementType;
 
 import java.sql.Date;
 import java.util.ArrayList;
@@ -16,13 +13,12 @@ import java.util.List;
 import java.util.function.Function;
 
 import static com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.MAX_ALLOWED_SETS;
-import static com.tecknobit.glukycore.enums.MeasurementType.BASAL_INSULIN;
 import static java.util.Calendar.*;
 
 public class GlycemicItemsOrganizer {
 
     @Returner
-    public <T extends GlycemicMeasurementItem> HashMap<MeasurementType, HashMap<Integer, List<T>>> perform(
+    public <T extends GlycemicMeasurementItem> HashMap<Integer, List<T>> perform(
             GlycemicTrendPeriod period,
             List<T> items
     ) {
@@ -34,14 +30,14 @@ public class GlycemicItemsOrganizer {
     }
 
     @Wrapper
-    private <T extends GlycemicMeasurementItem> HashMap<MeasurementType, HashMap<Integer, List<T>>> organizeSingleWeek(
+    private <T extends GlycemicMeasurementItem> HashMap<Integer, List<T>> organizeSingleWeek(
             List<T> items
     ) {
         return organize(items, t -> 0);
     }
 
     @Wrapper
-    private <T extends GlycemicMeasurementItem> HashMap<MeasurementType, HashMap<Integer, List<T>>> organizePerWeek(
+    private <T extends GlycemicMeasurementItem> HashMap<Integer, List<T>> organizePerWeek(
             List<T> items
     ) {
         return organize(items, t -> getWeekOfMonth(t.getAnnotationDate()));
@@ -55,7 +51,7 @@ public class GlycemicItemsOrganizer {
     }
 
     @Wrapper
-    private <T extends GlycemicMeasurementItem> HashMap<MeasurementType, HashMap<Integer, List<T>>> organizePerMonth(
+    private <T extends GlycemicMeasurementItem> HashMap<Integer, List<T>> organizePerMonth(
             List<T> items
     ) {
         return organize(items, t -> getMonth(t.getAnnotationDate()));
@@ -67,27 +63,17 @@ public class GlycemicItemsOrganizer {
         return calendar.get(MONTH);
     }
 
-    private <T extends GlycemicMeasurementItem> HashMap<MeasurementType, HashMap<Integer, List<T>>> organize(
+    private <T extends GlycemicMeasurementItem> HashMap<Integer, List<T>> organize(
             List<T> items,
             Function<T, Integer> getOrganizerKey
     ) {
-        HashMap<MeasurementType, HashMap<Integer, List<T>>> organizedItems = new HashMap<>();
+        HashMap<Integer, List<T>> organizedItems = new HashMap<>();
         for (T item : items) {
-            MeasurementType type = getMeasurementType(item);
-            HashMap<Integer, List<T>> set = organizedItems.computeIfAbsent(type, measurementType -> new HashMap<>());
             int organizerKey = getOrganizerKey.apply(item);
-            List<T> organizedSet = set.computeIfAbsent(organizerKey, key -> new ArrayList<>());
+            List<T> organizedSet = organizedItems.computeIfAbsent(organizerKey, key -> new ArrayList<>());
             organizedSet.add(item);
         }
         return organizedItems;
-    }
-
-    @Returner
-    private MeasurementType getMeasurementType(GlycemicMeasurementItem item) {
-        if (item instanceof BasalInsulin)
-            return BASAL_INSULIN;
-        else
-            return ((Meal) item).getType();
     }
 
 }

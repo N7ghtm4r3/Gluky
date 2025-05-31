@@ -4,9 +4,9 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.tecknobit.equinoxcore.annotations.Assembler;
 import com.tecknobit.equinoxcore.annotations.DTO;
 import com.tecknobit.equinoxcore.annotations.Returner;
-import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
+import com.tecknobit.gluky.services.analyses.helpers.GlycemicItemsOrganizer;
+import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
-import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.glukycore.enums.GlycemicTrendLabelType;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 import com.tecknobit.glukycore.enums.MeasurementType;
@@ -19,7 +19,6 @@ import java.util.List;
 import static com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPointComparator;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 import static com.tecknobit.glukycore.enums.GlycemicTrendLabelType.Companion;
-import static com.tecknobit.glukycore.enums.MeasurementType.BASAL_INSULIN;
 
 @DTO
 public class GlycemicTrendDataContainer {
@@ -38,15 +37,27 @@ public class GlycemicTrendDataContainer {
 
     private GlycemicTrendData basalInsulin;
 
-    public GlycemicTrendDataContainer(GlycemicTrendPeriod period,
-                                      HashMap<MeasurementType, HashMap<Integer, List<Meal>>> meals,
-                                      HashMap<MeasurementType, HashMap<Integer, List<BasalInsulin>>> basalInsulinRecords) {
-        for (MeasurementType mealType : MeasurementType.Companion.meals())
-            loadSpecificTrend(mealType, period, meals.get(mealType));
-        loadSpecificTrend(BASAL_INSULIN, period, basalInsulinRecords.get(BASAL_INSULIN));
+    private final GlycemicTrendPeriod period;
+
+    private final List<DailyMeasurements> dailyMeasurements;
+
+    public GlycemicTrendDataContainer(GlycemicTrendPeriod period, List<DailyMeasurements> dailyMeasurements) {
+        this.period = period;
+        this.dailyMeasurements = dailyMeasurements;
+        arrangeTrendData();
     }
 
-    private <T extends GlycemicMeasurementItem> void loadSpecificTrend(MeasurementType type, GlycemicTrendPeriod period,
+    private void arrangeTrendData() {
+        GlycemicItemsOrganizer organizer = new GlycemicItemsOrganizer();
+        for (MeasurementType type : MeasurementType.getEntries()) {
+            List<GlycemicMeasurementItem> items = new ArrayList<>();
+            for (DailyMeasurements measurements : dailyMeasurements)
+                items.add(measurements.getMeasurement(type));
+            loadSpecificTrend(type, organizer.perform(period, items));
+        }
+    }
+
+    private <T extends GlycemicMeasurementItem> void loadSpecificTrend(MeasurementType type,
                                                                        HashMap<Integer, List<T>> trendData) {
         switch (type) {
             case BREAKFAST -> breakfast = convertToTrendData(period, trendData);
