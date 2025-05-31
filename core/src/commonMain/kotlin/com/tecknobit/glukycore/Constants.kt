@@ -65,3 +65,9 @@ const val AVERAGE_GLYCEMIA_KEY = "average_glycemia"
 const val GLYCEMIC_LABEL_TYPE_KEY = "label_type"
 
 const val REPORTS_KEY = "reports"
+
+const val NORMAL_GLYCEMIA = 70
+
+const val MEDIUM_HIGH_GLYCEMIA = 180
+
+const val HYPER_GLYCEMIA = 220

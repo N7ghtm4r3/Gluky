@@ -5,6 +5,7 @@ import com.itextpdf.io.font.FontProgramFactory;
 import com.itextpdf.io.font.PdfEncodings;
 import com.itextpdf.io.image.ImageData;
 import com.itextpdf.io.image.ImageDataFactory;
+import com.itextpdf.kernel.colors.Color;
 import com.itextpdf.kernel.colors.ColorConstants;
 import com.itextpdf.kernel.colors.DeviceRgb;
 import com.itextpdf.kernel.font.PdfFont;
@@ -24,10 +25,7 @@ import com.itextpdf.layout.Document;
 import com.itextpdf.layout.borders.Border;
 import com.itextpdf.layout.borders.SolidBorder;
 import com.itextpdf.layout.element.*;
-import com.itextpdf.layout.properties.BorderRadius;
-import com.itextpdf.layout.properties.HorizontalAlignment;
-import com.itextpdf.layout.properties.UnitValue;
-import com.itextpdf.layout.properties.VerticalAlignment;
+import com.itextpdf.layout.properties.*;
 import com.itextpdf.svg.converter.SvgConverter;
 import com.tecknobit.apimanager.apis.ResourcesUtils;
 import com.tecknobit.apimanager.formatters.TimeFormatter;
@@ -53,10 +51,17 @@ import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.START_PAGE;
 import static com.itextpdf.layout.borders.Border.NO_BORDER;
 import static com.itextpdf.layout.properties.TextAlignment.CENTER;
 import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
+import static com.tecknobit.glukycore.ConstantsKt.*;
 
 public class ReportGenerator {
 
     private static final DeviceRgb PRIMARY_COLOR = new DeviceRgb(46, 191, 165);
+
+    private static final DeviceRgb GREEN_COLOR = new DeviceRgb(76, 175, 80);
+
+    private static final DeviceRgb YELLOW_COLOR = new DeviceRgb(251, 192, 45);
+
+    private static final DeviceRgb RED_COLOR = new DeviceRgb(229, 57, 53);
 
     private static final String FREDOKA = "font/fredoka.ttf";
 
@@ -203,7 +208,8 @@ public class ReportGenerator {
         SimpleDateFormat dayFormatter = new SimpleDateFormat("EEEE dd", locale);
         SimpleDateFormat monthFormatter = new SimpleDateFormat("MMMM yyyy", locale);
         HashSet<String> headersMonths = new HashSet<>();
-        for (DailyMeasurements measurements : dailyMeasurements) {
+        for (int j = 0; j < dailyMeasurements.size(); j++) {
+            DailyMeasurements measurements = dailyMeasurements.get(j);
             long creationDate = measurements.getCreationDate();
             String headerMonth = capitalize(monthFormatter.format(creationDate));
             if (!headersMonths.contains(headerMonth)) {
@@ -212,15 +218,18 @@ public class ReportGenerator {
             }
             document.add(dayIndicator(dayFormatter, creationDate));
             document.add(dailyRecord(measurements));
+            if ((j + 1) % 2 == 0)
+                document.add(new AreaBreak(AreaBreakType.NEXT_PAGE));
         }
     }
 
     @Returner
     private Table dailyRecord(DailyMeasurements measurements) {
-        Table table = new Table(UnitValue.createPercentArray(new float[]{1, 0.8f, 1.5f, 1, 1.7f, 2.5f}));
-        table.setWidth(UnitValue.createPercentValue(100));
+        Table table = new Table(6);
+        table.useAllAvailableWidth();
         setHeaders(table);
         fillRow(table, measurements);
+        table.setMarginBottom(10);
         return table;
     }
 
@@ -242,7 +251,8 @@ public class ReportGenerator {
     private Paragraph dayIndicator(SimpleDateFormat dayFormatter, long creationDate) {
         String day = capitalize(dayFormatter.format(creationDate));
         return new Paragraph(day)
-                .setFont(comicneue);
+                .setFont(comicneue)
+                .setFontSize(14);
     }
 
     private String capitalize(String uncapitalizedString) {
@@ -252,17 +262,25 @@ public class ReportGenerator {
 
     private void fillRow(Table table, DailyMeasurements measurements) {
         for (MeasurementType type : MeasurementType.getEntries()) {
-            table.addCell(measurementCell(new Paragraph(getMeasurementTypeText(type))));
+            table.addCell(measurementType(type));
             GlycemicMeasurementItem item = measurements.getMeasurement(type);
             boolean isMeal = item instanceof Meal;
             table.addCell(timeCell(item.getAnnotationDate()));
             table.addCell(prePrandial(item.getGlycemia()));
             table.addCell(insulinUnits(item.getInsulinUnits()));
-            if (isMeal)
+            if (isMeal) {
                 table.addCell(postPrandial(((Meal) item).getPostPrandialGlycemia()));
-            else
+                table.addCell(mealContent(((Meal) item).getRawContent()));
+            } else {
                 table.addCell(notApplicabile());
+                table.addCell(notApplicabile());
+            }
         }
+    }
+
+    @Returner
+    private Cell measurementType(MeasurementType type) {
+        return measurementCell(new Paragraph(getMeasurementTypeText(type)));
     }
 
     @Returner
@@ -302,12 +320,35 @@ public class ReportGenerator {
 
     @Returner
     private Cell glycemia(int glycemia) {
-        return intValueCell(glycemia);
+        Color fontColor = ColorConstants.BLACK;
+        DeviceRgb backgroundColor = glycemiaLevelBackground(glycemia);
+        if (backgroundColor == RED_COLOR)
+            fontColor = ColorConstants.WHITE;
+        return intValueCell(glycemia)
+                .setBackgroundColor(backgroundColor)
+                .setFontColor(fontColor);
+    }
+
+    @Returner
+    private DeviceRgb glycemiaLevelBackground(int glycemia) {
+        if (glycemia < NORMAL_GLYCEMIA)
+            return RED_COLOR;
+        else if (glycemia < MEDIUM_HIGH_GLYCEMIA)
+            return GREEN_COLOR;
+        else if (glycemia < HYPER_GLYCEMIA)
+            return YELLOW_COLOR;
+        else
+            return RED_COLOR;
     }
 
     @Returner
     private Cell intValueCell(int value) {
         return measurementCell(new Paragraph(String.valueOf(value)));
+    }
+
+    @Returner
+    private Cell mealContent(String content) {
+        return measurementCell(new Paragraph(content));
     }
 
     @Returner
@@ -460,7 +501,7 @@ public class ReportGenerator {
         private void addBannerContent(PdfDocument pdfDocument, PdfPage page, Rectangle bannerContainer) throws IOException {
             Canvas canvas = new Canvas(page, getBannerRootArea(bannerContainer));
             Table table = new Table(UnitValue.createPercentArray(new float[]{0.3f, 0.3f, 0.3f, 1.5f, 1.5f}));
-            table.setWidth(UnitValue.createPercentValue(100));
+            table.useAllAvailableWidth();
             table.addCell(playStoreIcon(pdfDocument));
             table.addCell(appStoreIcon(pdfDocument));
             table.addCell(githubIcon(pdfDocument));
