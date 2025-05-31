@@ -14,8 +14,11 @@ import kotlin.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
+
+import static com.tecknobit.glukycore.ConstantsKt.REPORTS_KEY;
 
 @Service
 public class AnalysesService implements ResourcesManager {
@@ -48,6 +51,15 @@ public class AnalysesService implements ResourcesManager {
                 normalizedDates.getSecond(), dailyMeasurements, reportId);
         String reportUrl = generator.generate();
         return new Report(reportId, reportUrl);
+    }
+
+    public boolean deleteReport(String reportId) {
+        String reportPath = RESOURCES_PATH + REPORTS_KEY + "/";
+        File reportsFolder = new File(reportPath);
+        String[] reports = reportsFolder.list((dir, name) -> name.contains(reportId));
+        if (reports == null || reports.length == 0)
+            return false;
+        return new File(reportPath + reports[0]).delete();
     }
 
 }

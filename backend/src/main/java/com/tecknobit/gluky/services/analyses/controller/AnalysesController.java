@@ -88,4 +88,22 @@ public class AnalysesController extends DefaultGlukyController {
         }
     }
 
+    @DeleteMapping(
+            path = REPORTS_ENDPOINT + "/{" + REPORT_IDENTIFIER_KEY + "}",
+            headers = {
+                    TOKEN_KEY
+            }
+    )
+    public String deleteReport(
+            @PathVariable(USER_IDENTIFIER_KEY) String userId,
+            @RequestHeader(TOKEN_KEY) String token,
+            @PathVariable(REPORT_IDENTIFIER_KEY) String reportId
+    ) {
+        if (!isMe(userId, token))
+            return failedResponse(NOT_AUTHORIZED_OR_WRONG_DETAILS_MESSAGE);
+        if (!analysesService.deleteReport(reportId))
+            return failedResponse(WRONG_PROCEDURE_MESSAGE);
+        return successResponse();
+    }
+
 }
