@@ -4,13 +4,7 @@ import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurem
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.NoRepositoryBean;
 
-import java.util.List;
-
 @NoRepositoryBean
 public interface GlycemicMeasurementsRepository<T extends GlycemicMeasurementItem> extends JpaRepository<T, String> {
-
-    List<T> retrieveMeasurements(String owner, long from, long to);
-
-    List<T> retrieveMeasurements(String owner, String groupingDay, long from, long to);
 
 }

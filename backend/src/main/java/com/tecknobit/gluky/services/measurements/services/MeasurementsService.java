@@ -97,7 +97,7 @@ public class MeasurementsService {
         Pair<Long, Long> normalizedDates = normalizeDates(from, to, period);
         from = convertToStartOfTheDay(normalizedDates.getFirst());
         to = convertToStartOfTheDay(normalizedDates.getSecond() + TimeUnit.DAYS.toMillis(1));
-        if (groupingDay == null || groupingDay == ALL)
+        if (groupingDay == ALL)
             return measurementsRepository.retrieveMeasurements(userId, from, to);
         else
             return measurementsRepository.retrieveMeasurements(userId, groupingDay.getCapitalized(), from, to);

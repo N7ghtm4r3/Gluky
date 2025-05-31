@@ -9,13 +9,12 @@ import org.springframework.stereotype.Service;
 import static com.tecknobit.equinoxbackend.environment.services.builtin.controller.EquinoxController.generateIdentifier;
 
 @Service
-public class BasalInsulinService extends GlycemicMeasurementsService<BasalInsulin, BasalInsulinRepository> {
+public class BasalInsulinService extends GlycemicMeasurementsService {
 
     private final BasalInsulinRepository basalInsulinRepository;
 
     @Autowired
     public BasalInsulinService(BasalInsulinRepository basalInsulinRepository) {
-        super(basalInsulinRepository);
         this.basalInsulinRepository = basalInsulinRepository;
     }
 
