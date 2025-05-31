@@ -2,6 +2,7 @@ package com.tecknobit.gluky.services.analyses.service;
 
 import com.tecknobit.equinoxbackend.resourcesutils.ResourcesManager;
 import com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer;
+import com.tecknobit.gluky.services.analyses.helpers.ReportGenerator;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.measurements.services.MeasurementsService;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
@@ -38,7 +39,9 @@ public class AnalysesService implements ResourcesManager {
         to = normalizedDates.getSecond();
         List<DailyMeasurements> dailyMeasurements = measurementsService.getMultipleDailyMeasurements(user.getId(), period,
                 groupingDay, from, to);
-        System.out.println(dailyMeasurements);
+        ReportGenerator generator = new ReportGenerator(user, period, normalizedDates.getFirst(),
+                normalizedDates.getSecond(), dailyMeasurements, "");
+        generator.generate();
         return "";
     }
 

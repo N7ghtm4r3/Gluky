@@ -21,6 +21,6 @@ enum class GlycemicTrendPeriod(
 
     FOUR_MONTHS(
         millis = 10_368_000_000L
-    )
+    );
 
 }

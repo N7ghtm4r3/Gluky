@@ -31,13 +31,14 @@ import com.tecknobit.apimanager.apis.ResourcesUtils;
 import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.equinoxcore.annotations.Wrapper;
-import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
-import com.tecknobit.gluky.services.measurements.entities.types.Meal;
+import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.text.SimpleDateFormat;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Locale;
 import java.util.ResourceBundle;
@@ -67,7 +68,7 @@ public class ReportGenerator {
 
     private static final float H2_SIZE = 18f;
 
-    private static final float H3_SIZE = 16f;
+    private static final float H3_SIZE = 14f;
 
     private static final float SUBTITLE_SIZE = 11f;
 
@@ -79,9 +80,7 @@ public class ReportGenerator {
 
     private final long to;
 
-    private final List<Meal> meals;
-
-    private final List<BasalInsulin> basalInsulinRecords;
+    private final List<DailyMeasurements> dailyMeasurements;
 
     private final ResourcesUtils<Class<ReportGenerator>> resourceUtils;
 
@@ -89,32 +88,34 @@ public class ReportGenerator {
 
     private final Document document;
 
-    private final Translator translator;
+    private final Locale locale;
 
-    private PdfFont comicneue;
+    private final Translator translator;
 
     private PdfFont fredoka;
 
-    public ReportGenerator(GlukyUser user, GlycemicTrendPeriod period, long from, long to, List<Meal> meals,
-                           List<BasalInsulin> basalInsulinRecords, String reportPath) throws IOException {
+    private PdfFont comicneue;
+
+    public ReportGenerator(GlukyUser user, GlycemicTrendPeriod period, long from, long to,
+                           List<DailyMeasurements> dailyMeasurements, String reportPath) throws IOException {
         reportPath = "resources/reports/test.pdf";
         this.user = user;
         this.period = period;
         this.from = from;
         this.to = to;
-        this.meals = meals;
-        this.basalInsulinRecords = basalInsulinRecords;
+        this.dailyMeasurements = dailyMeasurements;
         resourceUtils = new ResourcesUtils<>(ReportGenerator.class);
         pdfDocument = new PdfDocument(new PdfWriter(reportPath));
         document = new Document(pdfDocument);
-        translator = new Translator(user.getLanguage());
+        locale = Locale.forLanguageTag(user.getLanguage());
+        translator = new Translator(locale);
         setTheme();
     }
 
     private void setTheme() throws IOException {
         fredoka = loadFont(FREDOKA);
         comicneue = loadFont(COMICNEUE);
-        pdfDocument.addEventHandler(START_PAGE, new Header());
+        pdfDocument.addEventHandler(START_PAGE, new Header(document));
         pdfDocument.addEventHandler(END_PAGE, new Footer(resourceUtils, document, comicneue, translator));
         document.setBottomMargin(65);
     }
@@ -193,6 +194,30 @@ public class ReportGenerator {
     }
 
     private void arrangeContent() {
+        SimpleDateFormat dayFormatter = new SimpleDateFormat("EEEE dd", locale);
+        SimpleDateFormat monthFormatter = new SimpleDateFormat("MMMM yyyy", locale);
+        HashSet<String> headersMonths = new HashSet<>();
+        for (DailyMeasurements measurements : dailyMeasurements) {
+            long creationDate = measurements.getCreationDate();
+            String headerMonth = capitalize(monthFormatter.format(creationDate));
+            if (!headersMonths.contains(headerMonth)) {
+                document.add(h3(headerMonth));
+                headersMonths.add(headerMonth);
+            }
+            document.add(dayIndicator(dayFormatter, creationDate));
+        }
+    }
+
+    @Returner
+    private Paragraph dayIndicator(SimpleDateFormat dayFormatter, long creationDate) {
+        String day = capitalize(dayFormatter.format(creationDate));
+        return new Paragraph(day)
+                .setFont(comicneue);
+    }
+
+    private String capitalize(String uncapitalizedString) {
+        String firstChar = String.valueOf(uncapitalizedString.charAt(0));
+        return uncapitalizedString.replaceFirst(firstChar, firstChar.toUpperCase());
     }
 
     @Returner
@@ -227,11 +252,20 @@ public class ReportGenerator {
 
     private static class Header extends AbstractPdfDocumentEventHandler {
 
+        private final Document document;
+
+        private Header(Document document) {
+            this.document = document;
+        }
+
         @Override
         protected void onAcceptedEvent(AbstractPdfDocumentEvent event) {
             PdfPage page = ((PdfDocumentEvent) event).getPage();
+            PdfDocument pdfDocument = event.getDocument();
+            if (pdfDocument.getPageNumber(page) > 1)
+                document.setTopMargin(70);
             Rectangle pageSize = page.getPageSize();
-            PdfCanvas canvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), event.getDocument());
+            PdfCanvas canvas = new PdfCanvas(page.newContentStreamBefore(), page.getResources(), pdfDocument);
             float startX = pageSize.getLeft();
             float startY = pageSize.getTop();
             float waveWidth = pageSize.getWidth() * 0.7f;
@@ -424,8 +458,8 @@ public class ReportGenerator {
 
         private final ResourceBundle resources;
 
-        public Translator(String language) {
-            resources = ResourceBundle.getBundle(REPORT_MESSAGES, Locale.forLanguageTag(language));
+        public Translator(Locale locale) {
+            resources = ResourceBundle.getBundle(REPORT_MESSAGES, locale);
         }
 
         public String getI18NText(TranslatorKey key) {
