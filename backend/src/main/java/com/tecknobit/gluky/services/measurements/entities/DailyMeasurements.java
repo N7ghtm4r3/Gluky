@@ -15,8 +15,7 @@ import org.hibernate.annotations.OnDelete;
 
 import java.util.ArrayList;
 
-import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.CREATION_DATE_KEY;
-import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.OWNER_KEY;
+import static com.tecknobit.equinoxcore.helpers.CommonKeysKt.*;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 import static org.hibernate.annotations.OnDeleteAction.CASCADE;
 
@@ -36,27 +35,63 @@ public class DailyMeasurements extends EquinoxItem {
     private final long creationDate;
 
     @OneToOne
-    @JoinColumn(name = BREAKFAST_KEY)
+    @JoinColumn(
+            name = BREAKFAST_KEY,
+            foreignKey = @ForeignKey(
+                    foreignKeyDefinition = "FOREIGN KEY (" + BREAKFAST_KEY + ") REFERENCES " +
+                            MEALS_KEY + "(" + IDENTIFIER_KEY + ") ON DELETE CASCADE"
+            )
+    )
     private Meal breakfast;
 
     @OneToOne
-    @JoinColumn(name = MORNING_SNACK_KEY)
+    @JoinColumn(
+            name = MORNING_SNACK_KEY,
+            foreignKey = @ForeignKey(
+                    foreignKeyDefinition = "FOREIGN KEY (" + MORNING_SNACK_KEY + ") REFERENCES " +
+                            MEALS_KEY + "(" + IDENTIFIER_KEY + ") ON DELETE CASCADE"
+            )
+    )
     private Meal morningSnack;
 
     @OneToOne
-    @JoinColumn(name = LUNCH_KEY)
+    @JoinColumn(
+            name = LUNCH_KEY,
+            foreignKey = @ForeignKey(
+                    foreignKeyDefinition = "FOREIGN KEY (" + LUNCH_KEY + ") REFERENCES " +
+                            MEALS_KEY + "(" + IDENTIFIER_KEY + ") ON DELETE CASCADE"
+            )
+    )
     private Meal lunch;
 
     @OneToOne
-    @JoinColumn(name = AFTERNOON_SNACK_KEY)
+    @JoinColumn(
+            name = AFTERNOON_SNACK_KEY,
+            foreignKey = @ForeignKey(
+                    foreignKeyDefinition = "FOREIGN KEY (" + AFTERNOON_SNACK_KEY + ") REFERENCES " +
+                            MEALS_KEY + "(" + IDENTIFIER_KEY + ") ON DELETE CASCADE"
+            )
+    )
     private Meal afternoonSnack;
 
     @OneToOne
-    @JoinColumn(name = DINNER_KEY)
+    @JoinColumn(
+            name = DINNER_KEY,
+            foreignKey = @ForeignKey(
+                    foreignKeyDefinition = "FOREIGN KEY (" + DINNER_KEY + ") REFERENCES " +
+                            MEALS_KEY + "(" + IDENTIFIER_KEY + ") ON DELETE CASCADE"
+            )
+    )
     private Meal dinner;
 
     @OneToOne
-    @JoinColumn(name = BASAL_INSULIN_KEY)
+    @JoinColumn(
+            name = BASAL_INSULIN_KEY,
+            foreignKey = @ForeignKey(
+                    foreignKeyDefinition = "FOREIGN KEY (" + BASAL_INSULIN_KEY + ") REFERENCES " +
+                            BASAL_INSULIN_RECORDS_KEY + "(" + IDENTIFIER_KEY + ") ON DELETE CASCADE"
+            )
+    )
     private BasalInsulin basalInsulin;
 
     @Lob

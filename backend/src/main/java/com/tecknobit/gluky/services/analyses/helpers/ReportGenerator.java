@@ -70,7 +70,6 @@ public class ReportGenerator {
 
     private static final String COMICNEUE = "font/comicneue.ttf";
 
-    // TODO: 30/05/2025 TO USE THE REAL LOGO
     private static final String LOGO = "logo.png";
 
     private static final float LOGO_SIZE = 65f;
