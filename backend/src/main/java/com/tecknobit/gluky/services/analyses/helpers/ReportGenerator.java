@@ -54,6 +54,7 @@ import static com.itextpdf.layout.properties.TextAlignment.*;
 import static com.itextpdf.layout.properties.VerticalAlignment.MIDDLE;
 import static com.tecknobit.equinoxbackend.resourcesutils.ResourcesManager.RESOURCES_PATH;
 import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
+import static com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.UNSET_VALUE;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 
 public class ReportGenerator {
@@ -215,6 +216,7 @@ public class ReportGenerator {
         HashSet<String> headersMonths = new HashSet<>();
         DailyMeasurements lastMeasurements = dailyMeasurements.get(dailyMeasurements.size() - 1);
         for (DailyMeasurements measurements : dailyMeasurements) {
+            // TODO: 02/06/2025 DOES NOT PRINT ANY IF THE measurements HAS NO DATA 
             long creationDate = measurements.getCreationDate();
             String headerMonth = capitalize(monthFormatter.format(creationDate));
             if (!headersMonths.contains(headerMonth)) {
@@ -305,8 +307,12 @@ public class ReportGenerator {
 
     @Returner
     private Cell timeCell(long annotationDate) {
-        TimeFormatter timeFormatter = TimeFormatter.getInstance("HH:mm");
-        return measurementCell(new Paragraph(timeFormatter.formatAsString(annotationDate)));
+        String cellText = "";
+        if (annotationDate != UNSET_VALUE) {
+            TimeFormatter timeFormatter = TimeFormatter.getInstance("HH:mm");
+            cellText = timeFormatter.formatAsString(annotationDate);
+        }
+        return measurementCell(new Paragraph(cellText));
     }
 
     @Wrapper
@@ -339,6 +345,8 @@ public class ReportGenerator {
 
     @Returner
     private DeviceRgb glycemiaLevelBackground(int glycemia) {
+        if (glycemia < 0)
+            return (DeviceRgb) DeviceRgb.WHITE;
         if (glycemia < NORMAL_GLYCEMIA)
             return RED_COLOR;
         else if (glycemia < MEDIUM_HIGH_GLYCEMIA)
@@ -351,7 +359,10 @@ public class ReportGenerator {
 
     @Returner
     private Cell intValueCell(int value) {
-        return measurementCell(new Paragraph(String.valueOf(value)));
+        String valueStringed = "";
+        if (value != UNSET_VALUE)
+            valueStringed = String.valueOf(value);
+        return measurementCell(new Paragraph(valueStringed));
     }
 
     @Returner
