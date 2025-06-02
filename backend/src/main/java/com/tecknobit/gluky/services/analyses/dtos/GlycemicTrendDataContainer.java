@@ -42,9 +42,20 @@ public class GlycemicTrendDataContainer {
 
     private final List<DailyMeasurements> dailyMeasurements;
 
+    private final long from;
+
+    private final long to;
+
     public GlycemicTrendDataContainer(GlycemicTrendPeriod period, List<DailyMeasurements> dailyMeasurements) {
         this.period = period;
         this.dailyMeasurements = dailyMeasurements;
+        if (!dailyMeasurements.isEmpty()) {
+            from = dailyMeasurements.get(0).getCreationDate();
+            to = dailyMeasurements.get(dailyMeasurements.size() - 1).getCreationDate();
+        } else {
+            from = -1;
+            to = -1;
+        }
         arrangeTrendData();
     }
 
@@ -111,6 +122,14 @@ public class GlycemicTrendDataContainer {
     @JsonGetter(BASAL_INSULIN_KEY)
     public GlycemicTrendData getBasalInsulin() {
         return basalInsulin;
+    }
+
+    public long getFrom() {
+        return from;
+    }
+
+    public long getTo() {
+        return to;
     }
 
     public static class GlycemicTrendData {
