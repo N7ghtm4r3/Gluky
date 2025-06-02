@@ -35,18 +35,18 @@ public class AnalysesController extends DefaultGlukyController {
     public <T> T getGlycemicTrend(
             @PathVariable(USER_IDENTIFIER_KEY) String userId,
             @RequestHeader(TOKEN_KEY) String token,
-            @RequestHeader(
+            @RequestParam(
                     name = GLYCEMIC_TREND_PERIOD_KEY,
                     defaultValue = "ONE_MONTH",
                     required = false
             ) GlycemicTrendPeriod period,
-            @RequestHeader(
+            @RequestParam(
                     name = GLYCEMIC_TREND_GROUPING_DAY_KEY,
                     defaultValue = "ALL",
                     required = false
             ) GlycemicTrendGroupingDay groupingDay,
-            @RequestHeader(name = FROM_DATE_KEY, defaultValue = "-1", required = false) long from,
-            @RequestHeader(name = TO_DATE_KEY, defaultValue = "-1", required = false) long to
+            @RequestParam(name = FROM_DATE_KEY, defaultValue = "-1", required = false) long from,
+            @RequestParam(name = TO_DATE_KEY, defaultValue = "-1", required = false) long to
     ) {
         if (!isMe(userId, token))
             return (T) failedResponse(NOT_AUTHORIZED_OR_WRONG_DETAILS_MESSAGE);
@@ -64,18 +64,18 @@ public class AnalysesController extends DefaultGlukyController {
     public <T> T generateReport(
             @PathVariable(USER_IDENTIFIER_KEY) String userId,
             @RequestHeader(TOKEN_KEY) String token,
-            @RequestHeader(
+            @RequestParam(
                     name = GLYCEMIC_TREND_PERIOD_KEY,
                     defaultValue = "ONE_MONTH",
                     required = false
             ) GlycemicTrendPeriod period,
-            @RequestHeader(
+            @RequestParam(
                     name = GLYCEMIC_TREND_GROUPING_DAY_KEY,
                     defaultValue = "ALL",
                     required = false
             ) GlycemicTrendGroupingDay groupingDay,
-            @RequestHeader(name = FROM_DATE_KEY, defaultValue = "-1", required = false) long from,
-            @RequestHeader(name = TO_DATE_KEY, defaultValue = "-1", required = false) long to
+            @RequestParam(name = FROM_DATE_KEY, defaultValue = "-1", required = false) long from,
+            @RequestParam(name = TO_DATE_KEY, defaultValue = "-1", required = false) long to
     ) {
         if (!isMe(userId, token))
             return (T) failedResponse(NOT_AUTHORIZED_OR_WRONG_DETAILS_MESSAGE);

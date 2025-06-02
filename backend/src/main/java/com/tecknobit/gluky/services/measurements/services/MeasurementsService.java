@@ -34,7 +34,7 @@ import static com.tecknobit.glukycore.helpers.GlukyInputsValidator.UNSET_CUSTOM_
 @Service
 public class MeasurementsService {
 
-    private static final TimeFormatter dayFormatter = TimeFormatter.getInstance("dd-MM-yyyy");
+    private static final String TARGET_DAY_PATTERN = "dd-MM-yyyy";
 
     private final MeasurementsRepository measurementsRepository;
 
@@ -77,14 +77,6 @@ public class MeasurementsService {
         return dailyMeasurements;
     }
 
-    @Returner
-    private long normalizeTargetDay(String targetDay) {
-        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
-        LocalDate localDate = LocalDate.parse(targetDay, formatter);
-        Instant instant = localDate.atStartOfDay().toInstant(ZoneOffset.UTC);
-        return instant.toEpochMilli();
-    }
-
     public void fillMeal(DailyMeasurements measurements, MeasurementType type, String glycemia,
                          String postPrandialGlycemia, int insulinUnits, JSONObject content) {
         GlycemicMeasurementItem meal = measurements.getMeasurement(type);
@@ -120,10 +112,19 @@ public class MeasurementsService {
         return new Pair<>(from, to);
     }
 
-    // TODO: 02/06/2025 CHECK TO REMOVE dayFormatter AND TO USE INSTEAD THE normalizeTargetDay BEHAVIOR
-    private long convertToStartOfTheDay(long timestamp) {
-        String date = dayFormatter.formatAsString(timestamp);
-        return dayFormatter.formatAsTimestamp(date);
+    @Returner
+    private long convertToStartOfTheDay(long targetDay) {
+        TimeFormatter timeFormatter = TimeFormatter.getInstance(TARGET_DAY_PATTERN);
+        String targetDateStringed = timeFormatter.formatAsString(targetDay);
+        return normalizeTargetDay(targetDateStringed);
+    }
+
+    @Returner
+    private long normalizeTargetDay(String targetDay) {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern(TARGET_DAY_PATTERN);
+        LocalDate localDate = LocalDate.parse(targetDay, formatter);
+        Instant instant = localDate.atStartOfDay().toInstant(ZoneOffset.UTC);
+        return instant.toEpochMilli();
     }
 
 }

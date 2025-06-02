@@ -16,6 +16,7 @@ import java.util.*;
 import java.util.function.Function;
 
 import static com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPointComparator;
+import static com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.UNSET_VALUE;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 import static com.tecknobit.glukycore.enums.GlycemicTrendLabelType.Companion;
 import static java.util.Calendar.*;
@@ -51,8 +52,11 @@ public class GlycemicTrendDataContainer {
         GlycemicItemsOrganizer organizer = new GlycemicItemsOrganizer();
         for (MeasurementType type : MeasurementType.getEntries()) {
             List<GlycemicMeasurementItem> items = new ArrayList<>();
-            for (DailyMeasurements measurements : dailyMeasurements)
-                items.add(measurements.getMeasurement(type));
+            for (DailyMeasurements measurements : dailyMeasurements) {
+                GlycemicMeasurementItem measurement = measurements.getMeasurement(type);
+                if (measurement.getGlycemia() != UNSET_VALUE)
+                    items.add(measurement);
+            }
             loadSpecificTrend(type, organizer.perform(period, items));
         }
     }
