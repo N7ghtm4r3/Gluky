@@ -1,5 +1,6 @@
 package com.tecknobit.gluky.services.measurements.services;
 
+import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin;
@@ -18,17 +19,22 @@ import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.Instant;
+import java.time.LocalDate;
+import java.time.ZoneOffset;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static com.tecknobit.equinoxbackend.environment.services.builtin.controller.EquinoxController.generateIdentifier;
-import static com.tecknobit.gluky.services.shared.controllers.DefaultGlukyController.dayFormatter;
 import static com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.ALL;
 import static com.tecknobit.glukycore.helpers.GlukyInputsValidator.UNSET_CUSTOM_DATE;
 
 @Service
 public class MeasurementsService {
+
+    private static final TimeFormatter dayFormatter = TimeFormatter.getInstance("dd-MM-yyyy");
 
     private final MeasurementsRepository measurementsRepository;
 
@@ -73,7 +79,10 @@ public class MeasurementsService {
 
     @Returner
     private long normalizeTargetDay(String targetDay) {
-        return dayFormatter.formatAsTimestamp(targetDay);
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy");
+        LocalDate localDate = LocalDate.parse(targetDay, formatter);
+        Instant instant = localDate.atStartOfDay().toInstant(ZoneOffset.UTC);
+        return instant.toEpochMilli();
     }
 
     public void fillMeal(DailyMeasurements measurements, MeasurementType type, String glycemia,
@@ -111,6 +120,7 @@ public class MeasurementsService {
         return new Pair<>(from, to);
     }
 
+    // TODO: 02/06/2025 CHECK TO REMOVE dayFormatter AND TO USE INSTEAD THE normalizeTargetDay BEHAVIOR
     private long convertToStartOfTheDay(long timestamp) {
         String date = dayFormatter.formatAsString(timestamp);
         return dayFormatter.formatAsTimestamp(date);
