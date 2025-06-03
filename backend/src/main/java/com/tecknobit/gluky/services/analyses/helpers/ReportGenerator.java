@@ -37,6 +37,7 @@ import com.tecknobit.gluky.services.measurements.entities.types.Meal;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.glukycore.enums.GlycemicTrendPeriod;
 import com.tecknobit.glukycore.enums.MeasurementType;
+import kotlin.Pair;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -117,7 +118,7 @@ public class ReportGenerator {
         this.period = period;
         this.from = from;
         this.to = to;
-        this.dailyMeasurements = dailyMeasurements;
+        this.dailyMeasurements = removeUnfilledMeasurements(dailyMeasurements);
         resourceUtils = new ResourcesUtils<>(ReportGenerator.class);
         reportPath = REPORTS_KEY + "/" + reportId + ".pdf";
         pdfDocument = new PdfDocument(new PdfWriter(RESOURCES_PATH + reportPath));
@@ -125,6 +126,10 @@ public class ReportGenerator {
         locale = Locale.forLanguageTag(user.getLanguage());
         translator = new Translator(locale);
         setTheme();
+    }
+
+    private List<DailyMeasurements> removeUnfilledMeasurements(List<DailyMeasurements> dailyMeasurements) {
+        return dailyMeasurements.stream().filter(DailyMeasurements::isFilled).toList();
     }
 
     private void setTheme() throws IOException {
@@ -141,12 +146,20 @@ public class ReportGenerator {
         return PdfFontFactory.createFont(fontProgram, PdfEncodings.WINANSI);
     }
 
-    public String generate() throws IOException {
+    public Pair<String, String> generate() throws IOException {
         generateHeader();
         arrangeContent();
         pdfDocument.close();
         document.close();
-        return reportPath;
+        return new Pair<>(generateReportName(), reportPath);
+    }
+
+    private String generateReportName() {
+        TimeFormatter formatter = TimeFormatter.getInstance("dd-MM-yyyy");
+        String reportName = translator.getI18NText(REPORT);
+        String from = formatter.formatAsString(this.from);
+        String to = formatter.formatAsString(this.to);
+        return reportName + "_" + from + "_" + to;
     }
 
     private void generateHeader() throws IOException {
@@ -216,7 +229,6 @@ public class ReportGenerator {
         HashSet<String> headersMonths = new HashSet<>();
         DailyMeasurements lastMeasurements = dailyMeasurements.get(dailyMeasurements.size() - 1);
         for (DailyMeasurements measurements : dailyMeasurements) {
-            // TODO: 02/06/2025 DOES NOT PRINT ANY IF THE measurements HAS NO DATA 
             long creationDate = measurements.getCreationDate();
             String headerMonth = capitalize(monthFormatter.format(creationDate));
             if (!headersMonths.contains(headerMonth)) {
@@ -664,6 +676,8 @@ public class ReportGenerator {
             static final TranslatorKey BASAL_INSULIN = new TranslatorKey("basal_insulin");
 
             static final TranslatorKey DAILY_NOTES = new TranslatorKey("daily_notes");
+
+            static final TranslatorKey REPORT = new TranslatorKey("report");
 
         }
 

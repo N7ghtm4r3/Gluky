@@ -49,8 +49,8 @@ public class AnalysesService implements ResourcesManager {
         String reportId = EquinoxController.generateIdentifier();
         ReportGenerator generator = new ReportGenerator(user, period, normalizedDates.getFirst(),
                 normalizedDates.getSecond(), dailyMeasurements, reportId);
-        String reportUrl = generator.generate();
-        return new Report(reportId, reportUrl);
+        Pair<String, String> reportUrl = generator.generate();
+        return new Report(reportId, reportUrl.getFirst(), reportUrl.getSecond());
     }
 
     public boolean deleteReport(String reportId) {

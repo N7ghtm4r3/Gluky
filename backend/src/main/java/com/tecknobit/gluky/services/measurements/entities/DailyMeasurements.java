@@ -194,4 +194,14 @@ public class DailyMeasurements extends EquinoxItem {
         };
     }
 
+    @JsonIgnore
+    public boolean isFilled() {
+        for (MeasurementType type : MeasurementType.getEntries()) {
+            GlycemicMeasurementItem measurement = getMeasurement(type);
+            if (measurement.isFilled())
+                return true;
+        }
+        return false;
+    }
+
 }

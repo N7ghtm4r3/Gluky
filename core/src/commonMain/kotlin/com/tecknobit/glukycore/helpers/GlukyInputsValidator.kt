@@ -11,6 +11,8 @@ object GlukyInputsValidator : InputsValidator() {
 
     const val UNSET_CUSTOM_DATE = -1L
 
+    private const val ONE_DAY_MILLIS = 86_400_000L
+
     @Validator
     fun isGlycemiaValueValid(
         glycemiaValue: String?,
@@ -46,9 +48,10 @@ object GlukyInputsValidator : InputsValidator() {
         if (from == UNSET_CUSTOM_DATE && to == UNSET_CUSTOM_DATE)
             return true
         val initialDate = from ?: 0
-        val endDate = to ?: 0
+        var endDate = to ?: 0
         if (initialDate <= 0 || endDate <= 0)
             return false
+        endDate -= ONE_DAY_MILLIS
         return ((endDate - initialDate) <= period.millis)
     }
 
