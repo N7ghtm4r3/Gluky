@@ -68,6 +68,8 @@ public class ReportGenerator {
 
     private static final DeviceRgb RED_COLOR = new DeviceRgb(229, 57, 53);
 
+    private static final String PDF_SUFFIX = ".pdf";
+
     private static final String FREDOKA = "font/fredoka.ttf";
 
     private static final String COMICNEUE = "font/comicneue.ttf";
@@ -120,7 +122,7 @@ public class ReportGenerator {
         this.to = to;
         this.dailyMeasurements = removeUnfilledMeasurements(dailyMeasurements);
         resourceUtils = new ResourcesUtils<>(ReportGenerator.class);
-        reportPath = REPORTS_KEY + "/" + reportId + ".pdf";
+        reportPath = REPORTS_KEY + "/" + reportId + PDF_SUFFIX;
         pdfDocument = new PdfDocument(new PdfWriter(RESOURCES_PATH + reportPath));
         document = new Document(pdfDocument);
         locale = Locale.forLanguageTag(user.getLanguage());
@@ -159,7 +161,7 @@ public class ReportGenerator {
         String reportName = translator.getI18NText(REPORT);
         String from = formatter.formatAsString(this.from);
         String to = formatter.formatAsString(this.to);
-        return reportName + "_" + from + "_" + to;
+        return reportName + "_" + from + "_" + to + PDF_SUFFIX;
     }
 
     private void generateHeader() throws IOException {
