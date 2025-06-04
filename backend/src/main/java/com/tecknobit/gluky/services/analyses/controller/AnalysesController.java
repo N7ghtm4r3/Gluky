@@ -61,7 +61,7 @@ public class AnalysesController extends DefaultGlukyController {
                     TOKEN_KEY
             }
     )
-    public <T> T generateReport(
+    public <T> T createReport(
             @PathVariable(USER_IDENTIFIER_KEY) String userId,
             @RequestHeader(TOKEN_KEY) String token,
             @RequestParam(
@@ -82,7 +82,7 @@ public class AnalysesController extends DefaultGlukyController {
         if (!INSTANCE.isCustomTrendPeriodValid(from, to, period))
             return (T) failedResponse(WRONG_CUSTOM_TREND_PERIOD_MESSAGE);
         try {
-            return (T) successResponse(analysesService.generateReport(me, period, groupingDay, from, to));
+            return (T) successResponse(analysesService.createReport(me, period, groupingDay, from, to));
         } catch (Exception e) {
             return (T) failedResponse(WRONG_PROCEDURE_MESSAGE);
         }

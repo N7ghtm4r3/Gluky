@@ -25,7 +25,6 @@ import java.time.ZoneOffset;
 import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.TimeUnit;
 
 import static com.tecknobit.equinoxbackend.environment.services.builtin.controller.EquinoxController.generateIdentifier;
 import static com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.ALL;
@@ -97,7 +96,7 @@ public class MeasurementsService {
                                                                 GlycemicTrendGroupingDay groupingDay, long from, long to) {
         Pair<Long, Long> normalizedDates = normalizeDates(from, to, period);
         from = convertToStartOfTheDay(normalizedDates.getFirst());
-        to = convertToStartOfTheDay(normalizedDates.getSecond() + TimeUnit.DAYS.toMillis(1));
+        to = convertToStartOfTheDay(normalizedDates.getSecond());
         if (groupingDay == ALL)
             return measurementsRepository.retrieveMeasurements(userId, from, to);
         else

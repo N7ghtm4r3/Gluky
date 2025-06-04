@@ -4,7 +4,7 @@ import com.tecknobit.equinoxbackend.environment.services.builtin.controller.Equi
 import com.tecknobit.equinoxbackend.resourcesutils.ResourcesManager;
 import com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer;
 import com.tecknobit.gluky.services.analyses.dtos.Report;
-import com.tecknobit.gluky.services.analyses.helpers.ReportGenerator;
+import com.tecknobit.gluky.services.analyses.helpers.ReportCreator;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.measurements.services.MeasurementsService;
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
@@ -37,8 +37,8 @@ public class AnalysesService implements ResourcesManager {
         return new GlycemicTrendDataContainer(period, dailyMeasurements);
     }
 
-    public Report generateReport(GlukyUser user, GlycemicTrendPeriod period, GlycemicTrendGroupingDay groupingDay,
-                                 long from, long to) throws IOException {
+    public Report createReport(GlukyUser user, GlycemicTrendPeriod period, GlycemicTrendGroupingDay groupingDay,
+                               long from, long to) throws IOException {
         Pair<Long, Long> normalizedDates = measurementsService.normalizeDates(from, to, period);
         from = normalizedDates.getFirst();
         to = normalizedDates.getSecond();
@@ -47,9 +47,9 @@ public class AnalysesService implements ResourcesManager {
         if (dailyMeasurements.isEmpty())
             throw new IllegalStateException("No measurements data available");
         String reportId = EquinoxController.generateIdentifier();
-        ReportGenerator generator = new ReportGenerator(user, period, normalizedDates.getFirst(),
+        ReportCreator creator = new ReportCreator(user, period, normalizedDates.getFirst(),
                 normalizedDates.getSecond(), dailyMeasurements, reportId);
-        Pair<String, String> reportUrl = generator.generate();
+        Pair<String, String> reportUrl = creator.create();
         return new Report(reportId, reportUrl.getFirst(), reportUrl.getSecond());
     }
 

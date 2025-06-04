@@ -54,11 +54,11 @@ import static com.itextpdf.layout.borders.Border.NO_BORDER;
 import static com.itextpdf.layout.properties.TextAlignment.*;
 import static com.itextpdf.layout.properties.VerticalAlignment.MIDDLE;
 import static com.tecknobit.equinoxbackend.resourcesutils.ResourcesManager.RESOURCES_PATH;
-import static com.tecknobit.gluky.services.analyses.helpers.ReportGenerator.Translator.TranslatorKey.*;
+import static com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Translator.TranslatorKey.*;
 import static com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.UNSET_VALUE;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 
-public class ReportGenerator {
+public class ReportCreator {
 
     private static final DeviceRgb PRIMARY_COLOR = new DeviceRgb(46, 191, 165);
 
@@ -98,7 +98,7 @@ public class ReportGenerator {
 
     private final List<DailyMeasurements> dailyMeasurements;
 
-    private final ResourcesUtils<Class<ReportGenerator>> resourceUtils;
+    private final ResourcesUtils<Class<ReportCreator>> resourceUtils;
 
     private final String reportPath;
 
@@ -114,14 +114,14 @@ public class ReportGenerator {
 
     private PdfFont comicneue;
 
-    public ReportGenerator(GlukyUser user, GlycemicTrendPeriod period, long from, long to,
-                           List<DailyMeasurements> dailyMeasurements, String reportId) throws IOException {
+    public ReportCreator(GlukyUser user, GlycemicTrendPeriod period, long from, long to,
+                         List<DailyMeasurements> dailyMeasurements, String reportId) throws IOException {
         this.user = user;
         this.period = period;
         this.from = from;
         this.to = to;
         this.dailyMeasurements = removeUnfilledMeasurements(dailyMeasurements);
-        resourceUtils = new ResourcesUtils<>(ReportGenerator.class);
+        resourceUtils = new ResourcesUtils<>(ReportCreator.class);
         reportPath = REPORTS_KEY + "/" + reportId + PDF_SUFFIX;
         pdfDocument = new PdfDocument(new PdfWriter(RESOURCES_PATH + reportPath));
         document = new Document(pdfDocument);
@@ -148,7 +148,7 @@ public class ReportGenerator {
         return PdfFontFactory.createFont(fontProgram, PdfEncodings.WINANSI);
     }
 
-    public Pair<String, String> generate() throws IOException {
+    public Pair<String, String> create() throws IOException {
         generateHeader();
         arrangeContent();
         pdfDocument.close();
@@ -504,7 +504,7 @@ public class ReportGenerator {
 
         private static final float ICON_SIZE = 17f;
 
-        private final ResourcesUtils<Class<ReportGenerator>> resourcesUtils;
+        private final ResourcesUtils<Class<ReportCreator>> resourcesUtils;
 
         private final Document document;
 
@@ -514,7 +514,7 @@ public class ReportGenerator {
 
         private final Translator translator;
 
-        private Footer(ResourcesUtils<Class<ReportGenerator>> resourcesUtils, Document document, PdfFont comicneue,
+        private Footer(ResourcesUtils<Class<ReportCreator>> resourcesUtils, Document document, PdfFont comicneue,
                        Translator translator) {
             this.resourcesUtils = resourcesUtils;
             this.document = document;
