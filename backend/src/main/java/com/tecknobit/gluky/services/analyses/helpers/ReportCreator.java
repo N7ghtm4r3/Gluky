@@ -31,6 +31,7 @@ import com.tecknobit.apimanager.apis.ResourcesUtils;
 import com.tecknobit.apimanager.formatters.TimeFormatter;
 import com.tecknobit.equinoxcore.annotations.Returner;
 import com.tecknobit.equinoxcore.annotations.Wrapper;
+import com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Translator.TranslatorKey;
 import com.tecknobit.gluky.services.measurements.entities.DailyMeasurements;
 import com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem;
 import com.tecknobit.gluky.services.measurements.entities.types.Meal;
@@ -58,62 +59,161 @@ import static com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Transl
 import static com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.UNSET_VALUE;
 import static com.tecknobit.glukycore.ConstantsKt.*;
 
+/**
+ * The {@code ReportCreator} utility class is useful to create the reports pdfs with the given measurements. <br>
+ * Some methods annotated as {@link Returner} in this context are intended like {@code @Composable} in {@code Compose Multiplatform},
+ * so they represent a section of the pdfs and not properly a simple method and are defined in the javadocs as "{@code Component}"
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ */
 public class ReportCreator {
 
+    /**
+     * {@code PRIMARY_COLOR} the constant value represents the primary color
+     */
     private static final DeviceRgb PRIMARY_COLOR = new DeviceRgb(46, 191, 165);
 
+    /**
+     * {@code GREEN_COLOR} the constant value represents the custom green color
+     */
     private static final DeviceRgb GREEN_COLOR = new DeviceRgb(76, 175, 80);
 
+    /**
+     * {@code YELLOW_COLOR} the constant value represents the custom yellow color
+     */
     private static final DeviceRgb YELLOW_COLOR = new DeviceRgb(251, 192, 45);
 
+    /**
+     * {@code RED_COLOR} the constant value represents the custom red color
+     */
     private static final DeviceRgb RED_COLOR = new DeviceRgb(229, 57, 53);
 
+    /**
+     * {@code PDF_SUFFIX} the constant value for the pdf suffix
+     */
     private static final String PDF_SUFFIX = ".pdf";
 
+    /**
+     * {@code FREDOKA} the custom freedoka font
+     */
     private static final String FREDOKA = "font/fredoka.ttf";
 
+    /**
+     * {@code COMICNEUE} the custom comicneue font
+     */
     private static final String COMICNEUE = "font/comicneue.ttf";
 
+    /**
+     * {@code LOGO} the logo pathname
+     */
     private static final String LOGO = "logo.png";
 
+    /**
+     * {@code LOGO_SIZE} the default size value applied to hte {@link #LOGO}
+     */
     private static final float LOGO_SIZE = 65f;
 
+    /**
+     * {@code H1_SIZE} the size applied to the <strong>h1</strong> headers type
+     */
     private static final float H1_SIZE = 22f;
 
+    /**
+     * {@code H1_SIZE} the size applied to the <strong>h2</strong> headers type
+     */
     private static final float H2_SIZE = 18f;
 
+    /**
+     * {@code H3_SIZE} the size applied to the <strong>h3</strong> headers type
+     */
     private static final float H3_SIZE = 14f;
 
+    /**
+     * {@code SUBTITLE_SIZE} the size applied to the subtitles text
+     */
     private static final float SUBTITLE_SIZE = 11f;
 
+    /**
+     * {@code NOT_APPLICABLE_TEXT} the constant value used to represent a "Not Applicable" value
+     */
     private static final String NOT_APPLICABLE_TEXT = "N/A";
 
+    /**
+     * {@code user} the user who requested the report creation
+     */
     private final GlukyUser user;
 
+    /**
+     * {@code period} the period used to create the report
+     */
     private final GlycemicTrendPeriod period;
 
+    /**
+     * {@code from} the start date from measurements have been retrieved
+     */
     private final long from;
 
+    /**
+     * {@code to} the end date used to retrieve the measurements
+     */
     private final long to;
 
+    /**
+     * {@code dailyMeasurements} the daily measurements retrieved
+     */
     private final List<DailyMeasurements> dailyMeasurements;
 
+    /**
+     * {@code resourceUtils} utility used to get the file from resources folder
+     */
     private final ResourcesUtils<Class<ReportCreator>> resourceUtils;
 
+    /**
+     * {@code reportPath} the path where save the report
+     */
     private final String reportPath;
 
+    /**
+     * {@code pdfDocument} the pdf document helper
+     */
     private final PdfDocument pdfDocument;
 
+    /**
+     * {@code document} the root element of the {@link #pdfDocument} used to handle the layout contents
+     */
     private final Document document;
 
+    /**
+     * {@code locale} the locale of the {@link #user}
+     */
     private final Locale locale;
 
+    /**
+     * {@code translator} utility class used to make the pdf reports internationalized
+     */
     private final Translator translator;
 
+    /**
+     * {@code fredoka} the container element of the {@link #FREDOKA} font
+     */
     private PdfFont fredoka;
 
+    /**
+     * {@code comicneue} the container element of the {@link #COMICNEUE} font
+     */
     private PdfFont comicneue;
 
+    /**
+     * Constructor to init the creator
+     *
+     * @param user              The user who request the report creation
+     * @param period            The period used to create the report
+     * @param from              The start date from measurements have been retrieved
+     * @param to                The end date used to retrieve the measurements
+     * @param dailyMeasurements The daily measurements retrieved
+     * @param reportId          The identifier of the report
+     * @throws IOException when an error during the report creation occurred
+     */
     public ReportCreator(GlukyUser user, GlycemicTrendPeriod period, long from, long to,
                          List<DailyMeasurements> dailyMeasurements, String reportId) throws IOException {
         this.user = user;
@@ -130,10 +230,20 @@ public class ReportCreator {
         setTheme();
     }
 
+    /**
+     * Filter method used to remove the unfilled measurements from the list
+     *
+     * @param dailyMeasurements The daily measurements list to filer
+     *
+     * @return the list filtered as {@link List} of {@link DailyMeasurements}
+     */
     private List<DailyMeasurements> removeUnfilledMeasurements(List<DailyMeasurements> dailyMeasurements) {
         return dailyMeasurements.stream().filter(DailyMeasurements::isFilled).toList();
     }
 
+    /**
+     * Method used to set the general theme of the pdf
+     */
     private void setTheme() throws IOException {
         fredoka = loadFont(FREDOKA);
         comicneue = loadFont(COMICNEUE);
@@ -142,12 +252,26 @@ public class ReportCreator {
         document.setBottomMargin(65);
     }
 
+    /**
+     * Method used to load a font from a pathname
+     *
+     * @param font The pathname of the font to create
+     *
+     * @return the font loaded as {@link PdfFont}
+     */
     private PdfFont loadFont(String font) throws IOException {
         byte[] fontBytes = resourceUtils.getResourceStream(font).readAllBytes();
         FontProgram fontProgram = FontProgramFactory.createFont(fontBytes);
         return PdfFontFactory.createFont(fontProgram, PdfEncodings.WINANSI);
     }
 
+    /**
+     * Method used to create the pdf
+     *
+     * @return the report name and the report path as {@link Pair} of {@link String}
+     *
+     * @throws IOException when an error during the report creation occurred
+     */
     public Pair<String, String> create() throws IOException {
         generateHeader();
         arrangeContent();
@@ -156,6 +280,11 @@ public class ReportCreator {
         return new Pair<>(generateReportName(), reportPath);
     }
 
+    /**
+     * Method used to generate the name will have the report file
+     *
+     * @return the name of the report file as {@link String}
+     */
     private String generateReportName() {
         TimeFormatter formatter = TimeFormatter.getInstance("dd-MM-yyyy");
         String reportName = translator.getI18NText(REPORT);
@@ -164,6 +293,9 @@ public class ReportCreator {
         return reportName + "_" + from + "_" + to + PDF_SUFFIX;
     }
 
+    /**
+     * Method used to generate the header of the pdf that will be in each page of the final document
+     */
     private void generateHeader() throws IOException {
         Table table = new Table(UnitValue.createPercentArray(new float[]{1, 1}));
         table.setWidth(UnitValue.createPercentValue(100));
@@ -174,6 +306,11 @@ public class ReportCreator {
         periodTitleSection();
     }
 
+    /**
+     * {@code Component} displays the complete name of the {@link #user}
+     *
+     * @return the component as {@link Cell}
+     */
     @Returner
     private Cell userCompleteName() {
         Paragraph completeName = h1(user.getCompleteName())
@@ -183,6 +320,11 @@ public class ReportCreator {
         return cell;
     }
 
+    /**
+     * {@code Component} displays the {@link #LOGO}
+     *
+     * @return the component as {@link Cell}
+     */
     @Returner
     private Cell logo() throws IOException {
         ArrangerCell cell = new ArrangerCell(loadLogo());
@@ -190,6 +332,11 @@ public class ReportCreator {
         return cell;
     }
 
+    /**
+     * Method used to load the logo to display
+     *
+     * @return the logo to display as {@link Image}
+     */
     private Image loadLogo() throws IOException {
         ImageData logoData = ImageDataFactory.create(resourceUtils.getResourceStream(LOGO).readAllBytes());
         Image logo = new Image(logoData);
@@ -200,6 +347,9 @@ public class ReportCreator {
         return logo;
     }
 
+    /**
+     * {@code Component} displays the main title of the period selected to create the report
+     */
     private void periodTitleSection() {
         Paragraph title = h2(translator.getI18NText(getPeriodTitleKey()))
                 .setMultipliedLeading(0)
@@ -208,15 +358,13 @@ public class ReportCreator {
         gapPeriod();
     }
 
-    private void gapPeriod() {
-        TimeFormatter formatter = TimeFormatter.getInstance("dd/MM/yyyy");
-        String from = formatter.formatAsString(this.from);
-        String to = formatter.formatAsString(this.to);
-        Paragraph gap = subtitle(from + " - " + to);
-        document.add(gap);
-    }
-
-    private Translator.TranslatorKey getPeriodTitleKey() {
+    /**
+     * Method used to get the i18n key of the title related to the {@link #period}
+     *
+     * @return the key to use as {@link TranslatorKey}
+     */
+    @Returner
+    private TranslatorKey getPeriodTitleKey() {
         return switch (period) {
             case ONE_WEEK -> WEEKLY_REPORT;
             case ONE_MONTH -> MONTHLY_REPORT;
@@ -225,6 +373,22 @@ public class ReportCreator {
         };
     }
 
+    /**
+     * {@code Component} displays the period selected to create the report
+     */
+    private void gapPeriod() {
+        TimeFormatter formatter = TimeFormatter.getInstance("dd/MM/yyyy");
+        String from = formatter.formatAsString(this.from);
+        String to = formatter.formatAsString(this.to);
+        Paragraph gap = subtitle(from + " - " + to);
+        document.add(gap);
+    }
+
+    /**
+     * Main method used to arrange the content of the pdf in each page. <br>
+     * This method create the table with the details about a {@link DailyMeasurements} and
+     * arrange the related daily notes
+     */
     private void arrangeContent() {
         SimpleDateFormat dayFormatter = new SimpleDateFormat("EEEE dd", locale);
         SimpleDateFormat monthFormatter = new SimpleDateFormat("MMMM yyyy", locale);
@@ -247,6 +411,39 @@ public class ReportCreator {
         }
     }
 
+    /**
+     * {@code Component} displays as indicator the day displayed in the current pdf page
+     *
+     * @param dayFormatter The formatter used to properly format the {@code creationDate}
+     * @param creationDate The creation date of the daily measurements
+     * @return the indicator as {@link Paragraph}
+     */
+    @Returner
+    private Paragraph dayIndicator(SimpleDateFormat dayFormatter, long creationDate) {
+        String day = capitalize(dayFormatter.format(creationDate));
+        return new Paragraph(day)
+                .setFont(comicneue)
+                .setFontSize(14);
+    }
+
+    /**
+     * Method used to capitalize a string which needs to be capital
+     *
+     * @param uncapitalizedString The string to capitalize
+     * @return the string capitalized as {@link String}
+     */
+    private String capitalize(String uncapitalizedString) {
+        String firstChar = String.valueOf(uncapitalizedString.charAt(0));
+        return uncapitalizedString.replaceFirst(firstChar, firstChar.toUpperCase());
+    }
+
+    /**
+     * {@code Component} displays table with the details about a daily measurements
+     *
+     * @param measurements The measurements to display in the table
+     *
+     * @return the table as {@link Table}
+     */
     @Returner
     private Table dailyRecord(DailyMeasurements measurements) {
         Table table = new Table(6);
@@ -257,10 +454,15 @@ public class ReportCreator {
         return table;
     }
 
+    /**
+     * Method used to set the headers of the {@link #dailyRecord(DailyMeasurements)} table
+     *
+     * @param table The table where set the headers
+     */
     private void setHeaders(Table table) {
-        Translator.TranslatorKey[] headers = new Translator.TranslatorKey[]{MEASUREMENT, TIME, PRE_PRANDIAL, INSULIN_UNITS,
+        TranslatorKey[] headers = new TranslatorKey[]{MEASUREMENT, TIME, PRE_PRANDIAL, INSULIN_UNITS,
                 POST_PRANDIAL, CONTENT};
-        for (Translator.TranslatorKey key : headers) {
+        for (TranslatorKey key : headers) {
             Cell headerCell = new Cell();
             headerCell.add(new Paragraph(translator.getI18NText(key)));
             headerCell.setBackgroundColor(PRIMARY_COLOR);
@@ -271,19 +473,12 @@ public class ReportCreator {
         }
     }
 
-    @Returner
-    private Paragraph dayIndicator(SimpleDateFormat dayFormatter, long creationDate) {
-        String day = capitalize(dayFormatter.format(creationDate));
-        return new Paragraph(day)
-                .setFont(comicneue)
-                .setFontSize(14);
-    }
-
-    private String capitalize(String uncapitalizedString) {
-        String firstChar = String.valueOf(uncapitalizedString.charAt(0));
-        return uncapitalizedString.replaceFirst(firstChar, firstChar.toUpperCase());
-    }
-
+    /**
+     * Method used to fill the rows of the {@link #dailyRecord(DailyMeasurements)} table
+     *
+     * @param table The table to fill
+     * @param measurements The measurements to display in the rows and in the table
+     */
     private void fillRow(Table table, DailyMeasurements measurements) {
         for (MeasurementType type : MeasurementType.getEntries()) {
             table.addCell(measurementType(type));
@@ -302,23 +497,46 @@ public class ReportCreator {
         }
     }
 
+    /**
+     * {@code Component} displays the type of the measurement
+     *
+     * @param type The type of the measurement
+     *
+     * @return the measurement type text as {@link Cell}
+     */
     @Returner
     private Cell measurementType(MeasurementType type) {
         return measurementCell(new Paragraph(getMeasurementTypeText(type)));
     }
 
+    /**
+     * Method used to get the translated i18n text for the related {@link MeasurementType}
+     *
+     * @param type The type from obtain the related text
+     *
+     * @return the translated text as {@link String}
+     */
     @Returner
     private String getMeasurementTypeText(MeasurementType type) {
-        return translator.getI18NText(switch (type) {
-            case BREAKFAST -> BREAKFAST;
-            case MORNING_SNACK -> MORNING_SNACK;
-            case LUNCH -> LUNCH;
-            case AFTERNOON_SNACK -> AFTERNOON_SNACK;
-            case DINNER -> DINNER;
-            case BASAL_INSULIN -> BASAL_INSULIN;
-        });
+        return translator.getI18NText(
+                switch (type) {
+                    case BREAKFAST -> BREAKFAST;
+                    case MORNING_SNACK -> MORNING_SNACK;
+                    case LUNCH -> LUNCH;
+                    case AFTERNOON_SNACK -> AFTERNOON_SNACK;
+                    case DINNER -> DINNER;
+                    case BASAL_INSULIN -> BASAL_INSULIN;
+                }
+        );
     }
 
+    /**
+     * {@code Component} displays the time when the measurement has been annotated
+     *
+     * @param annotationDate The date when the measurement has been annotated
+     *
+     * @return the time as {@link Cell}
+     */
     @Returner
     private Cell timeCell(long annotationDate) {
         String cellText = "";
@@ -329,23 +547,51 @@ public class ReportCreator {
         return measurementCell(new Paragraph(cellText));
     }
 
+    /**
+     * {@code Component} displays the preprandial glycemia value
+     *
+     * @param prePrandialGlycemia The preprandial glycemia value
+     *
+     * @return the preprandial glycemia as {@link Cell}
+     */
     @Wrapper
     @Returner
     private Cell prePrandial(int prePrandialGlycemia) {
         return glycemia(prePrandialGlycemia);
     }
 
+    /**
+     * {@code Component} displays the administered insulin units
+     *
+     * @param insulinUnits The administered insulin units
+     *
+     * @return the administered insulin units as {@link Cell}
+     */
     @Returner
     private Cell insulinUnits(int insulinUnits) {
         return intValueCell(insulinUnits);
     }
 
+    /**
+     * {@code Component} displays the postprandial glycemia value
+     *
+     * @param postPrandialGlycemia The postprandial glycemia value
+     *
+     * @return the postprandial glycemia as {@link Cell}
+     */
     @Wrapper
     @Returner
     private Cell postPrandial(int postPrandialGlycemia) {
         return glycemia(postPrandialGlycemia);
     }
 
+    /**
+     * {@code Component} displays a glycemia value
+     *
+     * @param glycemia The glycemia value
+     *
+     * @return a glycemia value as {@link Cell}
+     */
     @Returner
     private Cell glycemia(int glycemia) {
         Color fontColor = ColorConstants.BLACK;
@@ -357,6 +603,13 @@ public class ReportCreator {
                 .setFontColor(fontColor);
     }
 
+    /**
+     * Method used to get the color to apply based on the current {@code glycemia} value
+     *
+     * @param glycemia The value of the glycemia
+     *
+     * @return the color to apply to the background as {@link DeviceRgb}
+     */
     @Returner
     private DeviceRgb glycemiaLevelBackground(int glycemia) {
         if (glycemia < 0)
@@ -371,6 +624,13 @@ public class ReportCreator {
             return RED_COLOR;
     }
 
+    /**
+     * {@code Component} displays a integer value
+     *
+     * @param value The integer value to display
+     *
+     * @return integer value as {@link Cell}
+     */
     @Returner
     private Cell intValueCell(int value) {
         String valueStringed = "";
@@ -379,22 +639,53 @@ public class ReportCreator {
         return measurementCell(new Paragraph(valueStringed));
     }
 
+    /**
+     * {@code Component} displays the content of the meal
+     *
+     * @param content The content of the meal to display
+     *
+     * @return the content of the meal as {@link Cell}
+     */
     @Returner
     private Cell mealContent(String content) {
+        com.itextpdf.layout.element.List list = formatMealContent(content);
+        return measurementCell(list).setTextAlignment(LEFT);
+    }
+
+    /**
+     * Method used to format a raw content into displayable component
+     *
+     * @param content the raw content to format
+     * @return the formatted raw content as {@link com.itextpdf.layout.element.List}
+     */
+    @Returner
+    private com.itextpdf.layout.element.List formatMealContent(String content) {
         JSONObject jContent = new JSONObject(content);
         com.itextpdf.layout.element.List list = new com.itextpdf.layout.element.List();
         for (String mealKey : jContent.keySet()) {
             String mealQuantity = "(" + jContent.get(mealKey) + ")";
             list.add(new ListItem(mealKey + " " + mealQuantity));
         }
-        return measurementCell(list).setTextAlignment(LEFT);
+        return list;
     }
 
+    /**
+     * {@code Component} displays a {@link #NOT_APPLICABLE_TEXT}
+     *
+     * @return a {@link #NOT_APPLICABLE_TEXT} as {@link Cell}
+     */
     @Returner
     private Cell notApplicabile() {
         return measurementCell(new Paragraph(NOT_APPLICABLE_TEXT));
     }
 
+    /**
+     * {@code Component} arrange the content in a custom cell inside the {@link #dailyRecord(DailyMeasurements)} table
+     *
+     * @param content The content to display
+     *
+     * @return the arranged cell as {@link Cell}
+     */
     @Returner
     private Cell measurementCell(IElement content) {
         return new ArrangerCell(content, new SolidBorder(0.5f))
@@ -403,6 +694,11 @@ public class ReportCreator {
                 .setVerticalAlignment(MIDDLE);
     }
 
+    /**
+     * {@code Component} displays the daily notes related to a {@link DailyMeasurements}
+     *
+     * @param dailyNotes The content of the daily notes
+     */
     @Returner
     private void attachDailyNotes(String dailyNotes) {
         Paragraph dailyNotesTitle = new Paragraph(translator.getI18NText(DAILY_NOTES))
@@ -417,21 +713,50 @@ public class ReportCreator {
         document.add(dailyNotesText);
     }
 
+    /**
+     * {@code Component} displays a text formatted with the {@link #H1_SIZE}
+     *
+     * @param text The text of the header
+     *
+     * @return the <strong>h1</strong> header as {@link Paragraph}
+     */
     @Returner
     private Paragraph h1(String text) {
         return header(text, H1_SIZE);
     }
 
+    /**
+     * {@code Component} displays a text formatted with the {@link #H2_SIZE}
+     *
+     * @param text The text of the header
+     *
+     * @return the <strong>h2</strong> header as {@link Paragraph}
+     */
     @Returner
     private Paragraph h2(String text) {
         return header(text, H2_SIZE);
     }
 
+    /**
+     * {@code Component} displays a text formatted with the {@link #H3_SIZE}
+     *
+     * @param text The text of the header
+     *
+     * @return the <strong>h3/strong> header as {@link Paragraph}
+     */
     @Returner
     private Paragraph h3(String text) {
         return header(text, H3_SIZE);
     }
 
+    /**
+     * {@code Component} displays a text formatted with a header size value
+     *
+     * @param text The text of the header
+     * @param size The size to apply to the header
+     *
+     * @return the header as {@link Paragraph}
+     */
     @Returner
     private Paragraph header(String text, float size) {
         return new Paragraph(text)
@@ -439,6 +764,13 @@ public class ReportCreator {
                 .setFontSize(size);
     }
 
+    /**
+     * {@code Component} displays a text formatted with the {@link #SUBTITLE_SIZE}
+     *
+     * @param text The text of the subtitle
+     *
+     * @return the header as {@link Paragraph}
+     */
     @Returner
     private Paragraph subtitle(String text) {
         return new Paragraph(text)
@@ -447,14 +779,31 @@ public class ReportCreator {
                 .setFontColor(ColorConstants.GRAY);
     }
 
+    /**
+     * The {@code Header} utility class is used to arrange the header to apply to the pdf pages
+     *
+     * @author N7ghtm4r3 - Tecknobit
+     *
+     * @see AbstractPdfDocumentEventHandler
+     */
     private static class Header extends AbstractPdfDocumentEventHandler {
 
+        /**
+         * {@code document} the root element of the {@link #pdfDocument} used to handle the layout contents
+         */
         private final Document document;
 
+        /**
+         * Constructor to init the header
+         * @param document The root element of the {@link #pdfDocument} used to handle the layout contents
+         */
         private Header(Document document) {
             this.document = document;
         }
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         protected void onAcceptedEvent(AbstractPdfDocumentEvent event) {
             PdfPage page = ((PdfDocumentEvent) event).getPage();
