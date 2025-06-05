@@ -40,10 +40,10 @@ d = the number of the day
 
 Example: 1 March 2025
 
-|     id      | annotation_date | glycemia | insulin_units | post_prandial_glycemia |         raw_content         |   type    | measurement_id |                                                                    
-|:-----------:|:---------------:|:--------:|:-------------:|------------------------|:---------------------------:|:---------:|:--------------:|
-| mealType_dl |    timestamp    |   int    |      int      | int                    |            text             |   enum    |      text      | 
-|    m0301    |  1740787200000  |   110    |       3       | 125                    | {"pane":80,"marmellata":20} | BREAKFAST |     m0301      |
+|      id      | annotation_date | glycemia | insulin_units | post_prandial_glycemia |         raw_content         |   type    | measurement_id |                                                                    
+|:------------:|:---------------:|:--------:|:-------------:|------------------------|:---------------------------:|:---------:|:--------------:|
+| mealType_dl  |    timestamp    |   int    |      int      | int                    |            text             |   enum    |      text      | 
+| breakfast_1a |  1740787200000  |   110    |       3       | 125                    | {"pane":80,"marmellata":20} | BREAKFAST |     m0301      |
 
 ### basal_insulin_records
 
@@ -57,4 +57,4 @@ Example: 1 March 2025
 |     id      | annotation_date | glycemia | insulin_units | measurement_id |                                                                    
 |:-----------:|:---------------:|:--------:|:-------------:|:--------------:|
 | mealType_dl |    timestamp    |   int    |      int      |      text      | 
-|    m0301    |  1740787200000  |   110    |       3       |     m0301      | 
+|   b_m0301   |  1740787200000  |   110    |       3       |     m0301      | 
