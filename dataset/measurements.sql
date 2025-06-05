@@ -2,7 +2,7 @@ INSERT INTO measurements (
   id, creation_date, daily_notes, afternoon_snack, basal_insulin,
   breakfast, dinner, lunch, morning_snack, owner
 ) VALUES
--- 🔹 Marzo 2025
+-- 🔹 March 2025
 ('m0301', 1740787200000, '', 'afternoon_1a', 'b_m0301', 'breakfast_1a', 'dinner_1a', 'lunch_1a', 'morning_1a', '4794a3c834214306aee8b6a5816e597a'),
 ('m0302', 1740873600000, '', 'afternoon_2a', 'b_m0302', 'breakfast_2a', 'dinner_2a', 'lunch_2a', 'morning_2a', '4794a3c834214306aee8b6a5816e597a'),
 ('m0303', 1740960000000, '', 'afternoon_3a', 'b_m0303', 'breakfast_3a', 'dinner_3a', 'lunch_3a', 'morning_3a', '4794a3c834214306aee8b6a5816e597a'),
@@ -14,7 +14,7 @@ INSERT INTO measurements (
 ('m0309', 1741478400000, '', 'afternoon_9a', 'b_m0309', 'breakfast_9a', 'dinner_9a', 'lunch_9a', 'morning_9a', '4794a3c834214306aee8b6a5816e597a'),
 ('m0310', 1741564800000, '', 'afternoon_10a', 'b_m0310', 'breakfast_10a', 'dinner_10a', 'lunch_10a', 'morning_10a', '4794a3c834214306aee8b6a5816e597a'),
 
--- 🔹 Aprile 2025
+-- 🔹 April 2025
 ('m0401', 1743465600000, '', 'afternoon_1b', 'b_m0401', 'breakfast_1b', 'dinner_1b', 'lunch_1b', 'morning_1b', '4794a3c834214306aee8b6a5816e597a'),
 ('m0402', 1743552000000, '', 'afternoon_2b', 'b_m0402', 'breakfast_2b', 'dinner_2b', 'lunch_2b', 'morning_2b', '4794a3c834214306aee8b6a5816e597a'),
 ('m0403', 1743638400000, '', 'afternoon_3b', 'b_m0403', 'breakfast_3b', 'dinner_3b', 'lunch_3b', 'morning_3b', '4794a3c834214306aee8b6a5816e597a'),
@@ -26,7 +26,7 @@ INSERT INTO measurements (
 ('m0409', 1744156800000, '', 'afternoon_9b', 'b_m0409', 'breakfast_9b', 'dinner_9b', 'lunch_9b', 'morning_9b', '4794a3c834214306aee8b6a5816e597a'),
 ('m0410', 1744243200000, '', 'afternoon_10b', 'b_m0410', 'breakfast_10b', 'dinner_10b', 'lunch_10b', 'morning_10b', '4794a3c834214306aee8b6a5816e597a'),
 
--- 🔹 Maggio 2025
+-- 🔹 May 2025
 ('m0501', 1746057600000, '', 'afternoon_1c', 'b_m0501', 'breakfast_1c', 'dinner_1c', 'lunch_1c', 'morning_1c', '4794a3c834214306aee8b6a5816e597a'),
 ('m0502', 1746144000000, '', 'afternoon_2c', 'b_m0502', 'breakfast_2c', 'dinner_2c', 'lunch_2c', 'morning_2c', '4794a3c834214306aee8b6a5816e597a'),
 ('m0503', 1746230400000, '', 'afternoon_3c', 'b_m0503', 'breakfast_3c', 'dinner_3c', 'lunch_3c', 'morning_3c', '4794a3c834214306aee8b6a5816e597a'),

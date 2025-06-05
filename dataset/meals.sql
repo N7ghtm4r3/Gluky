@@ -1,5 +1,5 @@
 INSERT INTO meals (id, annotation_date, glycemia, insulin_units, post_prandial_glycemia, raw_content, type, measurement_id) VALUES
--- Marzo 2025 (suffix 'a')
+        -- March 2025 (suffix 'a')
         ('breakfast_1a', 1740787200000, 110, 3, 125, '{"pane":80,"marmellata":20}', 'BREAKFAST', 'm0301'),
         ('lunch_1a',     1740787200000, 115, 4, 130, '{"pasta":100,"sugo":50}',      'LUNCH',     'm0301'),
         ('dinner_1a',    1740787200000, 105, 3, 120, '{"pollo":150,"insalata":30}',  'DINNER',    'm0301'),
@@ -60,7 +60,7 @@ INSERT INTO meals (id, annotation_date, glycemia, insulin_units, post_prandial_g
         ('morning_10a',  1741564800000, 101, 2, 116, '{"yogurt":125}',              'MORNING_SNACK',     'm0310'),
         ('afternoon_10a',1741564800000, 109, 3, 124, '{"frutta":150}',              'AFTERNOON_SNACK',     'm0310'),
 
-        -- Aprile 2025 (suffix 'b')
+        -- April 2025 (suffix 'b')
         ('breakfast_1b', 1743465600000, 110, 3, 125, '{"pane":80,"marmellata":20}', 'BREAKFAST', 'm0401'),
         ('lunch_1b',     1743465600000, 115, 4, 130, '{"pasta":100,"sugo":50}',      'LUNCH',     'm0401'),
         ('dinner_1b',    1743465600000, 105, 3, 120, '{"pollo":150,"insalata":30}',  'DINNER',    'm0401'),
@@ -121,7 +121,7 @@ INSERT INTO meals (id, annotation_date, glycemia, insulin_units, post_prandial_g
         ('morning_10b',  1744243200000, 101, 2, 116, '{"yogurt":125}',              'MORNING_SNACK',     'm0410'),
         ('afternoon_10b',1744243200000, 109, 3, 124, '{"frutta":150}',              'AFTERNOON_SNACK',     'm0410'),
 
-        -- Maggio 2025 (suffix 'c')
+        -- May 2025 (suffix 'c')
         ('breakfast_1c', 1746057600000, 110, 3, 125, '{"pane":80,"marmellata":20}', 'BREAKFAST', 'm0501'),
         ('lunch_1c',     1746057600000, 115, 4, 130, '{"pasta":100,"sugo":50}',      'LUNCH',     'm0501'),
         ('dinner_1c',    1746057600000, 105, 3, 120, '{"pollo":150,"insalata":30}',  'DINNER',    'm0501'),

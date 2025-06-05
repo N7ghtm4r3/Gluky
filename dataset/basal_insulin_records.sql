@@ -1,5 +1,5 @@
 INSERT INTO basal_insulin_records (id, glycemia, annotation_date, insulin_units, measurement_id) VALUES
--- Marzo
+-- March
 ('b_m0301', 110, 1740787200000, 10, 'm0301'),
 ('b_m0302', 105, 1740873600000, 11, 'm0302'),
 ('b_m0303', 115, 1740960000000, 9, 'm0303'),
@@ -11,7 +11,7 @@ INSERT INTO basal_insulin_records (id, glycemia, annotation_date, insulin_units,
 ('b_m0309', 106, 1741478400000, 10, 'm0309'),
 ('b_m0310', 101, 1741564800000, 9, 'm0310'),
 
--- Aprile
+-- April
 ('b_m0401', 108, 1743465600000, 10, 'm0401'),
 ('b_m0402', 104, 1743552000000, 11, 'm0402'),
 ('b_m0403', 113, 1743638400000, 9, 'm0403'),
@@ -23,7 +23,7 @@ INSERT INTO basal_insulin_records (id, glycemia, annotation_date, insulin_units,
 ('b_m0409', 103, 1744156800000, 10, 'm0409'),
 ('b_m0410', 99, 1744243200000, 9, 'm0410'),
 
--- Maggio
+-- May
 ('b_m0501', 107, 1746057600000, 10, 'm0501'),
 ('b_m0502', 105, 1746144000000, 11, 'm0502'),
 ('b_m0503', 111, 1746230400000, 9, 'm0503'),
