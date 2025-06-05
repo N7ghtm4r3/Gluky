@@ -33,6 +33,11 @@ Example: 1 March 2025
 
 ### meals
 
+```bash
+#(such 1, 2, etc)
+d = the number of the day
+```
+
 Example: 1 March 2025
 
 |     id      | annotation_date | glycemia | insulin_units | post_prandial_glycemia |         raw_content         |   type    | measurement_id |                                                                    
@@ -41,6 +46,11 @@ Example: 1 March 2025
 |    m0301    |  1740787200000  |   110    |       3       | 125                    | {"pane":80,"marmellata":20} | BREAKFAST |     m0301      |
 
 ### basal_insulin_records
+
+```bash
+#(such 1, 2, etc)
+d = the number of the day
+```
 
 Example: 1 March 2025
 
