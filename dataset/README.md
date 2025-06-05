@@ -17,7 +17,34 @@ are `March`, `April` and `May`
 
 ## Table naming convention
 
+```bash
+#(a for march, b for april and c for may)
+l = convetion letter 
+```
+
 ### measurements
 
-| id | creation_date | daily_notes | afternoon_snack | basal_insulin | breakfast | dinner | lunch | morning_snack | owner |                                                                   
-|----|---------------|-------------|-----------------|---------------|-----------|--------|-------|---------------|-------|
+Example: 1 March 2025
+
+|  id   | creation_date | daily_notes | afternoon_snack | basal_insulin |  breakfast   |  dinner   |  lunch   | morning_snack |              owner               |                                                                   
+|:-----:|:-------------:|:-----------:|:---------------:|:-------------:|:------------:|:---------:|:--------:|:-------------:|:--------------------------------:|
+| mMMdd |   timestamp   |             |   afternoon_l   |    b_mMMdd    | breakfast_l  | dinner_l  | lunch_l  |   morning_l   |             owner_id             |
+| m0301 | 1740787200000 |             |  afternoon_1a   |    b_m0301    | breakfast_1a | dinner_1a | lunch_1a |  morning_1a   | 4794a3c834214306aee8b6a5816e597a |
+
+### meals
+
+Example: 1 March 2025
+
+|     id      | annotation_date | glycemia | insulin_units | post_prandial_glycemia |         raw_content         |   type    | measurement_id |                                                                    
+|:-----------:|:---------------:|:--------:|:-------------:|------------------------|:---------------------------:|:---------:|:--------------:|
+| mealType_dl |    timestamp    |   int    |      int      | int                    |            text             |   enum    |      text      | 
+|    m0301    |  1740787200000  |   110    |       3       | 125                    | {"pane":80,"marmellata":20} | BREAKFAST |     m0301      |
+
+### basal_insulin_records
+
+Example: 1 March 2025
+
+|     id      | annotation_date | glycemia | insulin_units | measurement_id |                                                                    
+|:-----------:|:---------------:|:--------:|:-------------:|:--------------:|
+| mealType_dl |    timestamp    |   int    |      int      |      text      | 
+|    m0301    |  1740787200000  |   110    |       3       |     m0301      | 
