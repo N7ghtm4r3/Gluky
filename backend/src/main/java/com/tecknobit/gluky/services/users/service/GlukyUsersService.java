@@ -15,4 +15,5 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class GlukyUsersService extends EquinoxUsersService<GlukyUser, GlukyUsersRepository> {
+
 }
