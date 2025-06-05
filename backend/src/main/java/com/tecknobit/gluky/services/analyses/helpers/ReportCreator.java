@@ -837,32 +837,82 @@ public class ReportCreator {
 
     }
 
+    /**
+     * The {@code Footer} utility class is used to arrange the footer to apply to the pdf pages
+     *
+     * @author N7ghtm4r3 - Tecknobit
+     * @see AbstractPdfDocumentEventHandler
+     */
     private static class Footer extends AbstractPdfDocumentEventHandler {
 
+        /**
+         * {@code PLAYSTORE_ICON} the pathname for the Play Store's icon
+         */
         private static final String PLAYSTORE_ICON = "playstore.svg";
 
+        /**
+         * {@code PLAYSTORE_URL} the url of the Play Store
+         */
         private static final String PLAYSTORE_URL = "https://play.google.com/store/apps/details?id=com.tecknobit.gluky";
 
+        /**
+         * {@code APPSTORE_ICON} the pathname for the App Store's icon
+         */
         private static final String APPSTORE_ICON = "appstore.svg";
 
+        /**
+         * {@code APPSTORE_URL} the url of the App Store
+         */
         private static final String APPSTORE_URL = "https://apps.apple.com/it/app/gluky"; // TODO: 30/05/2025 TO SET
 
+        /**
+         * {@code GITHUB_ICON} the pathname for the GitHub's icon
+         */
         private static final String GITHUB_ICON = "github.svg";
 
+        /**
+         * {@code GITHUB_URL} the url of the GitHub repository
+         */
         private static final String GITHUB_URL = "https://github.com/N7ghtm4r3/Gluky-Clients";
 
+        /**
+         * {@code ICON_SIZE} the constant size for the icons
+         */
         private static final float ICON_SIZE = 17f;
 
+        /**
+         * {@code resourceUtils} utility used to get the file from resources folder
+         */
         private final ResourcesUtils<Class<ReportCreator>> resourcesUtils;
 
+        /**
+         * {@code document} the root element of the {@link #pdfDocument} used to handle the layout contents
+         */
         private final Document document;
 
+        /**
+         * {@code comicneue} the container element of the {@link #COMICNEUE} font
+         */
         private final PdfFont comicneue;
 
+        /**
+         * {@code currentPageNumber} the number of the current page where the footer is placed
+         */
         private int currentPageNumber;
 
+        /**
+         * {@code translator} utility class used to make the pdf reports internationalized
+         */
         private final Translator translator;
 
+        /**
+         * Constructor to init the footer
+         *
+         * @param resourcesUtils The utility used to get the file from resources folder
+         * @param document       The root element of the {@link #pdfDocument} used to handle the layout contents
+         * @param comicneue      The container element of the {@link #COMICNEUE} font
+         * @param translator     The utility class used to make the pdf reports internationalized
+         */
         private Footer(ResourcesUtils<Class<ReportCreator>> resourcesUtils, Document document, PdfFont comicneue,
                        Translator translator) {
             this.resourcesUtils = resourcesUtils;
@@ -871,6 +921,9 @@ public class ReportCreator {
             this.translator = translator;
         }
 
+        /**
+         * {@inheritDoc}
+         */
         @Override
         protected void onAcceptedEvent(AbstractPdfDocumentEvent event) {
             PdfDocument pdfDocument = event.getDocument();
@@ -887,6 +940,14 @@ public class ReportCreator {
             }
         }
 
+        /**
+         * Method used to create the background banner element
+         *
+         * @param pdfCanvas The canvas of the pdf used to create the banner
+         * @param page The page of the pdf
+         *
+         * @return the background banner element as {@link Rectangle}
+         */
         private Rectangle createBackgroundBanner(PdfCanvas pdfCanvas, PdfPage page) {
             Rectangle backgroundBanner = createFooterBanner(page.getPageSize());
             pdfCanvas.setFillColor(PRIMARY_COLOR)
@@ -896,11 +957,25 @@ public class ReportCreator {
             return backgroundBanner;
         }
 
+        /**
+         * Method used to create the footer banner container
+         *
+         * @param pageSize The root element used to place the footer banner
+         *
+         * @return the footer banner container as {@link Rectangle}
+         */
         @Returner
         private Rectangle createFooterBanner(Rectangle pageSize) {
             return new Rectangle(0, pageSize.getBottom(), pageSize.getWidth(), 65);
         }
 
+        /**
+         * Method used to add the content top of the footer banner
+         *
+         * @param pdfDocument The pdf document
+         * @param page The page of the pdf
+         * @param bannerContainer The container of the banner
+         */
         private void addBannerContent(PdfDocument pdfDocument, PdfPage page, Rectangle bannerContainer) throws IOException {
             Canvas canvas = new Canvas(page, getBannerRootArea(bannerContainer));
             Table table = new Table(UnitValue.createPercentArray(new float[]{0.3f, 0.3f, 0.3f, 1.5f, 1.5f}));
@@ -914,6 +989,13 @@ public class ReportCreator {
             canvas.close();
         }
 
+        /**
+         * Method used to compute the root area of the banner container
+         *
+         * @param bannerContainer The banner container
+         *
+         * @return the root area of the banner container as {@link Rectangle}
+         */
         @Returner
         private Rectangle getBannerRootArea(Rectangle bannerContainer) {
             float bannerHeight = bannerContainer.getHeight();
@@ -921,26 +1003,67 @@ public class ReportCreator {
             return new Rectangle(document.getLeftMargin(), middleY, bannerContainer.getWidth(), bannerHeight);
         }
 
+        /**
+         * {@code Component} displays the {@link #PLAYSTORE_ICON}
+         *
+         * @param pdfDocument The pdf document
+         *
+         * @return the {@link #PLAYSTORE_ICON} as {@link Cell}
+         */
         @Wrapper
+        @Returner
         private Cell playStoreIcon(PdfDocument pdfDocument) throws IOException {
             return iconCell(pdfDocument, PLAYSTORE_ICON, PLAYSTORE_URL);
         }
 
+        /**
+         * {@code Component} displays the {@link #APPSTORE_ICON}
+         *
+         * @param pdfDocument The pdf document
+         *
+         * @return the {@link #APPSTORE_ICON} as {@link Cell}
+         */
         @Wrapper
+        @Returner
         private Cell appStoreIcon(PdfDocument pdfDocument) throws IOException {
             return iconCell(pdfDocument, APPSTORE_ICON, APPSTORE_URL);
         }
 
+        /**
+         * {@code Component} displays the {@link #GITHUB_ICON}
+         *
+         * @param pdfDocument The pdf document
+         *
+         * @return the {@link #GITHUB_ICON} as {@link Cell}
+         */
         @Wrapper
+        @Returner
         private Cell githubIcon(PdfDocument pdfDocument) throws IOException {
             return iconCell(pdfDocument, GITHUB_ICON, GITHUB_URL);
         }
 
+        /**
+         * {@code Component} displays a clickable icon
+         *
+         * @param pdfDocument The pdf document
+         * @param icon The icon pathname
+         * @param url The url to open on icon click
+         *
+         * @return the clickable icon as {@link Cell}
+         */
         @Returner
         private Cell iconCell(PdfDocument pdfDocument, String icon, String url) throws IOException {
             return new ArrangerCell(iconData(pdfDocument, icon, url));
         }
 
+        /**
+         * Method used to load the icon data
+         * @param pdfDocument The pdf document
+         * @param icon The icon pathname
+         * @param url The url to open on icon click
+         *
+         * @return the icon data as {@link Image}
+         */
         private Image iconData(PdfDocument pdfDocument, String icon, String url) throws IOException {
             InputStream svgInput = resourcesUtils.getResourceStream(icon);
             Image imageIcon = SvgConverter.convertToImage(svgInput, pdfDocument);
@@ -950,6 +1073,12 @@ public class ReportCreator {
             return imageIcon;
         }
 
+        /**
+         * {@code Component} displays the current page count
+         *
+         * @return the current page count as {@link Cell}
+         */
+        @Returner
         private Cell pageCount() {
             Paragraph pageCount = new Paragraph(translator.getI18NText(PAGE) + " " + currentPageNumber)
                     .setFont(comicneue)
@@ -957,6 +1086,12 @@ public class ReportCreator {
             return new ArrangerCell(pageCount).setTextAlignment(CENTER);
         }
 
+        /**
+         * {@code Component} displays the {@code generated by} text
+         *
+         * @return the {@code generated by} text as {@link Cell}
+         */
+        @Returner
         private Cell generatedWithGluky() {
             Paragraph pageCount = new Paragraph(translator.getI18NText(GENERATED_WITH_GLUKY))
                     .setFont(comicneue)
@@ -966,17 +1101,41 @@ public class ReportCreator {
 
     }
 
+    /**
+     * The {@code ArrangerCell} custom cell used to arrange the content following the same rules such theming, layout and
+     * styling for all the document
+     *
+     * @author N7ghtm4r3 - Tecknobit
+     *
+     * @see Cell
+     */
     private static class ArrangerCell extends Cell {
 
+        /**
+         * Constructor to init the cell
+         *
+         * @param content The content of the cell
+         */
         public ArrangerCell(IElement content) {
             this(content, NO_BORDER);
         }
 
+        /**
+         * Constructor to init the cell
+         *
+         * @param content The content of the cell
+         * @param border The border style to apply to the cell
+         */
         public ArrangerCell(IElement content, Border border) {
             setBorder(border);
             arrange(content);
         }
 
+        /**
+         * Method used to arrange the content invoking the correct method based on the type of the content to display
+         *
+         * @param content The content to display in the cell
+         */
         private void arrange(IElement content) {
             if (content instanceof Image)
                 add((Image) content);
@@ -986,60 +1145,151 @@ public class ReportCreator {
 
     }
 
+    /**
+     * The {@code Translator} utility class used to internationalize the report based on the locale of the user who
+     * request the report creation
+     *
+     * @author N7ghtm4r3 - Tecknobit
+     */
     static class Translator {
 
+        /**
+         * The {@code TranslatorKey} represents an available international resource to use in the report
+         *
+         * @param keyValue The value of the key
+         *
+         * @author N7ghtm4r3 - Tecknobit
+         */
         record TranslatorKey(String keyValue) {
 
+            /**
+             * {@code WEEKLY_REPORT} constant value for the {@code weekly_report} resource
+             */
             static final TranslatorKey WEEKLY_REPORT = new TranslatorKey("weekly_report");
 
+            /**
+             * {@code MONTHLY_REPORT} constant value for the {@code monthly_report} resource
+             */
             static final TranslatorKey MONTHLY_REPORT = new TranslatorKey("monthly_report");
 
+            /**
+             * {@code THREE_MONTHS_REPORT} constant value for the {@code three_months_report} resource
+             */
             static final TranslatorKey THREE_MONTHS_REPORT = new TranslatorKey("three_months_report");
 
+            /**
+             * {@code FOUR_MONTHS_REPORT} constant value for the {@code four_months_report} resource
+             */
             static final TranslatorKey FOUR_MONTHS_REPORT = new TranslatorKey("four_months_report");
 
+            /**
+             * {@code PAGE} constant value for the {@code page} resource
+             */
             static final TranslatorKey PAGE = new TranslatorKey("page");
 
+            /**
+             * {@code GENERATED_WITH_GLUKY} constant value for the {@code generated_with_gluky} resource
+             */
             static final TranslatorKey GENERATED_WITH_GLUKY = new TranslatorKey("generated_with_gluky");
 
+            /**
+             * {@code MEASUREMENT} constant value for the {@code measurement} resource
+             */
             static final TranslatorKey MEASUREMENT = new TranslatorKey("measurement");
 
+            /**
+             * {@code TIME} constant value for the {@code time} resource
+             */
             static final TranslatorKey TIME = new TranslatorKey("time");
 
+            /**
+             * {@code PRE_PRANDIAL} constant value for the {@code pre-prandial} resource
+             */
             static final TranslatorKey PRE_PRANDIAL = new TranslatorKey("pre-prandial");
 
+            /**
+             * {@code POST_PRANDIAL} constant value for the {@code post-prandial} resource
+             */
             static final TranslatorKey POST_PRANDIAL = new TranslatorKey("post-prandial");
 
+            /**
+             * {@code INSULIN_UNITS} constant value for the {@code insulin_units} resource
+             */
             static final TranslatorKey INSULIN_UNITS = new TranslatorKey("insulin_units");
 
+            /**
+             * {@code CONTENT} constant value for the {@code content} resource
+             */
             static final TranslatorKey CONTENT = new TranslatorKey("content");
 
+            /**
+             * {@code BREAKFAST} constant value for the {@code breakfast} resource
+             */
             static final TranslatorKey BREAKFAST = new TranslatorKey("breakfast");
 
+            /**
+             * {@code MORNING_SNACK} constant value for the {@code morning_snack} resource
+             */
             static final TranslatorKey MORNING_SNACK = new TranslatorKey("morning_snack");
 
+            /**
+             * {@code LUNCH} constant value for the {@code lunch} resource
+             */
             static final TranslatorKey LUNCH = new TranslatorKey("lunch");
 
+            /**
+             * {@code AFTERNOON_SNACK} constant value for the {@code afternoon_snack} resource
+             */
             static final TranslatorKey AFTERNOON_SNACK = new TranslatorKey("afternoon_snack");
 
+            /**
+             * {@code DINNER} constant value for the {@code dinner} resource
+             */
             static final TranslatorKey DINNER = new TranslatorKey("dinner");
 
+            /**
+             * {@code BASAL_INSULIN} constant value for the {@code basal_insulin} resource
+             */
             static final TranslatorKey BASAL_INSULIN = new TranslatorKey("basal_insulin");
 
+            /**
+             * {@code DAILY_NOTES} constant value for the {@code daily_notes} resource
+             */
             static final TranslatorKey DAILY_NOTES = new TranslatorKey("daily_notes");
 
+            /**
+             * {@code REPORT} constant value for the {@code report} resource
+             */
             static final TranslatorKey REPORT = new TranslatorKey("report");
 
         }
 
+        /**
+         * {@code REPORT_MESSAGES} the pathname where the resources are located
+         */
         private static final String REPORT_MESSAGES = "lang/report_messages";
 
+        /**
+         * {@code resources} the bundles manager used to retrieve the resources messages
+         */
         private final ResourceBundle resources;
 
+        /**
+         * Constructor to init the translator
+         *
+         * @param locale The locale of the user who request the report creation
+         */
         public Translator(Locale locale) {
             resources = ResourceBundle.getBundle(REPORT_MESSAGES, locale);
         }
 
+        /**
+         * Method used to retrieve the i18n resource
+         *
+         * @param key The key of the resource to retrieve
+         *
+         * @return the i18n resource as {@link String}
+         */
         public String getI18NText(TranslatorKey key) {
             return resources.getString(key.keyValue());
         }
