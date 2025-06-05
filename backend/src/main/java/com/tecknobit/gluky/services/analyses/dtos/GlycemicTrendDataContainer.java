@@ -562,6 +562,12 @@ public class GlycemicTrendDataContainer {
             return organize(items, t -> getWeekOfMonth(t.getAnnotationDate()));
         }
 
+        /**
+         * Method used to retrive the number of the week
+         *
+         * @param annotationDate The date when the item has been annotated
+         * @return the number of the week as {@code int}
+         */
         private int getWeekOfMonth(long annotationDate) {
             Calendar calendar = getInstance();
             calendar.setTime(new java.sql.Date(annotationDate));
@@ -583,6 +589,12 @@ public class GlycemicTrendDataContainer {
             return organize(items, t -> getMonth(t.getAnnotationDate()));
         }
 
+        /**
+         * Method used to retrive the number of the month
+         *
+         * @param annotationDate The date when the item has been annotated
+         * @return the number of the month as {@code int}
+         */
         private int getMonth(long annotationDate) {
             Calendar calendar = getInstance();
             calendar.setTime(new Date(annotationDate));

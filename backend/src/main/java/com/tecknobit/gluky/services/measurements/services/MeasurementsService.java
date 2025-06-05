@@ -156,7 +156,6 @@ public class MeasurementsService {
         measurementsRepository.saveDailyNotes(dailyNotes, measurementsId);
     }
 
-
     /**
      * Method used to retrieve the measurements which are between the specified dates range and match with the specified
      * {@code groupingDay}

@@ -47,14 +47,14 @@ public class MeasurementsController extends DefaultGlukyController {
     private static final String WRONG_MEAL_CONTENT_MESSAGE = "wrong_meal_content";
 
     /**
-     * {@code measurementsService} the service to manage the measurements database operations
+     * {@code measurementsService} the used service to manage the measurements database operations
      */
     private final MeasurementsService measurementsService;
 
     /**
      * Constructor to init the controller
      *
-     * @param measurementsService The service to manage the measurements database operations
+     * @param measurementsService The service used to manage the measurements database operations
      */
     @Autowired
     public MeasurementsController(MeasurementsService measurementsService) {

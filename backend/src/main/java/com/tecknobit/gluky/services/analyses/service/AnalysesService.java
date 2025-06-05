@@ -1,7 +1,6 @@
 package com.tecknobit.gluky.services.analyses.service;
 
 import com.tecknobit.equinoxbackend.environment.services.builtin.controller.EquinoxController;
-import com.tecknobit.equinoxbackend.resourcesutils.ResourcesManager;
 import com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer;
 import com.tecknobit.gluky.services.analyses.dtos.Report;
 import com.tecknobit.gluky.services.analyses.helpers.ReportCreator;
@@ -18,18 +17,42 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
+import static com.tecknobit.equinoxbackend.resourcesutils.ResourcesManager.RESOURCES_PATH;
 import static com.tecknobit.glukycore.ConstantsKt.REPORTS_KEY;
 
+/**
+ * The {@code AnalysesService} class is useful to manage all the analyses database operations
+ *
+ * @author N7ghtm4r3 - Tecknobit
+ */
 @Service
-public class AnalysesService implements ResourcesManager {
+public class AnalysesService {
 
+    /**
+     * {@code measurementsService} the service to manage the measurements database operations
+     */
     private final MeasurementsService measurementsService;
 
+    /**
+     * Constructor to init the service
+     *
+     * @param measurementsService The service to manage the measurements database operations
+     */
     @Autowired
     public AnalysesService(MeasurementsService measurementsService) {
         this.measurementsService = measurementsService;
     }
 
+    /**
+     * Method used to retrieve the glycemic trend
+     *
+     * @param userId      The identifier of the user
+     * @param period      The period to respect with the dates range
+     * @param groupingDay The grouping day
+     * @param from        The start date from retrieve the measurements
+     * @param to          The end date to retrieve the measurements
+     * @return the glycemic trend as {@link GlycemicTrendDataContainer}
+     */
     public GlycemicTrendDataContainer getGlycemicTrend(String userId, GlycemicTrendPeriod period,
                                                        GlycemicTrendGroupingDay groupingDay, long from, long to) {
         List<DailyMeasurements> dailyMeasurements = measurementsService.getMultipleDailyMeasurements(userId, period,
@@ -37,6 +60,17 @@ public class AnalysesService implements ResourcesManager {
         return new GlycemicTrendDataContainer(period, dailyMeasurements);
     }
 
+    /**
+     * Method used to create a report
+     *
+     * @param user The user who request the report creation
+     * @param period The period to respect with the dates range
+     * @param groupingDay The grouping day
+     * @param from The start date from retrieve the measurements
+     * @param to The end date to retrieve the measurements
+     *
+     * @return the created report as {@link Report}
+     */
     public Report createReport(GlukyUser user, GlycemicTrendPeriod period, GlycemicTrendGroupingDay groupingDay,
                                long from, long to) throws IOException {
         Pair<Long, Long> normalizedDates = measurementsService.normalizeDates(from, to, period);
@@ -53,6 +87,13 @@ public class AnalysesService implements ResourcesManager {
         return new Report(reportId, reportUrl.getFirst(), reportUrl.getSecond());
     }
 
+    /**
+     * Method used to delete a report using its identifier
+     *
+     * @param reportId The identifier of the report to delete
+     *
+     * @return whether the report has beel delete as {@code boolean}
+     */
     public boolean deleteReport(String reportId) {
         String reportPath = RESOURCES_PATH + REPORTS_KEY + "/";
         File reportsFolder = new File(reportPath);
