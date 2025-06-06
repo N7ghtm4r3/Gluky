@@ -10,7 +10,7 @@ fully
 customizable.
 Following a report example:
 
-<img width="600" height="800" src="images/report_demo.png" alt="report demo"/>
+<img style="max-width:100%; height:auto;" src="images/report_demo.png" alt="report demo"/>
 
 > [!NOTE]  
 > All the data have been random generated and are not related to anyone, for more information look
