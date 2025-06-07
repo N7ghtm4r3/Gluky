@@ -153,6 +153,33 @@ Take a look to the official page of **Spring** for a high
 customization <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html">
 here</a>
 
+#### Launch the service
+
+When you have to start the service you will have different scenarios:
+
+- At the first launch the server will be interrupted and will be thrown the
+  **SaveData** exception to store the server secret to manage the user accesses to
+  the server, share it **only to the users that you retains allowed to access to your server**
+  ``` java
+  Exception in thread "main" com.tecknobit.apimanager.exceptions.SaveData: Note: is not an error, but is an alert!
+  Please you should safely save: the_server_secret_generated to correctly register a new user in the Gluky system
+  ```
+- If is not the first launch the service will start directly
+- If you need to recreate the server secret you need to launch the service with the **rss** command like this:
+  ``` java
+  java -jar Gluky.jar rss // this will generate a new server secret overwriting the current server secret
+  ```
+- If you need to delete the server secret, just note that when the service will be launched again will be generated a
+  new
+  server secret to work correctly, you need to launch the service with the **dss** or **dssi** command like this:
+  ``` java
+  // dss command
+  java -jar Gluky.jar dss // this will delete the current server secret
+  
+   // dssi command
+  java -jar Gluky.jar dssi // this will delete the current server secret and interrupts the server workflow right next
+  ```
+
 ### Run the service
 
 To start the **Gluky** service on your own infrastructure you have to follow these steps
