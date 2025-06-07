@@ -193,7 +193,7 @@ public class MeasurementsController extends DefaultGlukyController {
      *                 <pre>
      *                      {@code
      *                              {
-     *                                  "glycemia": "the pre-prendial glycemia value" -> [String],
+     *                                  "glycemia": "the glycemia value" -> [String],
      *                                  "insulin_units": "the administrated insulin units" -> [Integer],
      *                              }
      *                      }

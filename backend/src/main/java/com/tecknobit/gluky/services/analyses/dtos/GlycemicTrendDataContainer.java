@@ -81,7 +81,7 @@ public class GlycemicTrendDataContainer {
     private final long from;
 
     /**
-     * {@code to} The end date from retrieve the measurements
+     * {@code to} the end date from retrieve the measurements
      */
     private final long to;
 

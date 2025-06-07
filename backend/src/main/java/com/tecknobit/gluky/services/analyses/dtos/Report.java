@@ -7,7 +7,7 @@ import static com.tecknobit.glukycore.ConstantsKt.REPORT_IDENTIFIER_KEY;
 import static com.tecknobit.glukycore.ConstantsKt.REPORT_URL;
 
 /**
- * The {@code Report} record class is used as DTO to share with the clients the report created
+ * The {@code Report} record class is used as DTO to share with the clients the created report
  *
  * @param reportId  The identifier of the report
  * @param name      The name of the report
