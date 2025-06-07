@@ -16,8 +16,6 @@ Following a report example:
 > All the data have been random generated and are not related to anyone, for more information look
 > to the [dataset](dataset/README.md)
 
-Feel free to contribute!
-
 ## Customize the application
 
 To customize and create your own version of this application you need to have
@@ -62,6 +60,25 @@ dependencies {
 ```
 
 ## Architecture
+
+At the moment, **Gluky** is available as a self-hosted product, but I'm working to take it one step further — turning it
+into a fully served solution for those who want to use it right away, with no setup required.
+
+The goal is to offer **Gluky both as a hosted service and as an open source project** — so users will always be free to
+self-host, contribute, and customize it as they wish.
+
+To make this possible, I'm looking for a small amount of support to cover a few essential costs:
+
+- A [license for the Apple Developer Program](https://developer.apple.com/programs/), so I can publish Gluky on the *
+  *App Store**.
+- Hosting for the **WebApp**, with a dedicated domain.
+- A **main server infrastructure**, ready to serve users out of the box.
+
+If you believe in this project and want to help make Gluky more accessible to everyone, your contribution would mean a
+lot. The open source core will remain free and community-driven — the hosted version is simply an option for
+convenience!
+
+Feel free to [contribute](#donations)!
 
 ### Clients
 
