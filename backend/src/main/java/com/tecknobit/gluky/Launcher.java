@@ -32,7 +32,31 @@ public class Launcher {
     /**
      * Main method to start the backend
      *
-     * @param args Custom arguments to share with {@link SpringApplication}
+     * @param args Custom arguments to share with {@link SpringApplication} and with the {@code EquinoxController.serverProtector}
+     * @apiNote the arguments scheme:
+     * <ul>
+     *     <li>
+     *         {@code EquinoxController.serverProtector} ->
+     *         <ul>
+     *          <li>
+     *             <b>rss</b> -> launch your java application with "rss" to recreate the server secret <br>
+     *                       e.g java -jar Gluky.jar rss
+     *             </li>
+     *              <li>
+     *                  <b>dss</b> -> launch your java application with "dss" to delete the current server secret <br>
+     *                       e.g java -jar Gluky.jar dss
+     *              </li>
+     *              <li>
+     *                  <b>dssi</b> -> launch your java application with "dssi" to delete the current server secret and interrupt
+     *                        the current workflow of the server <br>
+     *                        e.g java -jar Gluky.jar dssi
+     *              </li>
+     *          </ul>
+     *     </li>
+     *     <li>
+     *         {@link SpringApplication} -> see the allowed arguments <a href="https://docs.spring.io/spring-boot/docs/current/reference/html/application-properties.html">here</a>
+     *     </li>
+     * </ul>             
      */
     public static void main(String[] args) {
         EquinoxController.initEquinoxEnvironment(Launcher.class, args);
