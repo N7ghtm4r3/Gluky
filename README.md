@@ -80,7 +80,7 @@ Feel free to [contribute](#donations)!
 ### Clients
 
 - [Android](https://play.google.com/store/apps/details?id=com.tecknobit.gluky)
-- [Gluky desktop version](https://github.com/N7ghtm4r3/Gluky-Clients/releases/tag/1.1.2)
+- [Gluky desktop version](https://github.com/N7ghtm4r3/Gluky-Clients/releases/tag/1.0.1)
 - iOS -> source code available, but cannot distribute due
   missing [Apple Developer Program license](https://developer.apple.com/programs/)
 - [Gluky webapp version](https://github.com/N7ghtm4r3/Gluky-WebApp)
