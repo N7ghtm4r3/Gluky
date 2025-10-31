@@ -54,7 +54,7 @@ import static com.itextpdf.kernel.pdf.event.PdfDocumentEvent.START_PAGE;
 import static com.itextpdf.layout.borders.Border.NO_BORDER;
 import static com.itextpdf.layout.properties.TextAlignment.*;
 import static com.itextpdf.layout.properties.VerticalAlignment.MIDDLE;
-import static com.tecknobit.equinoxbackend.resourcesutils.ResourcesManager.RESOURCES_PATH;
+import static com.tecknobit.equinoxbackend.apis.resources.ResourcesManager.RESOURCES_PATH;
 import static com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Translator.TranslatorKey.*;
 import static com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.UNSET_VALUE;
 import static com.tecknobit.glukycore.ConstantsKt.*;

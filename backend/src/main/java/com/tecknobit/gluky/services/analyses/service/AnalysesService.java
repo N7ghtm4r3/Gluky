@@ -17,7 +17,7 @@ import java.io.File;
 import java.io.IOException;
 import java.util.List;
 
-import static com.tecknobit.equinoxbackend.resourcesutils.ResourcesManager.RESOURCES_PATH;
+import static com.tecknobit.equinoxbackend.apis.resources.ResourcesManager.RESOURCES_PATH;
 import static com.tecknobit.glukycore.ConstantsKt.REPORTS_KEY;
 
 /**
