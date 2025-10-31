@@ -1,0 +1,3662 @@
+[
+  {
+    "name": "AFTERNOON_SNACK",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.AFTERNOON_SNACK",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/-a-f-t-e-r-n-o-o-n_-s-n-a-c-k/index.html",
+    "searchKeys": [
+      "AFTERNOON_SNACK",
+      "AFTERNOON_SNACK",
+      "com.tecknobit.glukycore.enums.MeasurementType.AFTERNOON_SNACK"
+    ]
+  },
+  {
+    "name": "ALL",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.ALL",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/-a-l-l/index.html",
+    "searchKeys": [
+      "ALL",
+      "ALL",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.ALL"
+    ]
+  },
+  {
+    "name": "BASAL_INSULIN",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.BASAL_INSULIN",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/-b-a-s-a-l_-i-n-s-u-l-i-n/index.html",
+    "searchKeys": [
+      "BASAL_INSULIN",
+      "BASAL_INSULIN",
+      "com.tecknobit.glukycore.enums.MeasurementType.BASAL_INSULIN"
+    ]
+  },
+  {
+    "name": "BREAKFAST",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.BREAKFAST",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/-b-r-e-a-k-f-a-s-t/index.html",
+    "searchKeys": [
+      "BREAKFAST",
+      "BREAKFAST",
+      "com.tecknobit.glukycore.enums.MeasurementType.BREAKFAST"
+    ]
+  },
+  {
+    "name": "COMPUTE_MONTH",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.COMPUTE_MONTH",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-label-type/-c-o-m-p-u-t-e_-m-o-n-t-h/index.html",
+    "searchKeys": [
+      "COMPUTE_MONTH",
+      "COMPUTE_MONTH",
+      "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.COMPUTE_MONTH"
+    ]
+  },
+  {
+    "name": "COMPUTE_WEEK",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.COMPUTE_WEEK",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-label-type/-c-o-m-p-u-t-e_-w-e-e-k/index.html",
+    "searchKeys": [
+      "COMPUTE_WEEK",
+      "COMPUTE_WEEK",
+      "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.COMPUTE_WEEK"
+    ]
+  },
+  {
+    "name": "DINNER",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.DINNER",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/-d-i-n-n-e-r/index.html",
+    "searchKeys": [
+      "DINNER",
+      "DINNER",
+      "com.tecknobit.glukycore.enums.MeasurementType.DINNER"
+    ]
+  },
+  {
+    "name": "FOUR_MONTHS",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.FOUR_MONTHS",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/-f-o-u-r_-m-o-n-t-h-s/index.html",
+    "searchKeys": [
+      "FOUR_MONTHS",
+      "FOUR_MONTHS",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.FOUR_MONTHS"
+    ]
+  },
+  {
+    "name": "FRIDAY",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.FRIDAY",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/-f-r-i-d-a-y/index.html",
+    "searchKeys": [
+      "FRIDAY",
+      "FRIDAY",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.FRIDAY"
+    ]
+  },
+  {
+    "name": "LUNCH",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.LUNCH",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/-l-u-n-c-h/index.html",
+    "searchKeys": [
+      "LUNCH",
+      "LUNCH",
+      "com.tecknobit.glukycore.enums.MeasurementType.LUNCH"
+    ]
+  },
+  {
+    "name": "MONDAY",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.MONDAY",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/-m-o-n-d-a-y/index.html",
+    "searchKeys": [
+      "MONDAY",
+      "MONDAY",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.MONDAY"
+    ]
+  },
+  {
+    "name": "MORNING_SNACK",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.MORNING_SNACK",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/-m-o-r-n-i-n-g_-s-n-a-c-k/index.html",
+    "searchKeys": [
+      "MORNING_SNACK",
+      "MORNING_SNACK",
+      "com.tecknobit.glukycore.enums.MeasurementType.MORNING_SNACK"
+    ]
+  },
+  {
+    "name": "ONE_MONTH",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.ONE_MONTH",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/-o-n-e_-m-o-n-t-h/index.html",
+    "searchKeys": [
+      "ONE_MONTH",
+      "ONE_MONTH",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.ONE_MONTH"
+    ]
+  },
+  {
+    "name": "ONE_WEEK",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.ONE_WEEK",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/-o-n-e_-w-e-e-k/index.html",
+    "searchKeys": [
+      "ONE_WEEK",
+      "ONE_WEEK",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.ONE_WEEK"
+    ]
+  },
+  {
+    "name": "SATURDAY",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.SATURDAY",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/-s-a-t-u-r-d-a-y/index.html",
+    "searchKeys": [
+      "SATURDAY",
+      "SATURDAY",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.SATURDAY"
+    ]
+  },
+  {
+    "name": "SUNDAY",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.SUNDAY",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/-s-u-n-d-a-y/index.html",
+    "searchKeys": [
+      "SUNDAY",
+      "SUNDAY",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.SUNDAY"
+    ]
+  },
+  {
+    "name": "THREE_MONTHS",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.THREE_MONTHS",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/-t-h-r-e-e_-m-o-n-t-h-s/index.html",
+    "searchKeys": [
+      "THREE_MONTHS",
+      "THREE_MONTHS",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.THREE_MONTHS"
+    ]
+  },
+  {
+    "name": "THURSDAY",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.THURSDAY",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/-t-h-u-r-s-d-a-y/index.html",
+    "searchKeys": [
+      "THURSDAY",
+      "THURSDAY",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.THURSDAY"
+    ]
+  },
+  {
+    "name": "TUESDAY",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.TUESDAY",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/-t-u-e-s-d-a-y/index.html",
+    "searchKeys": [
+      "TUESDAY",
+      "TUESDAY",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.TUESDAY"
+    ]
+  },
+  {
+    "name": "WEDNESDAY",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.WEDNESDAY",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/-w-e-d-n-e-s-d-a-y/index.html",
+    "searchKeys": [
+      "WEDNESDAY",
+      "WEDNESDAY",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.WEDNESDAY"
+    ]
+  },
+  {
+    "name": "const val AFTERNOON_SNACK_KEY: String",
+    "description": "com.tecknobit.glukycore.AFTERNOON_SNACK_KEY",
+    "location": "core/com.tecknobit.glukycore/-a-f-t-e-r-n-o-o-n_-s-n-a-c-k_-k-e-y.html",
+    "searchKeys": [
+      "AFTERNOON_SNACK_KEY",
+      "const val AFTERNOON_SNACK_KEY: String",
+      "com.tecknobit.glukycore.AFTERNOON_SNACK_KEY"
+    ]
+  },
+  {
+    "name": "const val ANALYSES_ENDPOINT: String",
+    "description": "com.tecknobit.glukycore.helpers.GlukyEndpointsSet.ANALYSES_ENDPOINT",
+    "location": "core/com.tecknobit.glukycore.helpers/-gluky-endpoints-set/-a-n-a-l-y-s-e-s_-e-n-d-p-o-i-n-t.html",
+    "searchKeys": [
+      "ANALYSES_ENDPOINT",
+      "const val ANALYSES_ENDPOINT: String",
+      "com.tecknobit.glukycore.helpers.GlukyEndpointsSet.ANALYSES_ENDPOINT"
+    ]
+  },
+  {
+    "name": "const val ANNOTATION_DATE_KEY: String",
+    "description": "com.tecknobit.glukycore.ANNOTATION_DATE_KEY",
+    "location": "core/com.tecknobit.glukycore/-a-n-n-o-t-a-t-i-o-n_-d-a-t-e_-k-e-y.html",
+    "searchKeys": [
+      "ANNOTATION_DATE_KEY",
+      "const val ANNOTATION_DATE_KEY: String",
+      "com.tecknobit.glukycore.ANNOTATION_DATE_KEY"
+    ]
+  },
+  {
+    "name": "const val AVERAGE_GLYCEMIA_KEY: String",
+    "description": "com.tecknobit.glukycore.AVERAGE_GLYCEMIA_KEY",
+    "location": "core/com.tecknobit.glukycore/-a-v-e-r-a-g-e_-g-l-y-c-e-m-i-a_-k-e-y.html",
+    "searchKeys": [
+      "AVERAGE_GLYCEMIA_KEY",
+      "const val AVERAGE_GLYCEMIA_KEY: String",
+      "com.tecknobit.glukycore.AVERAGE_GLYCEMIA_KEY"
+    ]
+  },
+  {
+    "name": "const val BASAL_INSULIN_KEY: String",
+    "description": "com.tecknobit.glukycore.BASAL_INSULIN_KEY",
+    "location": "core/com.tecknobit.glukycore/-b-a-s-a-l_-i-n-s-u-l-i-n_-k-e-y.html",
+    "searchKeys": [
+      "BASAL_INSULIN_KEY",
+      "const val BASAL_INSULIN_KEY: String",
+      "com.tecknobit.glukycore.BASAL_INSULIN_KEY"
+    ]
+  },
+  {
+    "name": "const val BASAL_INSULIN_RECORDS_KEY: String",
+    "description": "com.tecknobit.glukycore.BASAL_INSULIN_RECORDS_KEY",
+    "location": "core/com.tecknobit.glukycore/-b-a-s-a-l_-i-n-s-u-l-i-n_-r-e-c-o-r-d-s_-k-e-y.html",
+    "searchKeys": [
+      "BASAL_INSULIN_RECORDS_KEY",
+      "const val BASAL_INSULIN_RECORDS_KEY: String",
+      "com.tecknobit.glukycore.BASAL_INSULIN_RECORDS_KEY"
+    ]
+  },
+  {
+    "name": "const val BREAKFAST_KEY: String",
+    "description": "com.tecknobit.glukycore.BREAKFAST_KEY",
+    "location": "core/com.tecknobit.glukycore/-b-r-e-a-k-f-a-s-t_-k-e-y.html",
+    "searchKeys": [
+      "BREAKFAST_KEY",
+      "const val BREAKFAST_KEY: String",
+      "com.tecknobit.glukycore.BREAKFAST_KEY"
+    ]
+  },
+  {
+    "name": "const val CONTENT_KEY: String",
+    "description": "com.tecknobit.glukycore.CONTENT_KEY",
+    "location": "core/com.tecknobit.glukycore/-c-o-n-t-e-n-t_-k-e-y.html",
+    "searchKeys": [
+      "CONTENT_KEY",
+      "const val CONTENT_KEY: String",
+      "com.tecknobit.glukycore.CONTENT_KEY"
+    ]
+  },
+  {
+    "name": "const val DAILY_NOTES_KEY: String",
+    "description": "com.tecknobit.glukycore.DAILY_NOTES_KEY",
+    "location": "core/com.tecknobit.glukycore/-d-a-i-l-y_-n-o-t-e-s_-k-e-y.html",
+    "searchKeys": [
+      "DAILY_NOTES_KEY",
+      "const val DAILY_NOTES_KEY: String",
+      "com.tecknobit.glukycore.DAILY_NOTES_KEY"
+    ]
+  },
+  {
+    "name": "const val DINNER_KEY: String",
+    "description": "com.tecknobit.glukycore.DINNER_KEY",
+    "location": "core/com.tecknobit.glukycore/-d-i-n-n-e-r_-k-e-y.html",
+    "searchKeys": [
+      "DINNER_KEY",
+      "const val DINNER_KEY: String",
+      "com.tecknobit.glukycore.DINNER_KEY"
+    ]
+  },
+  {
+    "name": "const val FIRST_SET_KEY: String",
+    "description": "com.tecknobit.glukycore.FIRST_SET_KEY",
+    "location": "core/com.tecknobit.glukycore/-f-i-r-s-t_-s-e-t_-k-e-y.html",
+    "searchKeys": [
+      "FIRST_SET_KEY",
+      "const val FIRST_SET_KEY: String",
+      "com.tecknobit.glukycore.FIRST_SET_KEY"
+    ]
+  },
+  {
+    "name": "const val FOURTH_SET_KEY: String",
+    "description": "com.tecknobit.glukycore.FOURTH_SET_KEY",
+    "location": "core/com.tecknobit.glukycore/-f-o-u-r-t-h_-s-e-t_-k-e-y.html",
+    "searchKeys": [
+      "FOURTH_SET_KEY",
+      "const val FOURTH_SET_KEY: String",
+      "com.tecknobit.glukycore.FOURTH_SET_KEY"
+    ]
+  },
+  {
+    "name": "const val FROM_DATE_KEY: String",
+    "description": "com.tecknobit.glukycore.FROM_DATE_KEY",
+    "location": "core/com.tecknobit.glukycore/-f-r-o-m_-d-a-t-e_-k-e-y.html",
+    "searchKeys": [
+      "FROM_DATE_KEY",
+      "const val FROM_DATE_KEY: String",
+      "com.tecknobit.glukycore.FROM_DATE_KEY"
+    ]
+  },
+  {
+    "name": "const val GLYCEMIA_KEY: String",
+    "description": "com.tecknobit.glukycore.GLYCEMIA_KEY",
+    "location": "core/com.tecknobit.glukycore/-g-l-y-c-e-m-i-a_-k-e-y.html",
+    "searchKeys": [
+      "GLYCEMIA_KEY",
+      "const val GLYCEMIA_KEY: String",
+      "com.tecknobit.glukycore.GLYCEMIA_KEY"
+    ]
+  },
+  {
+    "name": "const val GLYCEMIC_LABEL_TYPE_KEY: String",
+    "description": "com.tecknobit.glukycore.GLYCEMIC_LABEL_TYPE_KEY",
+    "location": "core/com.tecknobit.glukycore/-g-l-y-c-e-m-i-c_-l-a-b-e-l_-t-y-p-e_-k-e-y.html",
+    "searchKeys": [
+      "GLYCEMIC_LABEL_TYPE_KEY",
+      "const val GLYCEMIC_LABEL_TYPE_KEY: String",
+      "com.tecknobit.glukycore.GLYCEMIC_LABEL_TYPE_KEY"
+    ]
+  },
+  {
+    "name": "const val GLYCEMIC_TREND_GROUPING_DAY_KEY: String",
+    "description": "com.tecknobit.glukycore.GLYCEMIC_TREND_GROUPING_DAY_KEY",
+    "location": "core/com.tecknobit.glukycore/-g-l-y-c-e-m-i-c_-t-r-e-n-d_-g-r-o-u-p-i-n-g_-d-a-y_-k-e-y.html",
+    "searchKeys": [
+      "GLYCEMIC_TREND_GROUPING_DAY_KEY",
+      "const val GLYCEMIC_TREND_GROUPING_DAY_KEY: String",
+      "com.tecknobit.glukycore.GLYCEMIC_TREND_GROUPING_DAY_KEY"
+    ]
+  },
+  {
+    "name": "const val GLYCEMIC_TREND_PERIOD_KEY: String",
+    "description": "com.tecknobit.glukycore.GLYCEMIC_TREND_PERIOD_KEY",
+    "location": "core/com.tecknobit.glukycore/-g-l-y-c-e-m-i-c_-t-r-e-n-d_-p-e-r-i-o-d_-k-e-y.html",
+    "searchKeys": [
+      "GLYCEMIC_TREND_PERIOD_KEY",
+      "const val GLYCEMIC_TREND_PERIOD_KEY: String",
+      "com.tecknobit.glukycore.GLYCEMIC_TREND_PERIOD_KEY"
+    ]
+  },
+  {
+    "name": "const val HIGHER_GLYCEMIA_KEY: String",
+    "description": "com.tecknobit.glukycore.HIGHER_GLYCEMIA_KEY",
+    "location": "core/com.tecknobit.glukycore/-h-i-g-h-e-r_-g-l-y-c-e-m-i-a_-k-e-y.html",
+    "searchKeys": [
+      "HIGHER_GLYCEMIA_KEY",
+      "const val HIGHER_GLYCEMIA_KEY: String",
+      "com.tecknobit.glukycore.HIGHER_GLYCEMIA_KEY"
+    ]
+  },
+  {
+    "name": "const val HYPER_GLYCEMIA: Int = 220",
+    "description": "com.tecknobit.glukycore.HYPER_GLYCEMIA",
+    "location": "core/com.tecknobit.glukycore/-h-y-p-e-r_-g-l-y-c-e-m-i-a.html",
+    "searchKeys": [
+      "HYPER_GLYCEMIA",
+      "const val HYPER_GLYCEMIA: Int = 220",
+      "com.tecknobit.glukycore.HYPER_GLYCEMIA"
+    ]
+  },
+  {
+    "name": "const val INSULIN_UNITS_KEY: String",
+    "description": "com.tecknobit.glukycore.INSULIN_UNITS_KEY",
+    "location": "core/com.tecknobit.glukycore/-i-n-s-u-l-i-n_-u-n-i-t-s_-k-e-y.html",
+    "searchKeys": [
+      "INSULIN_UNITS_KEY",
+      "const val INSULIN_UNITS_KEY: String",
+      "com.tecknobit.glukycore.INSULIN_UNITS_KEY"
+    ]
+  },
+  {
+    "name": "const val LOWER_GLYCEMIA_KEY: String",
+    "description": "com.tecknobit.glukycore.LOWER_GLYCEMIA_KEY",
+    "location": "core/com.tecknobit.glukycore/-l-o-w-e-r_-g-l-y-c-e-m-i-a_-k-e-y.html",
+    "searchKeys": [
+      "LOWER_GLYCEMIA_KEY",
+      "const val LOWER_GLYCEMIA_KEY: String",
+      "com.tecknobit.glukycore.LOWER_GLYCEMIA_KEY"
+    ]
+  },
+  {
+    "name": "const val LUNCH_KEY: String",
+    "description": "com.tecknobit.glukycore.LUNCH_KEY",
+    "location": "core/com.tecknobit.glukycore/-l-u-n-c-h_-k-e-y.html",
+    "searchKeys": [
+      "LUNCH_KEY",
+      "const val LUNCH_KEY: String",
+      "com.tecknobit.glukycore.LUNCH_KEY"
+    ]
+  },
+  {
+    "name": "const val MEALS_KEY: String",
+    "description": "com.tecknobit.glukycore.MEALS_KEY",
+    "location": "core/com.tecknobit.glukycore/-m-e-a-l-s_-k-e-y.html",
+    "searchKeys": [
+      "MEALS_KEY",
+      "const val MEALS_KEY: String",
+      "com.tecknobit.glukycore.MEALS_KEY"
+    ]
+  },
+  {
+    "name": "const val MEASUREMENTS_KEY: String",
+    "description": "com.tecknobit.glukycore.MEASUREMENTS_KEY",
+    "location": "core/com.tecknobit.glukycore/-m-e-a-s-u-r-e-m-e-n-t-s_-k-e-y.html",
+    "searchKeys": [
+      "MEASUREMENTS_KEY",
+      "const val MEASUREMENTS_KEY: String",
+      "com.tecknobit.glukycore.MEASUREMENTS_KEY"
+    ]
+  },
+  {
+    "name": "const val MEASUREMENT_IDENTIFIER_KEY: String",
+    "description": "com.tecknobit.glukycore.MEASUREMENT_IDENTIFIER_KEY",
+    "location": "core/com.tecknobit.glukycore/-m-e-a-s-u-r-e-m-e-n-t_-i-d-e-n-t-i-f-i-e-r_-k-e-y.html",
+    "searchKeys": [
+      "MEASUREMENT_IDENTIFIER_KEY",
+      "const val MEASUREMENT_IDENTIFIER_KEY: String",
+      "com.tecknobit.glukycore.MEASUREMENT_IDENTIFIER_KEY"
+    ]
+  },
+  {
+    "name": "const val MEASUREMENT_TYPE_KEY: String",
+    "description": "com.tecknobit.glukycore.MEASUREMENT_TYPE_KEY",
+    "location": "core/com.tecknobit.glukycore/-m-e-a-s-u-r-e-m-e-n-t_-t-y-p-e_-k-e-y.html",
+    "searchKeys": [
+      "MEASUREMENT_TYPE_KEY",
+      "const val MEASUREMENT_TYPE_KEY: String",
+      "com.tecknobit.glukycore.MEASUREMENT_TYPE_KEY"
+    ]
+  },
+  {
+    "name": "const val MEDIUM_HIGH_GLYCEMIA: Int = 180",
+    "description": "com.tecknobit.glukycore.MEDIUM_HIGH_GLYCEMIA",
+    "location": "core/com.tecknobit.glukycore/-m-e-d-i-u-m_-h-i-g-h_-g-l-y-c-e-m-i-a.html",
+    "searchKeys": [
+      "MEDIUM_HIGH_GLYCEMIA",
+      "const val MEDIUM_HIGH_GLYCEMIA: Int = 180",
+      "com.tecknobit.glukycore.MEDIUM_HIGH_GLYCEMIA"
+    ]
+  },
+  {
+    "name": "const val MORNING_SNACK_KEY: String",
+    "description": "com.tecknobit.glukycore.MORNING_SNACK_KEY",
+    "location": "core/com.tecknobit.glukycore/-m-o-r-n-i-n-g_-s-n-a-c-k_-k-e-y.html",
+    "searchKeys": [
+      "MORNING_SNACK_KEY",
+      "const val MORNING_SNACK_KEY: String",
+      "com.tecknobit.glukycore.MORNING_SNACK_KEY"
+    ]
+  },
+  {
+    "name": "const val NORMAL_GLYCEMIA: Int = 70",
+    "description": "com.tecknobit.glukycore.NORMAL_GLYCEMIA",
+    "location": "core/com.tecknobit.glukycore/-n-o-r-m-a-l_-g-l-y-c-e-m-i-a.html",
+    "searchKeys": [
+      "NORMAL_GLYCEMIA",
+      "const val NORMAL_GLYCEMIA: Int = 70",
+      "com.tecknobit.glukycore.NORMAL_GLYCEMIA"
+    ]
+  },
+  {
+    "name": "const val POST_PRANDIAL_GLYCEMIA_KEY: String",
+    "description": "com.tecknobit.glukycore.POST_PRANDIAL_GLYCEMIA_KEY",
+    "location": "core/com.tecknobit.glukycore/-p-o-s-t_-p-r-a-n-d-i-a-l_-g-l-y-c-e-m-i-a_-k-e-y.html",
+    "searchKeys": [
+      "POST_PRANDIAL_GLYCEMIA_KEY",
+      "const val POST_PRANDIAL_GLYCEMIA_KEY: String",
+      "com.tecknobit.glukycore.POST_PRANDIAL_GLYCEMIA_KEY"
+    ]
+  },
+  {
+    "name": "const val RAW_CONTENT_KEY: String",
+    "description": "com.tecknobit.glukycore.RAW_CONTENT_KEY",
+    "location": "core/com.tecknobit.glukycore/-r-a-w_-c-o-n-t-e-n-t_-k-e-y.html",
+    "searchKeys": [
+      "RAW_CONTENT_KEY",
+      "const val RAW_CONTENT_KEY: String",
+      "com.tecknobit.glukycore.RAW_CONTENT_KEY"
+    ]
+  },
+  {
+    "name": "const val REPORTS_ENDPOINT: String",
+    "description": "com.tecknobit.glukycore.helpers.GlukyEndpointsSet.REPORTS_ENDPOINT",
+    "location": "core/com.tecknobit.glukycore.helpers/-gluky-endpoints-set/-r-e-p-o-r-t-s_-e-n-d-p-o-i-n-t.html",
+    "searchKeys": [
+      "REPORTS_ENDPOINT",
+      "const val REPORTS_ENDPOINT: String",
+      "com.tecknobit.glukycore.helpers.GlukyEndpointsSet.REPORTS_ENDPOINT"
+    ]
+  },
+  {
+    "name": "const val REPORTS_KEY: String",
+    "description": "com.tecknobit.glukycore.REPORTS_KEY",
+    "location": "core/com.tecknobit.glukycore/-r-e-p-o-r-t-s_-k-e-y.html",
+    "searchKeys": [
+      "REPORTS_KEY",
+      "const val REPORTS_KEY: String",
+      "com.tecknobit.glukycore.REPORTS_KEY"
+    ]
+  },
+  {
+    "name": "const val REPORT_IDENTIFIER_KEY: String",
+    "description": "com.tecknobit.glukycore.REPORT_IDENTIFIER_KEY",
+    "location": "core/com.tecknobit.glukycore/-r-e-p-o-r-t_-i-d-e-n-t-i-f-i-e-r_-k-e-y.html",
+    "searchKeys": [
+      "REPORT_IDENTIFIER_KEY",
+      "const val REPORT_IDENTIFIER_KEY: String",
+      "com.tecknobit.glukycore.REPORT_IDENTIFIER_KEY"
+    ]
+  },
+  {
+    "name": "const val REPORT_URL: String",
+    "description": "com.tecknobit.glukycore.REPORT_URL",
+    "location": "core/com.tecknobit.glukycore/-r-e-p-o-r-t_-u-r-l.html",
+    "searchKeys": [
+      "REPORT_URL",
+      "const val REPORT_URL: String",
+      "com.tecknobit.glukycore.REPORT_URL"
+    ]
+  },
+  {
+    "name": "const val SECOND_SET_KEY: String",
+    "description": "com.tecknobit.glukycore.SECOND_SET_KEY",
+    "location": "core/com.tecknobit.glukycore/-s-e-c-o-n-d_-s-e-t_-k-e-y.html",
+    "searchKeys": [
+      "SECOND_SET_KEY",
+      "const val SECOND_SET_KEY: String",
+      "com.tecknobit.glukycore.SECOND_SET_KEY"
+    ]
+  },
+  {
+    "name": "const val TARGET_DAY_KEY: String",
+    "description": "com.tecknobit.glukycore.TARGET_DAY_KEY",
+    "location": "core/com.tecknobit.glukycore/-t-a-r-g-e-t_-d-a-y_-k-e-y.html",
+    "searchKeys": [
+      "TARGET_DAY_KEY",
+      "const val TARGET_DAY_KEY: String",
+      "com.tecknobit.glukycore.TARGET_DAY_KEY"
+    ]
+  },
+  {
+    "name": "const val THIRD_SET_KEY: String",
+    "description": "com.tecknobit.glukycore.THIRD_SET_KEY",
+    "location": "core/com.tecknobit.glukycore/-t-h-i-r-d_-s-e-t_-k-e-y.html",
+    "searchKeys": [
+      "THIRD_SET_KEY",
+      "const val THIRD_SET_KEY: String",
+      "com.tecknobit.glukycore.THIRD_SET_KEY"
+    ]
+  },
+  {
+    "name": "const val TO_DATE_KEY: String",
+    "description": "com.tecknobit.glukycore.TO_DATE_KEY",
+    "location": "core/com.tecknobit.glukycore/-t-o_-d-a-t-e_-k-e-y.html",
+    "searchKeys": [
+      "TO_DATE_KEY",
+      "const val TO_DATE_KEY: String",
+      "com.tecknobit.glukycore.TO_DATE_KEY"
+    ]
+  },
+  {
+    "name": "const val TYPE_KEY: String",
+    "description": "com.tecknobit.glukycore.TYPE_KEY",
+    "location": "core/com.tecknobit.glukycore/-t-y-p-e_-k-e-y.html",
+    "searchKeys": [
+      "TYPE_KEY",
+      "const val TYPE_KEY: String",
+      "com.tecknobit.glukycore.TYPE_KEY"
+    ]
+  },
+  {
+    "name": "const val UNSET_CUSTOM_DATE: Long",
+    "description": "com.tecknobit.glukycore.helpers.GlukyInputsValidator.UNSET_CUSTOM_DATE",
+    "location": "core/com.tecknobit.glukycore.helpers/-gluky-inputs-validator/-u-n-s-e-t_-c-u-s-t-o-m_-d-a-t-e.html",
+    "searchKeys": [
+      "UNSET_CUSTOM_DATE",
+      "const val UNSET_CUSTOM_DATE: Long",
+      "com.tecknobit.glukycore.helpers.GlukyInputsValidator.UNSET_CUSTOM_DATE"
+    ]
+  },
+  {
+    "name": "enum GlycemicTrendGroupingDay(val capitalized: String) : Enum<GlycemicTrendGroupingDay> ",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/index.html",
+    "searchKeys": [
+      "GlycemicTrendGroupingDay",
+      "enum GlycemicTrendGroupingDay(val capitalized: String) : Enum<GlycemicTrendGroupingDay> ",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay"
+    ]
+  },
+  {
+    "name": "enum GlycemicTrendLabelType : Enum<GlycemicTrendLabelType> ",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendLabelType",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-label-type/index.html",
+    "searchKeys": [
+      "GlycemicTrendLabelType",
+      "enum GlycemicTrendLabelType : Enum<GlycemicTrendLabelType> ",
+      "com.tecknobit.glukycore.enums.GlycemicTrendLabelType"
+    ]
+  },
+  {
+    "name": "enum GlycemicTrendPeriod(val millis: Long) : Enum<GlycemicTrendPeriod> ",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/index.html",
+    "searchKeys": [
+      "GlycemicTrendPeriod",
+      "enum GlycemicTrendPeriod(val millis: Long) : Enum<GlycemicTrendPeriod> ",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod"
+    ]
+  },
+  {
+    "name": "enum MeasurementType : Enum<MeasurementType> ",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/index.html",
+    "searchKeys": [
+      "MeasurementType",
+      "enum MeasurementType : Enum<MeasurementType> ",
+      "com.tecknobit.glukycore.enums.MeasurementType"
+    ]
+  },
+  {
+    "name": "fun isCustomTrendPeriodValid(from: Long?, to: Long?, period: GlycemicTrendPeriod): Boolean",
+    "description": "com.tecknobit.glukycore.helpers.GlukyInputsValidator.isCustomTrendPeriodValid",
+    "location": "core/com.tecknobit.glukycore.helpers/-gluky-inputs-validator/is-custom-trend-period-valid.html",
+    "searchKeys": [
+      "isCustomTrendPeriodValid",
+      "fun isCustomTrendPeriodValid(from: Long?, to: Long?, period: GlycemicTrendPeriod): Boolean",
+      "com.tecknobit.glukycore.helpers.GlukyInputsValidator.isCustomTrendPeriodValid"
+    ]
+  },
+  {
+    "name": "fun isGlycemiaValueValid(glycemiaValue: String?): Boolean",
+    "description": "com.tecknobit.glukycore.helpers.GlukyInputsValidator.isGlycemiaValueValid",
+    "location": "core/com.tecknobit.glukycore.helpers/-gluky-inputs-validator/is-glycemia-value-valid.html",
+    "searchKeys": [
+      "isGlycemiaValueValid",
+      "fun isGlycemiaValueValid(glycemiaValue: String?): Boolean",
+      "com.tecknobit.glukycore.helpers.GlukyInputsValidator.isGlycemiaValueValid"
+    ]
+  },
+  {
+    "name": "fun isMealContentValid(rawMealContent: String): Boolean",
+    "description": "com.tecknobit.glukycore.helpers.GlukyInputsValidator.isMealContentValid",
+    "location": "core/com.tecknobit.glukycore.helpers/-gluky-inputs-validator/is-meal-content-valid.html",
+    "searchKeys": [
+      "isMealContentValid",
+      "fun isMealContentValid(rawMealContent: String): Boolean",
+      "com.tecknobit.glukycore.helpers.GlukyInputsValidator.isMealContentValid"
+    ]
+  },
+  {
+    "name": "fun meals(): List<MeasurementType>",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.Companion.meals",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/-companion/meals.html",
+    "searchKeys": [
+      "meals",
+      "fun meals(): List<MeasurementType>",
+      "com.tecknobit.glukycore.enums.MeasurementType.Companion.meals"
+    ]
+  },
+  {
+    "name": "fun periodToRelatedLabel(period: GlycemicTrendPeriod): GlycemicTrendLabelType?",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.Companion.periodToRelatedLabel",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-label-type/-companion/period-to-related-label.html",
+    "searchKeys": [
+      "periodToRelatedLabel",
+      "fun periodToRelatedLabel(period: GlycemicTrendPeriod): GlycemicTrendLabelType?",
+      "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.Companion.periodToRelatedLabel"
+    ]
+  },
+  {
+    "name": "fun valueOf(value: String): GlycemicTrendGroupingDay",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.valueOf",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/value-of.html",
+    "searchKeys": [
+      "valueOf",
+      "fun valueOf(value: String): GlycemicTrendGroupingDay",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.valueOf"
+    ]
+  },
+  {
+    "name": "fun valueOf(value: String): GlycemicTrendLabelType",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.valueOf",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-label-type/value-of.html",
+    "searchKeys": [
+      "valueOf",
+      "fun valueOf(value: String): GlycemicTrendLabelType",
+      "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.valueOf"
+    ]
+  },
+  {
+    "name": "fun valueOf(value: String): GlycemicTrendPeriod",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.valueOf",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/value-of.html",
+    "searchKeys": [
+      "valueOf",
+      "fun valueOf(value: String): GlycemicTrendPeriod",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.valueOf"
+    ]
+  },
+  {
+    "name": "fun valueOf(value: String): MeasurementType",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.valueOf",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/value-of.html",
+    "searchKeys": [
+      "valueOf",
+      "fun valueOf(value: String): MeasurementType",
+      "com.tecknobit.glukycore.enums.MeasurementType.valueOf"
+    ]
+  },
+  {
+    "name": "fun values(): Array<GlycemicTrendGroupingDay>",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.values",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/values.html",
+    "searchKeys": [
+      "values",
+      "fun values(): Array<GlycemicTrendGroupingDay>",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.values"
+    ]
+  },
+  {
+    "name": "fun values(): Array<GlycemicTrendLabelType>",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.values",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-label-type/values.html",
+    "searchKeys": [
+      "values",
+      "fun values(): Array<GlycemicTrendLabelType>",
+      "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.values"
+    ]
+  },
+  {
+    "name": "fun values(): Array<GlycemicTrendPeriod>",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.values",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/values.html",
+    "searchKeys": [
+      "values",
+      "fun values(): Array<GlycemicTrendPeriod>",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.values"
+    ]
+  },
+  {
+    "name": "fun values(): Array<MeasurementType>",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.values",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/values.html",
+    "searchKeys": [
+      "values",
+      "fun values(): Array<MeasurementType>",
+      "com.tecknobit.glukycore.enums.MeasurementType.values"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.Companion",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-label-type/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.Companion"
+    ]
+  },
+  {
+    "name": "object Companion",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.Companion",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/-companion/index.html",
+    "searchKeys": [
+      "Companion",
+      "object Companion",
+      "com.tecknobit.glukycore.enums.MeasurementType.Companion"
+    ]
+  },
+  {
+    "name": "object GlukyEndpointsSet : EquinoxBaseEndpointsSet",
+    "description": "com.tecknobit.glukycore.helpers.GlukyEndpointsSet",
+    "location": "core/com.tecknobit.glukycore.helpers/-gluky-endpoints-set/index.html",
+    "searchKeys": [
+      "GlukyEndpointsSet",
+      "object GlukyEndpointsSet : EquinoxBaseEndpointsSet",
+      "com.tecknobit.glukycore.helpers.GlukyEndpointsSet"
+    ]
+  },
+  {
+    "name": "object GlukyInputsValidator : InputsValidator",
+    "description": "com.tecknobit.glukycore.helpers.GlukyInputsValidator",
+    "location": "core/com.tecknobit.glukycore.helpers/-gluky-inputs-validator/index.html",
+    "searchKeys": [
+      "GlukyInputsValidator",
+      "object GlukyInputsValidator : InputsValidator",
+      "com.tecknobit.glukycore.helpers.GlukyInputsValidator"
+    ]
+  },
+  {
+    "name": "private const val ONE_DAY_MILLIS: Long",
+    "description": "com.tecknobit.glukycore.helpers.GlukyInputsValidator.ONE_DAY_MILLIS",
+    "location": "core/com.tecknobit.glukycore.helpers/-gluky-inputs-validator/-o-n-e_-d-a-y_-m-i-l-l-i-s.html",
+    "searchKeys": [
+      "ONE_DAY_MILLIS",
+      "private const val ONE_DAY_MILLIS: Long",
+      "com.tecknobit.glukycore.helpers.GlukyInputsValidator.ONE_DAY_MILLIS"
+    ]
+  },
+  {
+    "name": "private constructor()",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.GlycemicTrendLabelType",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-label-type/-glycemic-trend-label-type.html",
+    "searchKeys": [
+      "GlycemicTrendLabelType",
+      "private constructor()",
+      "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.GlycemicTrendLabelType"
+    ]
+  },
+  {
+    "name": "private constructor()",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.MeasurementType",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/-measurement-type.html",
+    "searchKeys": [
+      "MeasurementType",
+      "private constructor()",
+      "com.tecknobit.glukycore.enums.MeasurementType.MeasurementType"
+    ]
+  },
+  {
+    "name": "private constructor(capitalized: String)",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.GlycemicTrendGroupingDay",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/-glycemic-trend-grouping-day.html",
+    "searchKeys": [
+      "GlycemicTrendGroupingDay",
+      "private constructor(capitalized: String)",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.GlycemicTrendGroupingDay"
+    ]
+  },
+  {
+    "name": "private constructor(millis: Long)",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.GlycemicTrendPeriod",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/-glycemic-trend-period.html",
+    "searchKeys": [
+      "GlycemicTrendPeriod",
+      "private constructor(millis: Long)",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.GlycemicTrendPeriod"
+    ]
+  },
+  {
+    "name": "val capitalized: String",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.capitalized",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/capitalized.html",
+    "searchKeys": [
+      "capitalized",
+      "val capitalized: String",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.capitalized"
+    ]
+  },
+  {
+    "name": "val entries: EnumEntries<GlycemicTrendGroupingDay>",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.entries",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-grouping-day/entries.html",
+    "searchKeys": [
+      "entries",
+      "val entries: EnumEntries<GlycemicTrendGroupingDay>",
+      "com.tecknobit.glukycore.enums.GlycemicTrendGroupingDay.entries"
+    ]
+  },
+  {
+    "name": "val entries: EnumEntries<GlycemicTrendLabelType>",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.entries",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-label-type/entries.html",
+    "searchKeys": [
+      "entries",
+      "val entries: EnumEntries<GlycemicTrendLabelType>",
+      "com.tecknobit.glukycore.enums.GlycemicTrendLabelType.entries"
+    ]
+  },
+  {
+    "name": "val entries: EnumEntries<GlycemicTrendPeriod>",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.entries",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/entries.html",
+    "searchKeys": [
+      "entries",
+      "val entries: EnumEntries<GlycemicTrendPeriod>",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.entries"
+    ]
+  },
+  {
+    "name": "val entries: EnumEntries<MeasurementType>",
+    "description": "com.tecknobit.glukycore.enums.MeasurementType.entries",
+    "location": "core/com.tecknobit.glukycore.enums/-measurement-type/entries.html",
+    "searchKeys": [
+      "entries",
+      "val entries: EnumEntries<MeasurementType>",
+      "com.tecknobit.glukycore.enums.MeasurementType.entries"
+    ]
+  },
+  {
+    "name": "val millis: Long",
+    "description": "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.millis",
+    "location": "core/com.tecknobit.glukycore.enums/-glycemic-trend-period/millis.html",
+    "searchKeys": [
+      "millis",
+      "val millis: Long",
+      "com.tecknobit.glukycore.enums.GlycemicTrendPeriod.millis"
+    ]
+  },
+  {
+    "name": "abstract class GlycemicMeasurementItem : EquinoxItem",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/index.html",
+    "searchKeys": [
+      "GlycemicMeasurementItem",
+      "abstract class GlycemicMeasurementItem : EquinoxItem",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem"
+    ]
+  },
+  {
+    "name": "abstract class GlycemicMeasurementsService",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.GlycemicMeasurementsService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-glycemic-measurements-service/index.html",
+    "searchKeys": [
+      "GlycemicMeasurementsService",
+      "abstract class GlycemicMeasurementsService",
+      "com.tecknobit.gluky.services.measurements.services.types.GlycemicMeasurementsService"
+    ]
+  },
+  {
+    "name": "abstract fun attachMeasurements(breakfastId: String, morningSnackId: String, lunchId: String, afternoonSnackId: String, dinnerId: String, basalInsulinId: String, measurementsId: String)",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.attachMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories/-measurements-repository/attach-measurements.html",
+    "searchKeys": [
+      "attachMeasurements",
+      "abstract fun attachMeasurements(breakfastId: String, morningSnackId: String, lunchId: String, afternoonSnackId: String, dinnerId: String, basalInsulinId: String, measurementsId: String)",
+      "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.attachMeasurements"
+    ]
+  },
+  {
+    "name": "abstract fun fillBasalInsulin(annotationDate: Long, glycemia: Int, insulinUnits: Int, basalInsulinId: String)",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.types.BasalInsulinRepository.fillBasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories.types/-basal-insulin-repository/fill-basal-insulin.html",
+    "searchKeys": [
+      "fillBasalInsulin",
+      "abstract fun fillBasalInsulin(annotationDate: Long, glycemia: Int, insulinUnits: Int, basalInsulinId: String)",
+      "com.tecknobit.gluky.services.measurements.repositories.types.BasalInsulinRepository.fillBasalInsulin"
+    ]
+  },
+  {
+    "name": "abstract fun fillBasalInsulin(glycemia: Int, insulinUnits: Int, basalInsulinId: String)",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.types.BasalInsulinRepository.fillBasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories.types/-basal-insulin-repository/fill-basal-insulin.html",
+    "searchKeys": [
+      "fillBasalInsulin",
+      "abstract fun fillBasalInsulin(glycemia: Int, insulinUnits: Int, basalInsulinId: String)",
+      "com.tecknobit.gluky.services.measurements.repositories.types.BasalInsulinRepository.fillBasalInsulin"
+    ]
+  },
+  {
+    "name": "abstract fun fillMeal(annotationDate: Long, glycemia: Int, postPrandialGlycemia: Int, insulinUnits: Int, rawContent: String, mealId: String)",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.types.MealsRepository.fillMeal",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories.types/-meals-repository/fill-meal.html",
+    "searchKeys": [
+      "fillMeal",
+      "abstract fun fillMeal(annotationDate: Long, glycemia: Int, postPrandialGlycemia: Int, insulinUnits: Int, rawContent: String, mealId: String)",
+      "com.tecknobit.gluky.services.measurements.repositories.types.MealsRepository.fillMeal"
+    ]
+  },
+  {
+    "name": "abstract fun fillMeal(glycemia: Int, postPrandialGlycemia: Int, insulinUnits: Int, rawContent: String, mealId: String)",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.types.MealsRepository.fillMeal",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories.types/-meals-repository/fill-meal.html",
+    "searchKeys": [
+      "fillMeal",
+      "abstract fun fillMeal(glycemia: Int, postPrandialGlycemia: Int, insulinUnits: Int, rawContent: String, mealId: String)",
+      "com.tecknobit.gluky.services.measurements.repositories.types.MealsRepository.fillMeal"
+    ]
+  },
+  {
+    "name": "abstract fun getDailyMeasurements(ownerId: String, targetDay: Long): DailyMeasurements",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.getDailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories/-measurements-repository/get-daily-measurements.html",
+    "searchKeys": [
+      "getDailyMeasurements",
+      "abstract fun getDailyMeasurements(ownerId: String, targetDay: Long): DailyMeasurements",
+      "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.getDailyMeasurements"
+    ]
+  },
+  {
+    "name": "abstract fun retrieveMeasurements(owner: String, from: Long, to: Long): List<DailyMeasurements>",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.retrieveMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories/-measurements-repository/retrieve-measurements.html",
+    "searchKeys": [
+      "retrieveMeasurements",
+      "abstract fun retrieveMeasurements(owner: String, from: Long, to: Long): List<DailyMeasurements>",
+      "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.retrieveMeasurements"
+    ]
+  },
+  {
+    "name": "abstract fun retrieveMeasurements(owner: String, groupingDay: String, from: Long, to: Long): List<DailyMeasurements>",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.retrieveMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories/-measurements-repository/retrieve-measurements.html",
+    "searchKeys": [
+      "retrieveMeasurements",
+      "abstract fun retrieveMeasurements(owner: String, groupingDay: String, from: Long, to: Long): List<DailyMeasurements>",
+      "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.retrieveMeasurements"
+    ]
+  },
+  {
+    "name": "abstract fun saveDailyNotes(dailyNotes: String, measurementsId: String)",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.saveDailyNotes",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories/-measurements-repository/save-daily-notes.html",
+    "searchKeys": [
+      "saveDailyNotes",
+      "abstract fun saveDailyNotes(dailyNotes: String, measurementsId: String)",
+      "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository.saveDailyNotes"
+    ]
+  },
+  {
+    "name": "class GlycemiaPoint : Record",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/-glycemia-point/index.html",
+    "searchKeys": [
+      "GlycemiaPoint",
+      "class GlycemiaPoint : Record",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint"
+    ]
+  },
+  {
+    "name": "class GlycemiaPointComparator : Comparator<T> ",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPointComparator",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/-glycemia-point/-glycemia-point-comparator/index.html",
+    "searchKeys": [
+      "GlycemiaPointComparator",
+      "class GlycemiaPointComparator : Comparator<T> ",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPointComparator"
+    ]
+  },
+  {
+    "name": "class Report : Record",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.Report",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-report/index.html",
+    "searchKeys": [
+      "Report",
+      "class Report : Record",
+      "com.tecknobit.gluky.services.analyses.dtos.Report"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.Launcher.Launcher",
+    "location": "backend/com.tecknobit.gluky/-launcher/-launcher.html",
+    "searchKeys": [
+      "Launcher",
+      "constructor()",
+      "com.tecknobit.gluky.Launcher.Launcher"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.configuration.CORSAdvice.CORSAdvice",
+    "location": "backend/com.tecknobit.gluky.configuration/-c-o-r-s-advice/-c-o-r-s-advice.html",
+    "searchKeys": [
+      "CORSAdvice",
+      "constructor()",
+      "com.tecknobit.gluky.configuration.CORSAdvice.CORSAdvice"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.configuration.ResourcesConfig.ResourcesConfig",
+    "location": "backend/com.tecknobit.gluky.configuration/-resources-config/-resources-config.html",
+    "searchKeys": [
+      "ResourcesConfig",
+      "constructor()",
+      "com.tecknobit.gluky.configuration.ResourcesConfig.ResourcesConfig"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPoint",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/-glycemia-point/-glycemia-point.html",
+    "searchKeys": [
+      "GlycemiaPoint",
+      "constructor()",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPoint"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPointComparator.GlycemiaPointComparator",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/-glycemia-point/-glycemia-point-comparator/-glycemia-point-comparator.html",
+    "searchKeys": [
+      "GlycemiaPointComparator",
+      "constructor()",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPointComparator.GlycemiaPointComparator"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.Report.Report",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-report/-report.html",
+    "searchKeys": [
+      "Report",
+      "constructor()",
+      "com.tecknobit.gluky.services.analyses.dtos.Report.Report"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.DailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/-daily-measurements.html",
+    "searchKeys": [
+      "DailyMeasurements",
+      "constructor()",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.DailyMeasurements"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin.BasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-basal-insulin/-basal-insulin.html",
+    "searchKeys": [
+      "BasalInsulin",
+      "constructor()",
+      "com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin.BasalInsulin"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.Meal.Meal",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-meal/-meal.html",
+    "searchKeys": [
+      "Meal",
+      "constructor()",
+      "com.tecknobit.gluky.services.measurements.entities.types.Meal.Meal"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.GlycemicMeasurementsService.GlycemicMeasurementsService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-glycemic-measurements-service/-glycemic-measurements-service.html",
+    "searchKeys": [
+      "GlycemicMeasurementsService",
+      "constructor()",
+      "com.tecknobit.gluky.services.measurements.services.types.GlycemicMeasurementsService.GlycemicMeasurementsService"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.services.shared.controllers.DefaultGlukyController.DefaultGlukyController",
+    "location": "backend/com.tecknobit.gluky.services.shared.controllers/-default-gluky-controller/-default-gluky-controller.html",
+    "searchKeys": [
+      "DefaultGlukyController",
+      "constructor()",
+      "com.tecknobit.gluky.services.shared.controllers.DefaultGlukyController.DefaultGlukyController"
+    ]
+  },
+  {
+    "name": "constructor()",
+    "description": "com.tecknobit.gluky.services.users.entity.GlukyUser.GlukyUser",
+    "location": "backend/com.tecknobit.gluky.services.users.entity/-gluky-user/-gluky-user.html",
+    "searchKeys": [
+      "GlukyUser",
+      "constructor()",
+      "com.tecknobit.gluky.services.users.entity.GlukyUser.GlukyUser"
+    ]
+  },
+  {
+    "name": "constructor(analysesService: AnalysesService)",
+    "description": "com.tecknobit.gluky.services.analyses.controller.AnalysesController.AnalysesController",
+    "location": "backend/com.tecknobit.gluky.services.analyses.controller/-analyses-controller/-analyses-controller.html",
+    "searchKeys": [
+      "AnalysesController",
+      "constructor(analysesService: AnalysesService)",
+      "com.tecknobit.gluky.services.analyses.controller.AnalysesController.AnalysesController"
+    ]
+  },
+  {
+    "name": "constructor(basalInsulinRepository: BasalInsulinRepository)",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService.BasalInsulinService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-basal-insulin-service/-basal-insulin-service.html",
+    "searchKeys": [
+      "BasalInsulinService",
+      "constructor(basalInsulinRepository: BasalInsulinRepository)",
+      "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService.BasalInsulinService"
+    ]
+  },
+  {
+    "name": "constructor(content: IElement)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ArrangerCell.ArrangerCell",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-arranger-cell/-arranger-cell.html",
+    "searchKeys": [
+      "ArrangerCell",
+      "constructor(content: IElement)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ArrangerCell.ArrangerCell"
+    ]
+  },
+  {
+    "name": "constructor(content: IElement, border: Border)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ArrangerCell.ArrangerCell",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-arranger-cell/-arranger-cell.html",
+    "searchKeys": [
+      "ArrangerCell",
+      "constructor(content: IElement, border: Border)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ArrangerCell.ArrangerCell"
+    ]
+  },
+  {
+    "name": "constructor(id: String, annotationDate: Long, glycemia: Int, insulinUnits: Int, dailyMeasurements: DailyMeasurements)",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin.BasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-basal-insulin/-basal-insulin.html",
+    "searchKeys": [
+      "BasalInsulin",
+      "constructor(id: String, annotationDate: Long, glycemia: Int, insulinUnits: Int, dailyMeasurements: DailyMeasurements)",
+      "com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin.BasalInsulin"
+    ]
+  },
+  {
+    "name": "constructor(id: String, annotationDate: Long, glycemia: Int, insulinUnits: Int, dailyMeasurements: DailyMeasurements)",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.GlycemicMeasurementItem",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/-glycemic-measurement-item.html",
+    "searchKeys": [
+      "GlycemicMeasurementItem",
+      "constructor(id: String, annotationDate: Long, glycemia: Int, insulinUnits: Int, dailyMeasurements: DailyMeasurements)",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.GlycemicMeasurementItem"
+    ]
+  },
+  {
+    "name": "constructor(id: String, annotationDate: Long, glycemia: Int, insulinUnits: Int, dailyMeasurements: DailyMeasurements, type: MeasurementType, rawContent: String, postPrandialGlycemia: Int)",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.Meal.Meal",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-meal/-meal.html",
+    "searchKeys": [
+      "Meal",
+      "constructor(id: String, annotationDate: Long, glycemia: Int, insulinUnits: Int, dailyMeasurements: DailyMeasurements, type: MeasurementType, rawContent: String, postPrandialGlycemia: Int)",
+      "com.tecknobit.gluky.services.measurements.entities.types.Meal.Meal"
+    ]
+  },
+  {
+    "name": "constructor(id: String, creationDate: Long, breakfast: Meal, morningSnack: Meal, lunch: Meal, afternoonSnack: Meal, dinner: Meal, basalInsulin: BasalInsulin, dailyNotes: String, owner: GlukyUser)",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.DailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/-daily-measurements.html",
+    "searchKeys": [
+      "DailyMeasurements",
+      "constructor(id: String, creationDate: Long, breakfast: Meal, morningSnack: Meal, lunch: Meal, afternoonSnack: Meal, dinner: Meal, basalInsulin: BasalInsulin, dailyNotes: String, owner: GlukyUser)",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.DailyMeasurements"
+    ]
+  },
+  {
+    "name": "constructor(id: String, creationDate: Long, owner: GlukyUser)",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.DailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/-daily-measurements.html",
+    "searchKeys": [
+      "DailyMeasurements",
+      "constructor(id: String, creationDate: Long, owner: GlukyUser)",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.DailyMeasurements"
+    ]
+  },
+  {
+    "name": "constructor(id: String, dailyMeasurements: DailyMeasurements)",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin.BasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-basal-insulin/-basal-insulin.html",
+    "searchKeys": [
+      "BasalInsulin",
+      "constructor(id: String, dailyMeasurements: DailyMeasurements)",
+      "com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin.BasalInsulin"
+    ]
+  },
+  {
+    "name": "constructor(id: String, token: String, name: String, surname: String, email: String, password: String, profilePic: String, language: String, dailyMeasurements: List<DailyMeasurements>)",
+    "description": "com.tecknobit.gluky.services.users.entity.GlukyUser.GlukyUser",
+    "location": "backend/com.tecknobit.gluky.services.users.entity/-gluky-user/-gluky-user.html",
+    "searchKeys": [
+      "GlukyUser",
+      "constructor(id: String, token: String, name: String, surname: String, email: String, password: String, profilePic: String, language: String, dailyMeasurements: List<DailyMeasurements>)",
+      "com.tecknobit.gluky.services.users.entity.GlukyUser.GlukyUser"
+    ]
+  },
+  {
+    "name": "constructor(id: String, type: MeasurementType, dailyMeasurements: DailyMeasurements)",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.Meal.Meal",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-meal/-meal.html",
+    "searchKeys": [
+      "Meal",
+      "constructor(id: String, type: MeasurementType, dailyMeasurements: DailyMeasurements)",
+      "com.tecknobit.gluky.services.measurements.entities.types.Meal.Meal"
+    ]
+  },
+  {
+    "name": "constructor(mealsRepository: MealsRepository)",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.MealsService.MealsService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-meals-service/-meals-service.html",
+    "searchKeys": [
+      "MealsService",
+      "constructor(mealsRepository: MealsRepository)",
+      "com.tecknobit.gluky.services.measurements.services.types.MealsService.MealsService"
+    ]
+  },
+  {
+    "name": "constructor(measurementsRepository: MeasurementsRepository, mealsService: MealsService, basalInsulinService: BasalInsulinService)",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.MeasurementsService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/-measurements-service.html",
+    "searchKeys": [
+      "MeasurementsService",
+      "constructor(measurementsRepository: MeasurementsRepository, mealsService: MealsService, basalInsulinService: BasalInsulinService)",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.MeasurementsService"
+    ]
+  },
+  {
+    "name": "constructor(measurementsService: MeasurementsService)",
+    "description": "com.tecknobit.gluky.services.analyses.service.AnalysesService.AnalysesService",
+    "location": "backend/com.tecknobit.gluky.services.analyses.service/-analyses-service/-analyses-service.html",
+    "searchKeys": [
+      "AnalysesService",
+      "constructor(measurementsService: MeasurementsService)",
+      "com.tecknobit.gluky.services.analyses.service.AnalysesService.AnalysesService"
+    ]
+  },
+  {
+    "name": "constructor(measurementsService: MeasurementsService)",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.MeasurementsController",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/-measurements-controller.html",
+    "searchKeys": [
+      "MeasurementsController",
+      "constructor(measurementsService: MeasurementsService)",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.MeasurementsController"
+    ]
+  },
+  {
+    "name": "constructor(period: GlycemicTrendPeriod, dailyMeasurements: List<DailyMeasurements>)",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendDataContainer",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data-container.html",
+    "searchKeys": [
+      "GlycemicTrendDataContainer",
+      "constructor(period: GlycemicTrendPeriod, dailyMeasurements: List<DailyMeasurements>)",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendDataContainer"
+    ]
+  },
+  {
+    "name": "constructor(period: GlycemicTrendPeriod, mappedMeasurements: HashMap<Integer, List<T>>)",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemicTrendData",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/-glycemic-trend-data.html",
+    "searchKeys": [
+      "GlycemicTrendData",
+      "constructor(period: GlycemicTrendPeriod, mappedMeasurements: HashMap<Integer, List<T>>)",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemicTrendData"
+    ]
+  },
+  {
+    "name": "constructor(user: GlukyUser, period: GlycemicTrendPeriod, from: Long, to: Long, dailyMeasurements: List<DailyMeasurements>, reportId: String)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ReportCreator",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-report-creator.html",
+    "searchKeys": [
+      "ReportCreator",
+      "constructor(user: GlukyUser, period: GlycemicTrendPeriod, from: Long, to: Long, dailyMeasurements: List<DailyMeasurements>, reportId: String)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ReportCreator"
+    ]
+  },
+  {
+    "name": "constructor(usersRepository: GlukyUsersRepository)",
+    "description": "com.tecknobit.gluky.services.users.service.GlukyUsersService.GlukyUsersService",
+    "location": "backend/com.tecknobit.gluky.services.users.service/-gluky-users-service/-gluky-users-service.html",
+    "searchKeys": [
+      "GlukyUsersService",
+      "constructor(usersRepository: GlukyUsersRepository)",
+      "com.tecknobit.gluky.services.users.service.GlukyUsersService.GlukyUsersService"
+    ]
+  },
+  {
+    "name": "constructor(usersService: GlukyUsersService)",
+    "description": "com.tecknobit.gluky.services.users.controller.GlukyUsersController.GlukyUsersController",
+    "location": "backend/com.tecknobit.gluky.services.users.controller/-gluky-users-controller/-gluky-users-controller.html",
+    "searchKeys": [
+      "GlukyUsersController",
+      "constructor(usersService: GlukyUsersService)",
+      "com.tecknobit.gluky.services.users.controller.GlukyUsersController.GlukyUsersController"
+    ]
+  },
+  {
+    "name": "interface BasalInsulinRepository : GlycemicMeasurementsRepository<T> ",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.types.BasalInsulinRepository",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories.types/-basal-insulin-repository/index.html",
+    "searchKeys": [
+      "BasalInsulinRepository",
+      "interface BasalInsulinRepository : GlycemicMeasurementsRepository<T> ",
+      "com.tecknobit.gluky.services.measurements.repositories.types.BasalInsulinRepository"
+    ]
+  },
+  {
+    "name": "interface GlukyUsersRepository : EquinoxUsersRepository<T> ",
+    "description": "com.tecknobit.gluky.services.users.repository.GlukyUsersRepository",
+    "location": "backend/com.tecknobit.gluky.services.users.repository/-gluky-users-repository/index.html",
+    "searchKeys": [
+      "GlukyUsersRepository",
+      "interface GlukyUsersRepository : EquinoxUsersRepository<T> ",
+      "com.tecknobit.gluky.services.users.repository.GlukyUsersRepository"
+    ]
+  },
+  {
+    "name": "interface GlycemicMeasurementsRepository<T : GlycemicMeasurementItem?> : JpaRepository<T, ID> ",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.types.GlycemicMeasurementsRepository",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories.types/-glycemic-measurements-repository/index.html",
+    "searchKeys": [
+      "GlycemicMeasurementsRepository",
+      "interface GlycemicMeasurementsRepository<T : GlycemicMeasurementItem?> : JpaRepository<T, ID> ",
+      "com.tecknobit.gluky.services.measurements.repositories.types.GlycemicMeasurementsRepository"
+    ]
+  },
+  {
+    "name": "interface MealsRepository : GlycemicMeasurementsRepository<T> ",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.types.MealsRepository",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories.types/-meals-repository/index.html",
+    "searchKeys": [
+      "MealsRepository",
+      "interface MealsRepository : GlycemicMeasurementsRepository<T> ",
+      "com.tecknobit.gluky.services.measurements.repositories.types.MealsRepository"
+    ]
+  },
+  {
+    "name": "interface MeasurementsRepository : JpaRepository<T, ID> ",
+    "description": "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository",
+    "location": "backend/com.tecknobit.gluky.services.measurements.repositories/-measurements-repository/index.html",
+    "searchKeys": [
+      "MeasurementsRepository",
+      "interface MeasurementsRepository : JpaRepository<T, ID> ",
+      "com.tecknobit.gluky.services.measurements.repositories.MeasurementsRepository"
+    ]
+  },
+  {
+    "name": "open class AnalysesController : DefaultGlukyController",
+    "description": "com.tecknobit.gluky.services.analyses.controller.AnalysesController",
+    "location": "backend/com.tecknobit.gluky.services.analyses.controller/-analyses-controller/index.html",
+    "searchKeys": [
+      "AnalysesController",
+      "open class AnalysesController : DefaultGlukyController",
+      "com.tecknobit.gluky.services.analyses.controller.AnalysesController"
+    ]
+  },
+  {
+    "name": "open class AnalysesService",
+    "description": "com.tecknobit.gluky.services.analyses.service.AnalysesService",
+    "location": "backend/com.tecknobit.gluky.services.analyses.service/-analyses-service/index.html",
+    "searchKeys": [
+      "AnalysesService",
+      "open class AnalysesService",
+      "com.tecknobit.gluky.services.analyses.service.AnalysesService"
+    ]
+  },
+  {
+    "name": "open class BasalInsulin : GlycemicMeasurementItem",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-basal-insulin/index.html",
+    "searchKeys": [
+      "BasalInsulin",
+      "open class BasalInsulin : GlycemicMeasurementItem",
+      "com.tecknobit.gluky.services.measurements.entities.types.BasalInsulin"
+    ]
+  },
+  {
+    "name": "open class BasalInsulinService : GlycemicMeasurementsService",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-basal-insulin-service/index.html",
+    "searchKeys": [
+      "BasalInsulinService",
+      "open class BasalInsulinService : GlycemicMeasurementsService",
+      "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService"
+    ]
+  },
+  {
+    "name": "open class CORSAdvice",
+    "description": "com.tecknobit.gluky.configuration.CORSAdvice",
+    "location": "backend/com.tecknobit.gluky.configuration/-c-o-r-s-advice/index.html",
+    "searchKeys": [
+      "CORSAdvice",
+      "open class CORSAdvice",
+      "com.tecknobit.gluky.configuration.CORSAdvice"
+    ]
+  },
+  {
+    "name": "open class DailyMeasurements : EquinoxItem",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/index.html",
+    "searchKeys": [
+      "DailyMeasurements",
+      "open class DailyMeasurements : EquinoxItem",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements"
+    ]
+  },
+  {
+    "name": "open class DefaultGlukyController : EquinoxController<T, R, H> ",
+    "description": "com.tecknobit.gluky.services.shared.controllers.DefaultGlukyController",
+    "location": "backend/com.tecknobit.gluky.services.shared.controllers/-default-gluky-controller/index.html",
+    "searchKeys": [
+      "DefaultGlukyController",
+      "open class DefaultGlukyController : EquinoxController<T, R, H> ",
+      "com.tecknobit.gluky.services.shared.controllers.DefaultGlukyController"
+    ]
+  },
+  {
+    "name": "open class GlukyUser : EquinoxUser",
+    "description": "com.tecknobit.gluky.services.users.entity.GlukyUser",
+    "location": "backend/com.tecknobit.gluky.services.users.entity/-gluky-user/index.html",
+    "searchKeys": [
+      "GlukyUser",
+      "open class GlukyUser : EquinoxUser",
+      "com.tecknobit.gluky.services.users.entity.GlukyUser"
+    ]
+  },
+  {
+    "name": "open class GlukyUsersController : EquinoxUsersController<T, R, H> ",
+    "description": "com.tecknobit.gluky.services.users.controller.GlukyUsersController",
+    "location": "backend/com.tecknobit.gluky.services.users.controller/-gluky-users-controller/index.html",
+    "searchKeys": [
+      "GlukyUsersController",
+      "open class GlukyUsersController : EquinoxUsersController<T, R, H> ",
+      "com.tecknobit.gluky.services.users.controller.GlukyUsersController"
+    ]
+  },
+  {
+    "name": "open class GlukyUsersService : EquinoxUsersService<T, R> ",
+    "description": "com.tecknobit.gluky.services.users.service.GlukyUsersService",
+    "location": "backend/com.tecknobit.gluky.services.users.service/-gluky-users-service/index.html",
+    "searchKeys": [
+      "GlukyUsersService",
+      "open class GlukyUsersService : EquinoxUsersService<T, R> ",
+      "com.tecknobit.gluky.services.users.service.GlukyUsersService"
+    ]
+  },
+  {
+    "name": "open class GlycemicTrendData",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/index.html",
+    "searchKeys": [
+      "GlycemicTrendData",
+      "open class GlycemicTrendData",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData"
+    ]
+  },
+  {
+    "name": "open class GlycemicTrendDataContainer",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/index.html",
+    "searchKeys": [
+      "GlycemicTrendDataContainer",
+      "open class GlycemicTrendDataContainer",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer"
+    ]
+  },
+  {
+    "name": "open class Launcher",
+    "description": "com.tecknobit.gluky.Launcher",
+    "location": "backend/com.tecknobit.gluky/-launcher/index.html",
+    "searchKeys": [
+      "Launcher",
+      "open class Launcher",
+      "com.tecknobit.gluky.Launcher"
+    ]
+  },
+  {
+    "name": "open class Meal : GlycemicMeasurementItem",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.Meal",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-meal/index.html",
+    "searchKeys": [
+      "Meal",
+      "open class Meal : GlycemicMeasurementItem",
+      "com.tecknobit.gluky.services.measurements.entities.types.Meal"
+    ]
+  },
+  {
+    "name": "open class MealsService : GlycemicMeasurementsService",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.MealsService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-meals-service/index.html",
+    "searchKeys": [
+      "MealsService",
+      "open class MealsService : GlycemicMeasurementsService",
+      "com.tecknobit.gluky.services.measurements.services.types.MealsService"
+    ]
+  },
+  {
+    "name": "open class MeasurementsController : DefaultGlukyController",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/index.html",
+    "searchKeys": [
+      "MeasurementsController",
+      "open class MeasurementsController : DefaultGlukyController",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController"
+    ]
+  },
+  {
+    "name": "open class MeasurementsService",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/index.html",
+    "searchKeys": [
+      "MeasurementsService",
+      "open class MeasurementsService",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService"
+    ]
+  },
+  {
+    "name": "open class ReportCreator",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/index.html",
+    "searchKeys": [
+      "ReportCreator",
+      "open class ReportCreator",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator"
+    ]
+  },
+  {
+    "name": "open class ResourcesConfig : WebMvcConfigurer",
+    "description": "com.tecknobit.gluky.configuration.ResourcesConfig",
+    "location": "backend/com.tecknobit.gluky.configuration/-resources-config/index.html",
+    "searchKeys": [
+      "ResourcesConfig",
+      "open class ResourcesConfig : WebMvcConfigurer",
+      "com.tecknobit.gluky.configuration.ResourcesConfig"
+    ]
+  },
+  {
+    "name": "open fun <T : GlycemicMeasurementItem?> perform(period: GlycemicTrendPeriod, items: List<T>): HashMap<Integer, List<T>>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.perform",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-items-organizer/perform.html",
+    "searchKeys": [
+      "perform",
+      "open fun <T : GlycemicMeasurementItem?> perform(period: GlycemicTrendPeriod, items: List<T>): HashMap<Integer, List<T>>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.perform"
+    ]
+  },
+  {
+    "name": "open fun <T> createReport(userId: String, token: String, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): T",
+    "description": "com.tecknobit.gluky.services.analyses.controller.AnalysesController.createReport",
+    "location": "backend/com.tecknobit.gluky.services.analyses.controller/-analyses-controller/create-report.html",
+    "searchKeys": [
+      "createReport",
+      "open fun <T> createReport(userId: String, token: String, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): T",
+      "com.tecknobit.gluky.services.analyses.controller.AnalysesController.createReport"
+    ]
+  },
+  {
+    "name": "open fun <T> fillBasalInsulin(userId: String, token: String, targetDay: String, payload: Map<String, Any>): T",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.fillBasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/fill-basal-insulin.html",
+    "searchKeys": [
+      "fillBasalInsulin",
+      "open fun <T> fillBasalInsulin(userId: String, token: String, targetDay: String, payload: Map<String, Any>): T",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.fillBasalInsulin"
+    ]
+  },
+  {
+    "name": "open fun <T> fillDay(userId: String, token: String, targetDay: String): T",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.fillDay",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/fill-day.html",
+    "searchKeys": [
+      "fillDay",
+      "open fun <T> fillDay(userId: String, token: String, targetDay: String): T",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.fillDay"
+    ]
+  },
+  {
+    "name": "open fun <T> fillMeal(userId: String, token: String, targetDay: String, type: MeasurementType, payload: Map<String, Any>): T",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.fillMeal",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/fill-meal.html",
+    "searchKeys": [
+      "fillMeal",
+      "open fun <T> fillMeal(userId: String, token: String, targetDay: String, type: MeasurementType, payload: Map<String, Any>): T",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.fillMeal"
+    ]
+  },
+  {
+    "name": "open fun <T> getDailyMeasurements(userId: String, token: String, targetDay: String): T",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.getDailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/get-daily-measurements.html",
+    "searchKeys": [
+      "getDailyMeasurements",
+      "open fun <T> getDailyMeasurements(userId: String, token: String, targetDay: String): T",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.getDailyMeasurements"
+    ]
+  },
+  {
+    "name": "open fun <T> getGlycemicTrend(userId: String, token: String, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): T",
+    "description": "com.tecknobit.gluky.services.analyses.controller.AnalysesController.getGlycemicTrend",
+    "location": "backend/com.tecknobit.gluky.services.analyses.controller/-analyses-controller/get-glycemic-trend.html",
+    "searchKeys": [
+      "getGlycemicTrend",
+      "open fun <T> getGlycemicTrend(userId: String, token: String, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): T",
+      "com.tecknobit.gluky.services.analyses.controller.AnalysesController.getGlycemicTrend"
+    ]
+  },
+  {
+    "name": "open fun <T> saveDailyNotes(userId: String, token: String, targetDay: String, payload: Map<String, Any>): T",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.saveDailyNotes",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/save-daily-notes.html",
+    "searchKeys": [
+      "saveDailyNotes",
+      "open fun <T> saveDailyNotes(userId: String, token: String, targetDay: String, payload: Map<String, Any>): T",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.saveDailyNotes"
+    ]
+  },
+  {
+    "name": "open fun addResourceHandlers(registry: ResourceHandlerRegistry)",
+    "description": "com.tecknobit.gluky.configuration.ResourcesConfig.addResourceHandlers",
+    "location": "backend/com.tecknobit.gluky.configuration/-resources-config/add-resource-handlers.html",
+    "searchKeys": [
+      "addResourceHandlers",
+      "open fun addResourceHandlers(registry: ResourceHandlerRegistry)",
+      "com.tecknobit.gluky.configuration.ResourcesConfig.addResourceHandlers"
+    ]
+  },
+  {
+    "name": "open fun attachBasalInsulin(basalInsulin: BasalInsulin)",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.attachBasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/attach-basal-insulin.html",
+    "searchKeys": [
+      "attachBasalInsulin",
+      "open fun attachBasalInsulin(basalInsulin: BasalInsulin)",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.attachBasalInsulin"
+    ]
+  },
+  {
+    "name": "open fun attachMeals(meals: ArrayList<Meal>)",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.attachMeals",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/attach-meals.html",
+    "searchKeys": [
+      "attachMeals",
+      "open fun attachMeals(meals: ArrayList<Meal>)",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.attachMeals"
+    ]
+  },
+  {
+    "name": "open fun compare(o1: GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint, o2: GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint): Int",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPointComparator.compare",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/-glycemia-point/-glycemia-point-comparator/compare.html",
+    "searchKeys": [
+      "compare",
+      "open fun compare(o1: GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint, o2: GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint): Int",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint.GlycemiaPointComparator.compare"
+    ]
+  },
+  {
+    "name": "open fun corsFilter(): FilterRegistrationBean",
+    "description": "com.tecknobit.gluky.configuration.CORSAdvice.corsFilter",
+    "location": "backend/com.tecknobit.gluky.configuration/-c-o-r-s-advice/cors-filter.html",
+    "searchKeys": [
+      "corsFilter",
+      "open fun corsFilter(): FilterRegistrationBean",
+      "com.tecknobit.gluky.configuration.CORSAdvice.corsFilter"
+    ]
+  },
+  {
+    "name": "open fun create(): Pair<String, String>",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.create",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/create.html",
+    "searchKeys": [
+      "create",
+      "open fun create(): Pair<String, String>",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.create"
+    ]
+  },
+  {
+    "name": "open fun createReport(user: GlukyUser, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): Report",
+    "description": "com.tecknobit.gluky.services.analyses.service.AnalysesService.createReport",
+    "location": "backend/com.tecknobit.gluky.services.analyses.service/-analyses-service/create-report.html",
+    "searchKeys": [
+      "createReport",
+      "open fun createReport(user: GlukyUser, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): Report",
+      "com.tecknobit.gluky.services.analyses.service.AnalysesService.createReport"
+    ]
+  },
+  {
+    "name": "open fun deleteReport(reportId: String): Boolean",
+    "description": "com.tecknobit.gluky.services.analyses.service.AnalysesService.deleteReport",
+    "location": "backend/com.tecknobit.gluky.services.analyses.service/-analyses-service/delete-report.html",
+    "searchKeys": [
+      "deleteReport",
+      "open fun deleteReport(reportId: String): Boolean",
+      "com.tecknobit.gluky.services.analyses.service.AnalysesService.deleteReport"
+    ]
+  },
+  {
+    "name": "open fun deleteReport(userId: String, token: String, reportId: String): String",
+    "description": "com.tecknobit.gluky.services.analyses.controller.AnalysesController.deleteReport",
+    "location": "backend/com.tecknobit.gluky.services.analyses.controller/-analyses-controller/delete-report.html",
+    "searchKeys": [
+      "deleteReport",
+      "open fun deleteReport(userId: String, token: String, reportId: String): String",
+      "com.tecknobit.gluky.services.analyses.controller.AnalysesController.deleteReport"
+    ]
+  },
+  {
+    "name": "open fun fillBasalInsulin(basalInsulin: BasalInsulin, glycemia: String, insulinUnits: Int)",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService.fillBasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-basal-insulin-service/fill-basal-insulin.html",
+    "searchKeys": [
+      "fillBasalInsulin",
+      "open fun fillBasalInsulin(basalInsulin: BasalInsulin, glycemia: String, insulinUnits: Int)",
+      "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService.fillBasalInsulin"
+    ]
+  },
+  {
+    "name": "open fun fillBasalInsulin(measurements: DailyMeasurements, glycemia: String, insulinUnits: Int)",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.fillBasalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/fill-basal-insulin.html",
+    "searchKeys": [
+      "fillBasalInsulin",
+      "open fun fillBasalInsulin(measurements: DailyMeasurements, glycemia: String, insulinUnits: Int)",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.fillBasalInsulin"
+    ]
+  },
+  {
+    "name": "open fun fillDay(user: GlukyUser, targetDay: String): DailyMeasurements",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.fillDay",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/fill-day.html",
+    "searchKeys": [
+      "fillDay",
+      "open fun fillDay(user: GlukyUser, targetDay: String): DailyMeasurements",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.fillDay"
+    ]
+  },
+  {
+    "name": "open fun fillMeal(meal: GlycemicMeasurementItem, glycemia: String, postPrandialGlycemia: String, insulinUnits: Int, content: JSONObject)",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.MealsService.fillMeal",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-meals-service/fill-meal.html",
+    "searchKeys": [
+      "fillMeal",
+      "open fun fillMeal(meal: GlycemicMeasurementItem, glycemia: String, postPrandialGlycemia: String, insulinUnits: Int, content: JSONObject)",
+      "com.tecknobit.gluky.services.measurements.services.types.MealsService.fillMeal"
+    ]
+  },
+  {
+    "name": "open fun fillMeal(measurements: DailyMeasurements, type: MeasurementType, glycemia: String, postPrandialGlycemia: String, insulinUnits: Int, content: JSONObject)",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.fillMeal",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/fill-meal.html",
+    "searchKeys": [
+      "fillMeal",
+      "open fun fillMeal(measurements: DailyMeasurements, type: MeasurementType, glycemia: String, postPrandialGlycemia: String, insulinUnits: Int, content: JSONObject)",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.fillMeal"
+    ]
+  },
+  {
+    "name": "open fun getAnnotationDate(): Long",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.getAnnotationDate",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/get-annotation-date.html",
+    "searchKeys": [
+      "getAnnotationDate",
+      "open fun getAnnotationDate(): Long",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.getAnnotationDate"
+    ]
+  },
+  {
+    "name": "open fun getDailyMeasurements(userId: String, targetDay: String): DailyMeasurements",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.getDailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/get-daily-measurements.html",
+    "searchKeys": [
+      "getDailyMeasurements",
+      "open fun getDailyMeasurements(userId: String, targetDay: String): DailyMeasurements",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.getDailyMeasurements"
+    ]
+  },
+  {
+    "name": "open fun getFirstSet(): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.getFirstSet",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/get-first-set.html",
+    "searchKeys": [
+      "getFirstSet",
+      "open fun getFirstSet(): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.getFirstSet"
+    ]
+  },
+  {
+    "name": "open fun getFourthSet(): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.getFourthSet",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/get-fourth-set.html",
+    "searchKeys": [
+      "getFourthSet",
+      "open fun getFourthSet(): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.getFourthSet"
+    ]
+  },
+  {
+    "name": "open fun getGlycemia(): Int",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.getGlycemia",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/get-glycemia.html",
+    "searchKeys": [
+      "getGlycemia",
+      "open fun getGlycemia(): Int",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.getGlycemia"
+    ]
+  },
+  {
+    "name": "open fun getGlycemicTrend(userId: String, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): GlycemicTrendDataContainer",
+    "description": "com.tecknobit.gluky.services.analyses.service.AnalysesService.getGlycemicTrend",
+    "location": "backend/com.tecknobit.gluky.services.analyses.service/-analyses-service/get-glycemic-trend.html",
+    "searchKeys": [
+      "getGlycemicTrend",
+      "open fun getGlycemicTrend(userId: String, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): GlycemicTrendDataContainer",
+      "com.tecknobit.gluky.services.analyses.service.AnalysesService.getGlycemicTrend"
+    ]
+  },
+  {
+    "name": "open fun getInsulinUnits(): Int",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.getInsulinUnits",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/get-insulin-units.html",
+    "searchKeys": [
+      "getInsulinUnits",
+      "open fun getInsulinUnits(): Int",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.getInsulinUnits"
+    ]
+  },
+  {
+    "name": "open fun getMeasurement(type: MeasurementType): GlycemicMeasurementItem",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.getMeasurement",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/get-measurement.html",
+    "searchKeys": [
+      "getMeasurement",
+      "open fun getMeasurement(type: MeasurementType): GlycemicMeasurementItem",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.getMeasurement"
+    ]
+  },
+  {
+    "name": "open fun getMultipleDailyMeasurements(userId: String, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): List<DailyMeasurements>",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.getMultipleDailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/get-multiple-daily-measurements.html",
+    "searchKeys": [
+      "getMultipleDailyMeasurements",
+      "open fun getMultipleDailyMeasurements(userId: String, period: GlycemicTrendPeriod, groupingDay: GlycemicTrendGroupingDay, from: Long, to: Long): List<DailyMeasurements>",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.getMultipleDailyMeasurements"
+    ]
+  },
+  {
+    "name": "open fun getSecondSet(): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.getSecondSet",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/get-second-set.html",
+    "searchKeys": [
+      "getSecondSet",
+      "open fun getSecondSet(): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.getSecondSet"
+    ]
+  },
+  {
+    "name": "open fun getThirdSet(): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.getThirdSet",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/get-third-set.html",
+    "searchKeys": [
+      "getThirdSet",
+      "open fun getThirdSet(): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.getThirdSet"
+    ]
+  },
+  {
+    "name": "open fun isFilled(): Boolean",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.isFilled",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/is-filled.html",
+    "searchKeys": [
+      "isFilled",
+      "open fun isFilled(): Boolean",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.isFilled"
+    ]
+  },
+  {
+    "name": "open fun isFilled(): Boolean",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.isFilled",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/is-filled.html",
+    "searchKeys": [
+      "isFilled",
+      "open fun isFilled(): Boolean",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.isFilled"
+    ]
+  },
+  {
+    "name": "open fun main(args: Array<String>)",
+    "description": "com.tecknobit.gluky.Launcher.main",
+    "location": "backend/com.tecknobit.gluky/-launcher/main.html",
+    "searchKeys": [
+      "main",
+      "open fun main(args: Array<String>)",
+      "com.tecknobit.gluky.Launcher.main"
+    ]
+  },
+  {
+    "name": "open fun normalizeDates(from: Long, to: Long, period: GlycemicTrendPeriod): Pair<Long, Long>",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.normalizeDates",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/normalize-dates.html",
+    "searchKeys": [
+      "normalizeDates",
+      "open fun normalizeDates(from: Long, to: Long, period: GlycemicTrendPeriod): Pair<Long, Long>",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.normalizeDates"
+    ]
+  },
+  {
+    "name": "open fun registerBasalInsulinForDay(day: DailyMeasurements): BasalInsulin",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService.registerBasalInsulinForDay",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-basal-insulin-service/register-basal-insulin-for-day.html",
+    "searchKeys": [
+      "registerBasalInsulinForDay",
+      "open fun registerBasalInsulinForDay(day: DailyMeasurements): BasalInsulin",
+      "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService.registerBasalInsulinForDay"
+    ]
+  },
+  {
+    "name": "open fun registerMealsForDay(day: DailyMeasurements): ArrayList<Meal>",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.MealsService.registerMealsForDay",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-meals-service/register-meals-for-day.html",
+    "searchKeys": [
+      "registerMealsForDay",
+      "open fun registerMealsForDay(day: DailyMeasurements): ArrayList<Meal>",
+      "com.tecknobit.gluky.services.measurements.services.types.MealsService.registerMealsForDay"
+    ]
+  },
+  {
+    "name": "open fun saveDailyNotes(measurements: DailyMeasurements, dailyNotes: String)",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.saveDailyNotes",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/save-daily-notes.html",
+    "searchKeys": [
+      "saveDailyNotes",
+      "open fun saveDailyNotes(measurements: DailyMeasurements, dailyNotes: String)",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.saveDailyNotes"
+    ]
+  },
+  {
+    "name": "open val afternoonSnack: GlycemicTrendDataContainer.GlycemicTrendData",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.afternoonSnack",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/afternoon-snack.html",
+    "searchKeys": [
+      "afternoonSnack",
+      "open val afternoonSnack: GlycemicTrendDataContainer.GlycemicTrendData",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.afternoonSnack"
+    ]
+  },
+  {
+    "name": "open val afternoonSnack: Meal",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.afternoonSnack",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/afternoon-snack.html",
+    "searchKeys": [
+      "afternoonSnack",
+      "open val afternoonSnack: Meal",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.afternoonSnack"
+    ]
+  },
+  {
+    "name": "open val basalInsulin: BasalInsulin",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.basalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/basal-insulin.html",
+    "searchKeys": [
+      "basalInsulin",
+      "open val basalInsulin: BasalInsulin",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.basalInsulin"
+    ]
+  },
+  {
+    "name": "open val basalInsulin: GlycemicTrendDataContainer.GlycemicTrendData",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.basalInsulin",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/basal-insulin.html",
+    "searchKeys": [
+      "basalInsulin",
+      "open val basalInsulin: GlycemicTrendDataContainer.GlycemicTrendData",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.basalInsulin"
+    ]
+  },
+  {
+    "name": "open val breakfast: GlycemicTrendDataContainer.GlycemicTrendData",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.breakfast",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/breakfast.html",
+    "searchKeys": [
+      "breakfast",
+      "open val breakfast: GlycemicTrendDataContainer.GlycemicTrendData",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.breakfast"
+    ]
+  },
+  {
+    "name": "open val breakfast: Meal",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.breakfast",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/breakfast.html",
+    "searchKeys": [
+      "breakfast",
+      "open val breakfast: Meal",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.breakfast"
+    ]
+  },
+  {
+    "name": "open val dinner: GlycemicTrendDataContainer.GlycemicTrendData",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.dinner",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/dinner.html",
+    "searchKeys": [
+      "dinner",
+      "open val dinner: GlycemicTrendDataContainer.GlycemicTrendData",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.dinner"
+    ]
+  },
+  {
+    "name": "open val dinner: Meal",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.dinner",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/dinner.html",
+    "searchKeys": [
+      "dinner",
+      "open val dinner: Meal",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.dinner"
+    ]
+  },
+  {
+    "name": "open val lunch: GlycemicTrendDataContainer.GlycemicTrendData",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.lunch",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/lunch.html",
+    "searchKeys": [
+      "lunch",
+      "open val lunch: GlycemicTrendDataContainer.GlycemicTrendData",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.lunch"
+    ]
+  },
+  {
+    "name": "open val lunch: Meal",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.lunch",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/lunch.html",
+    "searchKeys": [
+      "lunch",
+      "open val lunch: Meal",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.lunch"
+    ]
+  },
+  {
+    "name": "open val morningSnack: GlycemicTrendDataContainer.GlycemicTrendData",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.morningSnack",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/morning-snack.html",
+    "searchKeys": [
+      "morningSnack",
+      "open val morningSnack: GlycemicTrendDataContainer.GlycemicTrendData",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.morningSnack"
+    ]
+  },
+  {
+    "name": "open val morningSnack: Meal",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.morningSnack",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/morning-snack.html",
+    "searchKeys": [
+      "morningSnack",
+      "open val morningSnack: Meal",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.morningSnack"
+    ]
+  },
+  {
+    "name": "private constructor()",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.GlycemicItemsOrganizer",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-items-organizer/-glycemic-items-organizer.html",
+    "searchKeys": [
+      "GlycemicItemsOrganizer",
+      "private constructor()",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.GlycemicItemsOrganizer"
+    ]
+  },
+  {
+    "name": "private constructor(document: Document)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Header.Header",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-header/-header.html",
+    "searchKeys": [
+      "Header",
+      "private constructor(document: Document)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Header.Header"
+    ]
+  },
+  {
+    "name": "private constructor(resourcesUtils: ResourcesUtils<Class<ReportCreator>>, document: Document, comicneue: PdfFont, translator: ReportCreator.Translator)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.Footer",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/-footer.html",
+    "searchKeys": [
+      "Footer",
+      "private constructor(resourcesUtils: ResourcesUtils<Class<ReportCreator>>, document: Document, comicneue: PdfFont, translator: ReportCreator.Translator)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.Footer"
+    ]
+  },
+  {
+    "name": "private open class ArrangerCell : Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ArrangerCell",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-arranger-cell/index.html",
+    "searchKeys": [
+      "ArrangerCell",
+      "private open class ArrangerCell : Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ArrangerCell"
+    ]
+  },
+  {
+    "name": "private open class Footer : AbstractPdfDocumentEventHandler",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/index.html",
+    "searchKeys": [
+      "Footer",
+      "private open class Footer : AbstractPdfDocumentEventHandler",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer"
+    ]
+  },
+  {
+    "name": "private open class GlycemicItemsOrganizer",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-items-organizer/index.html",
+    "searchKeys": [
+      "GlycemicItemsOrganizer",
+      "private open class GlycemicItemsOrganizer",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer"
+    ]
+  },
+  {
+    "name": "private open class Header : AbstractPdfDocumentEventHandler",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Header",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-header/index.html",
+    "searchKeys": [
+      "Header",
+      "private open class Header : AbstractPdfDocumentEventHandler",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Header"
+    ]
+  },
+  {
+    "name": "private open fun <T : GlycemicMeasurementItem?> convertToPoints(measurements: List<T>): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.convertToPoints",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/convert-to-points.html",
+    "searchKeys": [
+      "convertToPoints",
+      "private open fun <T : GlycemicMeasurementItem?> convertToPoints(measurements: List<T>): List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.convertToPoints"
+    ]
+  },
+  {
+    "name": "private open fun <T : GlycemicMeasurementItem?> convertToTrendData(period: GlycemicTrendPeriod, trendDataMap: HashMap<Integer, List<T>>): GlycemicTrendDataContainer.GlycemicTrendData",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.convertToTrendData",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/convert-to-trend-data.html",
+    "searchKeys": [
+      "convertToTrendData",
+      "private open fun <T : GlycemicMeasurementItem?> convertToTrendData(period: GlycemicTrendPeriod, trendDataMap: HashMap<Integer, List<T>>): GlycemicTrendDataContainer.GlycemicTrendData",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.convertToTrendData"
+    ]
+  },
+  {
+    "name": "private open fun <T : GlycemicMeasurementItem?> loadSets(mappedMeasurements: HashMap<Integer, List<T>>)",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.loadSets",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/load-sets.html",
+    "searchKeys": [
+      "loadSets",
+      "private open fun <T : GlycemicMeasurementItem?> loadSets(mappedMeasurements: HashMap<Integer, List<T>>)",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.loadSets"
+    ]
+  },
+  {
+    "name": "private open fun <T : GlycemicMeasurementItem?> loadSpecificTrend(type: MeasurementType, trendData: HashMap<Integer, List<T>>)",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.loadSpecificTrend",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/load-specific-trend.html",
+    "searchKeys": [
+      "loadSpecificTrend",
+      "private open fun <T : GlycemicMeasurementItem?> loadSpecificTrend(type: MeasurementType, trendData: HashMap<Integer, List<T>>)",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.loadSpecificTrend"
+    ]
+  },
+  {
+    "name": "private open fun <T : GlycemicMeasurementItem?> organize(items: List<T>, getOrganizerKey: (T) -> Integer): HashMap<Integer, List<T>>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.organize",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-items-organizer/organize.html",
+    "searchKeys": [
+      "organize",
+      "private open fun <T : GlycemicMeasurementItem?> organize(items: List<T>, getOrganizerKey: (T) -> Integer): HashMap<Integer, List<T>>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.organize"
+    ]
+  },
+  {
+    "name": "private open fun <T : GlycemicMeasurementItem?> organizePerMonth(items: List<T>): HashMap<Integer, List<T>>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.organizePerMonth",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-items-organizer/organize-per-month.html",
+    "searchKeys": [
+      "organizePerMonth",
+      "private open fun <T : GlycemicMeasurementItem?> organizePerMonth(items: List<T>): HashMap<Integer, List<T>>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.organizePerMonth"
+    ]
+  },
+  {
+    "name": "private open fun <T : GlycemicMeasurementItem?> organizePerWeek(items: List<T>): HashMap<Integer, List<T>>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.organizePerWeek",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-items-organizer/organize-per-week.html",
+    "searchKeys": [
+      "organizePerWeek",
+      "private open fun <T : GlycemicMeasurementItem?> organizePerWeek(items: List<T>): HashMap<Integer, List<T>>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.organizePerWeek"
+    ]
+  },
+  {
+    "name": "private open fun <T : GlycemicMeasurementItem?> organizeSingleWeek(items: List<T>): HashMap<Integer, List<T>>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.organizeSingleWeek",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-items-organizer/organize-single-week.html",
+    "searchKeys": [
+      "organizeSingleWeek",
+      "private open fun <T : GlycemicMeasurementItem?> organizeSingleWeek(items: List<T>): HashMap<Integer, List<T>>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.organizeSingleWeek"
+    ]
+  },
+  {
+    "name": "private open fun addBannerContent(pdfDocument: PdfDocument, page: PdfPage, bannerContainer: Rectangle)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.addBannerContent",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/add-banner-content.html",
+    "searchKeys": [
+      "addBannerContent",
+      "private open fun addBannerContent(pdfDocument: PdfDocument, page: PdfPage, bannerContainer: Rectangle)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.addBannerContent"
+    ]
+  },
+  {
+    "name": "private open fun appStoreIcon(pdfDocument: PdfDocument): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.appStoreIcon",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/app-store-icon.html",
+    "searchKeys": [
+      "appStoreIcon",
+      "private open fun appStoreIcon(pdfDocument: PdfDocument): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.appStoreIcon"
+    ]
+  },
+  {
+    "name": "private open fun arrange(content: IElement)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ArrangerCell.arrange",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-arranger-cell/arrange.html",
+    "searchKeys": [
+      "arrange",
+      "private open fun arrange(content: IElement)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ArrangerCell.arrange"
+    ]
+  },
+  {
+    "name": "private open fun arrangeContent()",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.arrangeContent",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/arrange-content.html",
+    "searchKeys": [
+      "arrangeContent",
+      "private open fun arrangeContent()",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.arrangeContent"
+    ]
+  },
+  {
+    "name": "private open fun arrangeTrendData()",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.arrangeTrendData",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/arrange-trend-data.html",
+    "searchKeys": [
+      "arrangeTrendData",
+      "private open fun arrangeTrendData()",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.arrangeTrendData"
+    ]
+  },
+  {
+    "name": "private open fun attachDailyNotes(dailyNotes: String)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.attachDailyNotes",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/attach-daily-notes.html",
+    "searchKeys": [
+      "attachDailyNotes",
+      "private open fun attachDailyNotes(dailyNotes: String)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.attachDailyNotes"
+    ]
+  },
+  {
+    "name": "private open fun capitalize(uncapitalizedString: String): String",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.capitalize",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/capitalize.html",
+    "searchKeys": [
+      "capitalize",
+      "private open fun capitalize(uncapitalizedString: String): String",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.capitalize"
+    ]
+  },
+  {
+    "name": "private open fun computeAverageGlycemia(): Double",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.computeAverageGlycemia",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/compute-average-glycemia.html",
+    "searchKeys": [
+      "computeAverageGlycemia",
+      "private open fun computeAverageGlycemia(): Double",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.computeAverageGlycemia"
+    ]
+  },
+  {
+    "name": "private open fun convertToStartOfTheDay(targetDay: Long): Long",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.convertToStartOfTheDay",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/convert-to-start-of-the-day.html",
+    "searchKeys": [
+      "convertToStartOfTheDay",
+      "private open fun convertToStartOfTheDay(targetDay: Long): Long",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.convertToStartOfTheDay"
+    ]
+  },
+  {
+    "name": "private open fun createBackgroundBanner(pdfCanvas: PdfCanvas, page: PdfPage): Rectangle",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.createBackgroundBanner",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/create-background-banner.html",
+    "searchKeys": [
+      "createBackgroundBanner",
+      "private open fun createBackgroundBanner(pdfCanvas: PdfCanvas, page: PdfPage): Rectangle",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.createBackgroundBanner"
+    ]
+  },
+  {
+    "name": "private open fun createFooterBanner(pageSize: Rectangle): Rectangle",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.createFooterBanner",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/create-footer-banner.html",
+    "searchKeys": [
+      "createFooterBanner",
+      "private open fun createFooterBanner(pageSize: Rectangle): Rectangle",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.createFooterBanner"
+    ]
+  },
+  {
+    "name": "private open fun dailyRecord(measurements: DailyMeasurements): Table",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.dailyRecord",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/daily-record.html",
+    "searchKeys": [
+      "dailyRecord",
+      "private open fun dailyRecord(measurements: DailyMeasurements): Table",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.dailyRecord"
+    ]
+  },
+  {
+    "name": "private open fun dayIndicator(dayFormatter: SimpleDateFormat, creationDate: Long): Paragraph",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.dayIndicator",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/day-indicator.html",
+    "searchKeys": [
+      "dayIndicator",
+      "private open fun dayIndicator(dayFormatter: SimpleDateFormat, creationDate: Long): Paragraph",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.dayIndicator"
+    ]
+  },
+  {
+    "name": "private open fun fillRow(table: Table, measurements: DailyMeasurements)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.fillRow",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/fill-row.html",
+    "searchKeys": [
+      "fillRow",
+      "private open fun fillRow(table: Table, measurements: DailyMeasurements)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.fillRow"
+    ]
+  },
+  {
+    "name": "private open fun findHigherGlycemia(): GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.findHigherGlycemia",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/find-higher-glycemia.html",
+    "searchKeys": [
+      "findHigherGlycemia",
+      "private open fun findHigherGlycemia(): GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.findHigherGlycemia"
+    ]
+  },
+  {
+    "name": "private open fun findLowerGlycemia(): GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.findLowerGlycemia",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/find-lower-glycemia.html",
+    "searchKeys": [
+      "findLowerGlycemia",
+      "private open fun findLowerGlycemia(): GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.findLowerGlycemia"
+    ]
+  },
+  {
+    "name": "private open fun formatMealContent(content: String): List",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.formatMealContent",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/format-meal-content.html",
+    "searchKeys": [
+      "formatMealContent",
+      "private open fun formatMealContent(content: String): List",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.formatMealContent"
+    ]
+  },
+  {
+    "name": "private open fun gapPeriod()",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.gapPeriod",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/gap-period.html",
+    "searchKeys": [
+      "gapPeriod",
+      "private open fun gapPeriod()",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.gapPeriod"
+    ]
+  },
+  {
+    "name": "private open fun generateHeader()",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.generateHeader",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/generate-header.html",
+    "searchKeys": [
+      "generateHeader",
+      "private open fun generateHeader()",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.generateHeader"
+    ]
+  },
+  {
+    "name": "private open fun generateReportName(): String",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.generateReportName",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/generate-report-name.html",
+    "searchKeys": [
+      "generateReportName",
+      "private open fun generateReportName(): String",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.generateReportName"
+    ]
+  },
+  {
+    "name": "private open fun generatedWithGluky(): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.generatedWithGluky",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/generated-with-gluky.html",
+    "searchKeys": [
+      "generatedWithGluky",
+      "private open fun generatedWithGluky(): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.generatedWithGluky"
+    ]
+  },
+  {
+    "name": "private open fun getBannerRootArea(bannerContainer: Rectangle): Rectangle",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.getBannerRootArea",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/get-banner-root-area.html",
+    "searchKeys": [
+      "getBannerRootArea",
+      "private open fun getBannerRootArea(bannerContainer: Rectangle): Rectangle",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.getBannerRootArea"
+    ]
+  },
+  {
+    "name": "private open fun getMeasurementTypeText(type: MeasurementType): String",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.getMeasurementTypeText",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/get-measurement-type-text.html",
+    "searchKeys": [
+      "getMeasurementTypeText",
+      "private open fun getMeasurementTypeText(type: MeasurementType): String",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.getMeasurementTypeText"
+    ]
+  },
+  {
+    "name": "private open fun getMonth(annotationDate: Long): Int",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.getMonth",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-items-organizer/get-month.html",
+    "searchKeys": [
+      "getMonth",
+      "private open fun getMonth(annotationDate: Long): Int",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.getMonth"
+    ]
+  },
+  {
+    "name": "private open fun getPeriodTitleKey(): ReportCreator.Translator.TranslatorKey",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.getPeriodTitleKey",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/get-period-title-key.html",
+    "searchKeys": [
+      "getPeriodTitleKey",
+      "private open fun getPeriodTitleKey(): ReportCreator.Translator.TranslatorKey",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.getPeriodTitleKey"
+    ]
+  },
+  {
+    "name": "private open fun getWeekOfMonth(annotationDate: Long): Int",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.getWeekOfMonth",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-items-organizer/get-week-of-month.html",
+    "searchKeys": [
+      "getWeekOfMonth",
+      "private open fun getWeekOfMonth(annotationDate: Long): Int",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicItemsOrganizer.getWeekOfMonth"
+    ]
+  },
+  {
+    "name": "private open fun githubIcon(pdfDocument: PdfDocument): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.githubIcon",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/github-icon.html",
+    "searchKeys": [
+      "githubIcon",
+      "private open fun githubIcon(pdfDocument: PdfDocument): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.githubIcon"
+    ]
+  },
+  {
+    "name": "private open fun glycemia(glycemia: Int): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.glycemia",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/glycemia.html",
+    "searchKeys": [
+      "glycemia",
+      "private open fun glycemia(glycemia: Int): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.glycemia"
+    ]
+  },
+  {
+    "name": "private open fun glycemiaLevelBackground(glycemia: Int): DeviceRgb",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.glycemiaLevelBackground",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/glycemia-level-background.html",
+    "searchKeys": [
+      "glycemiaLevelBackground",
+      "private open fun glycemiaLevelBackground(glycemia: Int): DeviceRgb",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.glycemiaLevelBackground"
+    ]
+  },
+  {
+    "name": "private open fun h1(text: String): Paragraph",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.h1",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/h1.html",
+    "searchKeys": [
+      "h1",
+      "private open fun h1(text: String): Paragraph",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.h1"
+    ]
+  },
+  {
+    "name": "private open fun h2(text: String): Paragraph",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.h2",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/h2.html",
+    "searchKeys": [
+      "h2",
+      "private open fun h2(text: String): Paragraph",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.h2"
+    ]
+  },
+  {
+    "name": "private open fun h3(text: String): Paragraph",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.h3",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/h3.html",
+    "searchKeys": [
+      "h3",
+      "private open fun h3(text: String): Paragraph",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.h3"
+    ]
+  },
+  {
+    "name": "private open fun header(text: String, size: Float): Paragraph",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.header",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/header.html",
+    "searchKeys": [
+      "header",
+      "private open fun header(text: String, size: Float): Paragraph",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.header"
+    ]
+  },
+  {
+    "name": "private open fun iconCell(pdfDocument: PdfDocument, icon: String, url: String): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.iconCell",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/icon-cell.html",
+    "searchKeys": [
+      "iconCell",
+      "private open fun iconCell(pdfDocument: PdfDocument, icon: String, url: String): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.iconCell"
+    ]
+  },
+  {
+    "name": "private open fun iconData(pdfDocument: PdfDocument, icon: String, url: String): Image",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.iconData",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/icon-data.html",
+    "searchKeys": [
+      "iconData",
+      "private open fun iconData(pdfDocument: PdfDocument, icon: String, url: String): Image",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.iconData"
+    ]
+  },
+  {
+    "name": "private open fun insulinUnits(insulinUnits: Int): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.insulinUnits",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/insulin-units.html",
+    "searchKeys": [
+      "insulinUnits",
+      "private open fun insulinUnits(insulinUnits: Int): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.insulinUnits"
+    ]
+  },
+  {
+    "name": "private open fun intValueCell(value: Int): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.intValueCell",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/int-value-cell.html",
+    "searchKeys": [
+      "intValueCell",
+      "private open fun intValueCell(value: Int): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.intValueCell"
+    ]
+  },
+  {
+    "name": "private open fun loadFont(font: String): PdfFont",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.loadFont",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/load-font.html",
+    "searchKeys": [
+      "loadFont",
+      "private open fun loadFont(font: String): PdfFont",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.loadFont"
+    ]
+  },
+  {
+    "name": "private open fun loadLogo(): Image",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.loadLogo",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/load-logo.html",
+    "searchKeys": [
+      "loadLogo",
+      "private open fun loadLogo(): Image",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.loadLogo"
+    ]
+  },
+  {
+    "name": "private open fun logo(): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.logo",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/logo.html",
+    "searchKeys": [
+      "logo",
+      "private open fun logo(): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.logo"
+    ]
+  },
+  {
+    "name": "private open fun mealContent(content: String): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.mealContent",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/meal-content.html",
+    "searchKeys": [
+      "mealContent",
+      "private open fun mealContent(content: String): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.mealContent"
+    ]
+  },
+  {
+    "name": "private open fun measurementCell(content: IElement): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.measurementCell",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/measurement-cell.html",
+    "searchKeys": [
+      "measurementCell",
+      "private open fun measurementCell(content: IElement): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.measurementCell"
+    ]
+  },
+  {
+    "name": "private open fun measurementType(type: MeasurementType): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.measurementType",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/measurement-type.html",
+    "searchKeys": [
+      "measurementType",
+      "private open fun measurementType(type: MeasurementType): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.measurementType"
+    ]
+  },
+  {
+    "name": "private open fun normalizeTargetDay(targetDay: String): Long",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.normalizeTargetDay",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/normalize-target-day.html",
+    "searchKeys": [
+      "normalizeTargetDay",
+      "private open fun normalizeTargetDay(targetDay: String): Long",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.normalizeTargetDay"
+    ]
+  },
+  {
+    "name": "private open fun notApplicabile(): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.notApplicabile",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/not-applicabile.html",
+    "searchKeys": [
+      "notApplicabile",
+      "private open fun notApplicabile(): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.notApplicabile"
+    ]
+  },
+  {
+    "name": "private open fun pageCount(): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.pageCount",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/page-count.html",
+    "searchKeys": [
+      "pageCount",
+      "private open fun pageCount(): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.pageCount"
+    ]
+  },
+  {
+    "name": "private open fun periodTitleSection()",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.periodTitleSection",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/period-title-section.html",
+    "searchKeys": [
+      "periodTitleSection",
+      "private open fun periodTitleSection()",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.periodTitleSection"
+    ]
+  },
+  {
+    "name": "private open fun playStoreIcon(pdfDocument: PdfDocument): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.playStoreIcon",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/play-store-icon.html",
+    "searchKeys": [
+      "playStoreIcon",
+      "private open fun playStoreIcon(pdfDocument: PdfDocument): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.playStoreIcon"
+    ]
+  },
+  {
+    "name": "private open fun postPrandial(postPrandialGlycemia: Int): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.postPrandial",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/post-prandial.html",
+    "searchKeys": [
+      "postPrandial",
+      "private open fun postPrandial(postPrandialGlycemia: Int): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.postPrandial"
+    ]
+  },
+  {
+    "name": "private open fun prePrandial(prePrandialGlycemia: Int): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.prePrandial",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/pre-prandial.html",
+    "searchKeys": [
+      "prePrandial",
+      "private open fun prePrandial(prePrandialGlycemia: Int): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.prePrandial"
+    ]
+  },
+  {
+    "name": "private open fun removeUnfilledMeasurements(dailyMeasurements: List<DailyMeasurements>): List<DailyMeasurements>",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.removeUnfilledMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/remove-unfilled-measurements.html",
+    "searchKeys": [
+      "removeUnfilledMeasurements",
+      "private open fun removeUnfilledMeasurements(dailyMeasurements: List<DailyMeasurements>): List<DailyMeasurements>",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.removeUnfilledMeasurements"
+    ]
+  },
+  {
+    "name": "private open fun setHeaders(table: Table)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.setHeaders",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/set-headers.html",
+    "searchKeys": [
+      "setHeaders",
+      "private open fun setHeaders(table: Table)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.setHeaders"
+    ]
+  },
+  {
+    "name": "private open fun setTheme()",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.setTheme",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/set-theme.html",
+    "searchKeys": [
+      "setTheme",
+      "private open fun setTheme()",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.setTheme"
+    ]
+  },
+  {
+    "name": "private open fun subtitle(text: String): Paragraph",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.subtitle",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/subtitle.html",
+    "searchKeys": [
+      "subtitle",
+      "private open fun subtitle(text: String): Paragraph",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.subtitle"
+    ]
+  },
+  {
+    "name": "private open fun timeCell(annotationDate: Long): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.timeCell",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/time-cell.html",
+    "searchKeys": [
+      "timeCell",
+      "private open fun timeCell(annotationDate: Long): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.timeCell"
+    ]
+  },
+  {
+    "name": "private open fun userCompleteName(): Cell",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.userCompleteName",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/user-complete-name.html",
+    "searchKeys": [
+      "userCompleteName",
+      "private open fun userCompleteName(): Cell",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.userCompleteName"
+    ]
+  },
+  {
+    "name": "private open var comicneue: PdfFont",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.comicneue",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/comicneue.html",
+    "searchKeys": [
+      "comicneue",
+      "private open var comicneue: PdfFont",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.comicneue"
+    ]
+  },
+  {
+    "name": "private open var currentPageNumber: Int",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.currentPageNumber",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/current-page-number.html",
+    "searchKeys": [
+      "currentPageNumber",
+      "private open var currentPageNumber: Int",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.currentPageNumber"
+    ]
+  },
+  {
+    "name": "private open var fredoka: PdfFont",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.fredoka",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/fredoka.html",
+    "searchKeys": [
+      "fredoka",
+      "private open var fredoka: PdfFont",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.fredoka"
+    ]
+  },
+  {
+    "name": "private val APPSTORE_ICON: String = \"appstore.svg\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.APPSTORE_ICON",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/-a-p-p-s-t-o-r-e_-i-c-o-n.html",
+    "searchKeys": [
+      "APPSTORE_ICON",
+      "private val APPSTORE_ICON: String = \"appstore.svg\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.APPSTORE_ICON"
+    ]
+  },
+  {
+    "name": "private val APPSTORE_URL: String = \"https://apps.apple.com/it/app/gluky\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.APPSTORE_URL",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/-a-p-p-s-t-o-r-e_-u-r-l.html",
+    "searchKeys": [
+      "APPSTORE_URL",
+      "private val APPSTORE_URL: String = \"https://apps.apple.com/it/app/gluky\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.APPSTORE_URL"
+    ]
+  },
+  {
+    "name": "private val COMICNEUE: String = \"font/comicneue.ttf\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.COMICNEUE",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-c-o-m-i-c-n-e-u-e.html",
+    "searchKeys": [
+      "COMICNEUE",
+      "private val COMICNEUE: String = \"font/comicneue.ttf\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.COMICNEUE"
+    ]
+  },
+  {
+    "name": "private val FREDOKA: String = \"font/fredoka.ttf\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.FREDOKA",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-f-r-e-d-o-k-a.html",
+    "searchKeys": [
+      "FREDOKA",
+      "private val FREDOKA: String = \"font/fredoka.ttf\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.FREDOKA"
+    ]
+  },
+  {
+    "name": "private val GITHUB_ICON: String = \"github.svg\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.GITHUB_ICON",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/-g-i-t-h-u-b_-i-c-o-n.html",
+    "searchKeys": [
+      "GITHUB_ICON",
+      "private val GITHUB_ICON: String = \"github.svg\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.GITHUB_ICON"
+    ]
+  },
+  {
+    "name": "private val GITHUB_URL: String = \"https://github.com/N7ghtm4r3/Gluky-Clients\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.GITHUB_URL",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/-g-i-t-h-u-b_-u-r-l.html",
+    "searchKeys": [
+      "GITHUB_URL",
+      "private val GITHUB_URL: String = \"https://github.com/N7ghtm4r3/Gluky-Clients\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.GITHUB_URL"
+    ]
+  },
+  {
+    "name": "private val GREEN_COLOR: DeviceRgb",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.GREEN_COLOR",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-g-r-e-e-n_-c-o-l-o-r.html",
+    "searchKeys": [
+      "GREEN_COLOR",
+      "private val GREEN_COLOR: DeviceRgb",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.GREEN_COLOR"
+    ]
+  },
+  {
+    "name": "private val H1_SIZE: Float = 22.0f",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.H1_SIZE",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-h1_-s-i-z-e.html",
+    "searchKeys": [
+      "H1_SIZE",
+      "private val H1_SIZE: Float = 22.0f",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.H1_SIZE"
+    ]
+  },
+  {
+    "name": "private val H2_SIZE: Float = 18.0f",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.H2_SIZE",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-h2_-s-i-z-e.html",
+    "searchKeys": [
+      "H2_SIZE",
+      "private val H2_SIZE: Float = 18.0f",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.H2_SIZE"
+    ]
+  },
+  {
+    "name": "private val H3_SIZE: Float = 14.0f",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.H3_SIZE",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-h3_-s-i-z-e.html",
+    "searchKeys": [
+      "H3_SIZE",
+      "private val H3_SIZE: Float = 14.0f",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.H3_SIZE"
+    ]
+  },
+  {
+    "name": "private val ICON_SIZE: Float = 17.0f",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.ICON_SIZE",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/-i-c-o-n_-s-i-z-e.html",
+    "searchKeys": [
+      "ICON_SIZE",
+      "private val ICON_SIZE: Float = 17.0f",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.ICON_SIZE"
+    ]
+  },
+  {
+    "name": "private val LOGO: String = \"logo.png\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.LOGO",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-l-o-g-o.html",
+    "searchKeys": [
+      "LOGO",
+      "private val LOGO: String = \"logo.png\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.LOGO"
+    ]
+  },
+  {
+    "name": "private val LOGO_SIZE: Float = 65.0f",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.LOGO_SIZE",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-l-o-g-o_-s-i-z-e.html",
+    "searchKeys": [
+      "LOGO_SIZE",
+      "private val LOGO_SIZE: Float = 65.0f",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.LOGO_SIZE"
+    ]
+  },
+  {
+    "name": "private val NOT_APPLICABLE_TEXT: String = \"N/A\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.NOT_APPLICABLE_TEXT",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-n-o-t_-a-p-p-l-i-c-a-b-l-e_-t-e-x-t.html",
+    "searchKeys": [
+      "NOT_APPLICABLE_TEXT",
+      "private val NOT_APPLICABLE_TEXT: String = \"N/A\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.NOT_APPLICABLE_TEXT"
+    ]
+  },
+  {
+    "name": "private val PDF_SUFFIX: String = \".pdf\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.PDF_SUFFIX",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-p-d-f_-s-u-f-f-i-x.html",
+    "searchKeys": [
+      "PDF_SUFFIX",
+      "private val PDF_SUFFIX: String = \".pdf\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.PDF_SUFFIX"
+    ]
+  },
+  {
+    "name": "private val PLAYSTORE_ICON: String = \"playstore.svg\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.PLAYSTORE_ICON",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/-p-l-a-y-s-t-o-r-e_-i-c-o-n.html",
+    "searchKeys": [
+      "PLAYSTORE_ICON",
+      "private val PLAYSTORE_ICON: String = \"playstore.svg\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.PLAYSTORE_ICON"
+    ]
+  },
+  {
+    "name": "private val PLAYSTORE_URL: String = \"https://play.google.com/store/apps/details?id=com.tecknobit.gluky\"",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.PLAYSTORE_URL",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/-p-l-a-y-s-t-o-r-e_-u-r-l.html",
+    "searchKeys": [
+      "PLAYSTORE_URL",
+      "private val PLAYSTORE_URL: String = \"https://play.google.com/store/apps/details?id=com.tecknobit.gluky\"",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.PLAYSTORE_URL"
+    ]
+  },
+  {
+    "name": "private val PRIMARY_COLOR: DeviceRgb",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.PRIMARY_COLOR",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-p-r-i-m-a-r-y_-c-o-l-o-r.html",
+    "searchKeys": [
+      "PRIMARY_COLOR",
+      "private val PRIMARY_COLOR: DeviceRgb",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.PRIMARY_COLOR"
+    ]
+  },
+  {
+    "name": "private val RED_COLOR: DeviceRgb",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.RED_COLOR",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-r-e-d_-c-o-l-o-r.html",
+    "searchKeys": [
+      "RED_COLOR",
+      "private val RED_COLOR: DeviceRgb",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.RED_COLOR"
+    ]
+  },
+  {
+    "name": "private val SUBTITLE_SIZE: Float = 11.0f",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.SUBTITLE_SIZE",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-s-u-b-t-i-t-l-e_-s-i-z-e.html",
+    "searchKeys": [
+      "SUBTITLE_SIZE",
+      "private val SUBTITLE_SIZE: Float = 11.0f",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.SUBTITLE_SIZE"
+    ]
+  },
+  {
+    "name": "private val TARGET_DAY_PATTERN: String = \"dd-MM-yyyy\"",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.TARGET_DAY_PATTERN",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/-t-a-r-g-e-t_-d-a-y_-p-a-t-t-e-r-n.html",
+    "searchKeys": [
+      "TARGET_DAY_PATTERN",
+      "private val TARGET_DAY_PATTERN: String = \"dd-MM-yyyy\"",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.TARGET_DAY_PATTERN"
+    ]
+  },
+  {
+    "name": "private val WRONG_CUSTOM_TREND_PERIOD_MESSAGE: String = \"wrong_custom_trend_period\"",
+    "description": "com.tecknobit.gluky.services.analyses.controller.AnalysesController.WRONG_CUSTOM_TREND_PERIOD_MESSAGE",
+    "location": "backend/com.tecknobit.gluky.services.analyses.controller/-analyses-controller/-w-r-o-n-g_-c-u-s-t-o-m_-t-r-e-n-d_-p-e-r-i-o-d_-m-e-s-s-a-g-e.html",
+    "searchKeys": [
+      "WRONG_CUSTOM_TREND_PERIOD_MESSAGE",
+      "private val WRONG_CUSTOM_TREND_PERIOD_MESSAGE: String = \"wrong_custom_trend_period\"",
+      "com.tecknobit.gluky.services.analyses.controller.AnalysesController.WRONG_CUSTOM_TREND_PERIOD_MESSAGE"
+    ]
+  },
+  {
+    "name": "private val WRONG_GLYCEMIC_VALUE_MESSAGE: String = \"wrong_glycemic_value\"",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.WRONG_GLYCEMIC_VALUE_MESSAGE",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/-w-r-o-n-g_-g-l-y-c-e-m-i-c_-v-a-l-u-e_-m-e-s-s-a-g-e.html",
+    "searchKeys": [
+      "WRONG_GLYCEMIC_VALUE_MESSAGE",
+      "private val WRONG_GLYCEMIC_VALUE_MESSAGE: String = \"wrong_glycemic_value\"",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.WRONG_GLYCEMIC_VALUE_MESSAGE"
+    ]
+  },
+  {
+    "name": "private val WRONG_INSULIN_UNITS_VALUE_MESSAGE: String = \"wrong_insulin_units_value\"",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.WRONG_INSULIN_UNITS_VALUE_MESSAGE",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/-w-r-o-n-g_-i-n-s-u-l-i-n_-u-n-i-t-s_-v-a-l-u-e_-m-e-s-s-a-g-e.html",
+    "searchKeys": [
+      "WRONG_INSULIN_UNITS_VALUE_MESSAGE",
+      "private val WRONG_INSULIN_UNITS_VALUE_MESSAGE: String = \"wrong_insulin_units_value\"",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.WRONG_INSULIN_UNITS_VALUE_MESSAGE"
+    ]
+  },
+  {
+    "name": "private val WRONG_MEAL_CONTENT_MESSAGE: String = \"wrong_meal_content\"",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.WRONG_MEAL_CONTENT_MESSAGE",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/-w-r-o-n-g_-m-e-a-l_-c-o-n-t-e-n-t_-m-e-s-s-a-g-e.html",
+    "searchKeys": [
+      "WRONG_MEAL_CONTENT_MESSAGE",
+      "private val WRONG_MEAL_CONTENT_MESSAGE: String = \"wrong_meal_content\"",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.WRONG_MEAL_CONTENT_MESSAGE"
+    ]
+  },
+  {
+    "name": "private val YELLOW_COLOR: DeviceRgb",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.YELLOW_COLOR",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-y-e-l-l-o-w_-c-o-l-o-r.html",
+    "searchKeys": [
+      "YELLOW_COLOR",
+      "private val YELLOW_COLOR: DeviceRgb",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.YELLOW_COLOR"
+    ]
+  },
+  {
+    "name": "private val analysesService: AnalysesService",
+    "description": "com.tecknobit.gluky.services.analyses.controller.AnalysesController.analysesService",
+    "location": "backend/com.tecknobit.gluky.services.analyses.controller/-analyses-controller/analyses-service.html",
+    "searchKeys": [
+      "analysesService",
+      "private val analysesService: AnalysesService",
+      "com.tecknobit.gluky.services.analyses.controller.AnalysesController.analysesService"
+    ]
+  },
+  {
+    "name": "private val basalInsulinRepository: BasalInsulinRepository",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService.basalInsulinRepository",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-basal-insulin-service/basal-insulin-repository.html",
+    "searchKeys": [
+      "basalInsulinRepository",
+      "private val basalInsulinRepository: BasalInsulinRepository",
+      "com.tecknobit.gluky.services.measurements.services.types.BasalInsulinService.basalInsulinRepository"
+    ]
+  },
+  {
+    "name": "private val basalInsulinService: BasalInsulinService",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.basalInsulinService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/basal-insulin-service.html",
+    "searchKeys": [
+      "basalInsulinService",
+      "private val basalInsulinService: BasalInsulinService",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.basalInsulinService"
+    ]
+  },
+  {
+    "name": "private val comicneue: PdfFont",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.comicneue",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/comicneue.html",
+    "searchKeys": [
+      "comicneue",
+      "private val comicneue: PdfFont",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.comicneue"
+    ]
+  },
+  {
+    "name": "private val dailyMeasurements: List<DailyMeasurements>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.dailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/daily-measurements.html",
+    "searchKeys": [
+      "dailyMeasurements",
+      "private val dailyMeasurements: List<DailyMeasurements>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.dailyMeasurements"
+    ]
+  },
+  {
+    "name": "private val dailyMeasurements: List<DailyMeasurements>",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.dailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/daily-measurements.html",
+    "searchKeys": [
+      "dailyMeasurements",
+      "private val dailyMeasurements: List<DailyMeasurements>",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.dailyMeasurements"
+    ]
+  },
+  {
+    "name": "private val document: Document",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.document",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/document.html",
+    "searchKeys": [
+      "document",
+      "private val document: Document",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.document"
+    ]
+  },
+  {
+    "name": "private val document: Document",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Header.document",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-header/document.html",
+    "searchKeys": [
+      "document",
+      "private val document: Document",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Header.document"
+    ]
+  },
+  {
+    "name": "private val document: Document",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.document",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/document.html",
+    "searchKeys": [
+      "document",
+      "private val document: Document",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.document"
+    ]
+  },
+  {
+    "name": "private val from: Long",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.from",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/from.html",
+    "searchKeys": [
+      "from",
+      "private val from: Long",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.from"
+    ]
+  },
+  {
+    "name": "private val locale: Locale",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.locale",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/locale.html",
+    "searchKeys": [
+      "locale",
+      "private val locale: Locale",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.locale"
+    ]
+  },
+  {
+    "name": "private val mealsRepository: MealsRepository",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.MealsService.mealsRepository",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-meals-service/meals-repository.html",
+    "searchKeys": [
+      "mealsRepository",
+      "private val mealsRepository: MealsRepository",
+      "com.tecknobit.gluky.services.measurements.services.types.MealsService.mealsRepository"
+    ]
+  },
+  {
+    "name": "private val mealsService: MealsService",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.mealsService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/meals-service.html",
+    "searchKeys": [
+      "mealsService",
+      "private val mealsService: MealsService",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.mealsService"
+    ]
+  },
+  {
+    "name": "private val measurementsRepository: MeasurementsRepository",
+    "description": "com.tecknobit.gluky.services.measurements.services.MeasurementsService.measurementsRepository",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services/-measurements-service/measurements-repository.html",
+    "searchKeys": [
+      "measurementsRepository",
+      "private val measurementsRepository: MeasurementsRepository",
+      "com.tecknobit.gluky.services.measurements.services.MeasurementsService.measurementsRepository"
+    ]
+  },
+  {
+    "name": "private val measurementsService: MeasurementsService",
+    "description": "com.tecknobit.gluky.services.analyses.service.AnalysesService.measurementsService",
+    "location": "backend/com.tecknobit.gluky.services.analyses.service/-analyses-service/measurements-service.html",
+    "searchKeys": [
+      "measurementsService",
+      "private val measurementsService: MeasurementsService",
+      "com.tecknobit.gluky.services.analyses.service.AnalysesService.measurementsService"
+    ]
+  },
+  {
+    "name": "private val measurementsService: MeasurementsService",
+    "description": "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.measurementsService",
+    "location": "backend/com.tecknobit.gluky.services.measurements.controller/-measurements-controller/measurements-service.html",
+    "searchKeys": [
+      "measurementsService",
+      "private val measurementsService: MeasurementsService",
+      "com.tecknobit.gluky.services.measurements.controller.MeasurementsController.measurementsService"
+    ]
+  },
+  {
+    "name": "private val owner: GlukyUser",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.owner",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/owner.html",
+    "searchKeys": [
+      "owner",
+      "private val owner: GlukyUser",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.owner"
+    ]
+  },
+  {
+    "name": "private val pdfDocument: PdfDocument",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.pdfDocument",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/pdf-document.html",
+    "searchKeys": [
+      "pdfDocument",
+      "private val pdfDocument: PdfDocument",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.pdfDocument"
+    ]
+  },
+  {
+    "name": "private val period: GlycemicTrendPeriod",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.period",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/period.html",
+    "searchKeys": [
+      "period",
+      "private val period: GlycemicTrendPeriod",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.period"
+    ]
+  },
+  {
+    "name": "private val period: GlycemicTrendPeriod",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.period",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/period.html",
+    "searchKeys": [
+      "period",
+      "private val period: GlycemicTrendPeriod",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.period"
+    ]
+  },
+  {
+    "name": "private val reportPath: String",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.reportPath",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/report-path.html",
+    "searchKeys": [
+      "reportPath",
+      "private val reportPath: String",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.reportPath"
+    ]
+  },
+  {
+    "name": "private val resourceUtils: ResourcesUtils<Class<ReportCreator>>",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.resourceUtils",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/resource-utils.html",
+    "searchKeys": [
+      "resourceUtils",
+      "private val resourceUtils: ResourcesUtils<Class<ReportCreator>>",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.resourceUtils"
+    ]
+  },
+  {
+    "name": "private val resourcesUtils: ResourcesUtils<Class<ReportCreator>>",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.resourcesUtils",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/resources-utils.html",
+    "searchKeys": [
+      "resourcesUtils",
+      "private val resourcesUtils: ResourcesUtils<Class<ReportCreator>>",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.resourcesUtils"
+    ]
+  },
+  {
+    "name": "private val sets: Array<List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>>",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.sets",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/sets.html",
+    "searchKeys": [
+      "sets",
+      "private val sets: Array<List<GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint>>",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.sets"
+    ]
+  },
+  {
+    "name": "private val to: Long",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.to",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/to.html",
+    "searchKeys": [
+      "to",
+      "private val to: Long",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.to"
+    ]
+  },
+  {
+    "name": "private val translator: ReportCreator.Translator",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.translator",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/translator.html",
+    "searchKeys": [
+      "translator",
+      "private val translator: ReportCreator.Translator",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.translator"
+    ]
+  },
+  {
+    "name": "private val translator: ReportCreator.Translator",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.translator",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/translator.html",
+    "searchKeys": [
+      "translator",
+      "private val translator: ReportCreator.Translator",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.translator"
+    ]
+  },
+  {
+    "name": "private val user: GlukyUser",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.user",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/user.html",
+    "searchKeys": [
+      "user",
+      "private val user: GlukyUser",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.user"
+    ]
+  },
+  {
+    "name": "protected open fun convertGlycemicValue(glycemicValue: String): Int",
+    "description": "com.tecknobit.gluky.services.measurements.services.types.GlycemicMeasurementsService.convertGlycemicValue",
+    "location": "backend/com.tecknobit.gluky.services.measurements.services.types/-glycemic-measurements-service/convert-glycemic-value.html",
+    "searchKeys": [
+      "convertGlycemicValue",
+      "protected open fun convertGlycemicValue(glycemicValue: String): Int",
+      "com.tecknobit.gluky.services.measurements.services.types.GlycemicMeasurementsService.convertGlycemicValue"
+    ]
+  },
+  {
+    "name": "protected open fun onAcceptedEvent(event: AbstractPdfDocumentEvent)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.onAcceptedEvent",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-footer/on-accepted-event.html",
+    "searchKeys": [
+      "onAcceptedEvent",
+      "protected open fun onAcceptedEvent(event: AbstractPdfDocumentEvent)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Footer.onAcceptedEvent"
+    ]
+  },
+  {
+    "name": "protected open fun onAcceptedEvent(event: AbstractPdfDocumentEvent)",
+    "description": "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Header.onAcceptedEvent",
+    "location": "backend/com.tecknobit.gluky.services.analyses.helpers/-report-creator/-header/on-accepted-event.html",
+    "searchKeys": [
+      "onAcceptedEvent",
+      "protected open fun onAcceptedEvent(event: AbstractPdfDocumentEvent)",
+      "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.Header.onAcceptedEvent"
+    ]
+  },
+  {
+    "name": "protected val annotationDate: Long",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.annotationDate",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/annotation-date.html",
+    "searchKeys": [
+      "annotationDate",
+      "protected val annotationDate: Long",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.annotationDate"
+    ]
+  },
+  {
+    "name": "protected val dailyMeasurements: DailyMeasurements",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.dailyMeasurements",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/daily-measurements.html",
+    "searchKeys": [
+      "dailyMeasurements",
+      "protected val dailyMeasurements: DailyMeasurements",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.dailyMeasurements"
+    ]
+  },
+  {
+    "name": "protected val glycemia: Int",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.glycemia",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/glycemia.html",
+    "searchKeys": [
+      "glycemia",
+      "protected val glycemia: Int",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.glycemia"
+    ]
+  },
+  {
+    "name": "protected val insulinUnits: Int",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.insulinUnits",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/insulin-units.html",
+    "searchKeys": [
+      "insulinUnits",
+      "protected val insulinUnits: Int",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.insulinUnits"
+    ]
+  },
+  {
+    "name": "val EMPTY_CONTENT: String = \"{}\"",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.Meal.EMPTY_CONTENT",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-meal/-e-m-p-t-y_-c-o-n-t-e-n-t.html",
+    "searchKeys": [
+      "EMPTY_CONTENT",
+      "val EMPTY_CONTENT: String = \"{}\"",
+      "com.tecknobit.gluky.services.measurements.entities.types.Meal.EMPTY_CONTENT"
+    ]
+  },
+  {
+    "name": "val MAX_ALLOWED_SETS: Int = 4",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.MAX_ALLOWED_SETS",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-m-a-x_-a-l-l-o-w-e-d_-s-e-t-s.html",
+    "searchKeys": [
+      "MAX_ALLOWED_SETS",
+      "val MAX_ALLOWED_SETS: Int = 4",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.MAX_ALLOWED_SETS"
+    ]
+  },
+  {
+    "name": "val UNSET_VALUE: Int = -1",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.UNSET_VALUE",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-glycemic-measurement-item/-u-n-s-e-t_-v-a-l-u-e.html",
+    "searchKeys": [
+      "UNSET_VALUE",
+      "val UNSET_VALUE: Int = -1",
+      "com.tecknobit.gluky.services.measurements.entities.types.GlycemicMeasurementItem.UNSET_VALUE"
+    ]
+  },
+  {
+    "name": "val averageGlycemia: Double",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.averageGlycemia",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/average-glycemia.html",
+    "searchKeys": [
+      "averageGlycemia",
+      "val averageGlycemia: Double",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.averageGlycemia"
+    ]
+  },
+  {
+    "name": "val creationDate: Long",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.creationDate",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/creation-date.html",
+    "searchKeys": [
+      "creationDate",
+      "val creationDate: Long",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.creationDate"
+    ]
+  },
+  {
+    "name": "val dailyNotes: String",
+    "description": "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.dailyNotes",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities/-daily-measurements/daily-notes.html",
+    "searchKeys": [
+      "dailyNotes",
+      "val dailyNotes: String",
+      "com.tecknobit.gluky.services.measurements.entities.DailyMeasurements.dailyNotes"
+    ]
+  },
+  {
+    "name": "val from: Long",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.from",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/from.html",
+    "searchKeys": [
+      "from",
+      "val from: Long",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.from"
+    ]
+  },
+  {
+    "name": "val higherGlycemia: GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.higherGlycemia",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/higher-glycemia.html",
+    "searchKeys": [
+      "higherGlycemia",
+      "val higherGlycemia: GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.higherGlycemia"
+    ]
+  },
+  {
+    "name": "val lowerGlycemia: GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.lowerGlycemia",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/lower-glycemia.html",
+    "searchKeys": [
+      "lowerGlycemia",
+      "val lowerGlycemia: GlycemicTrendDataContainer.GlycemicTrendData.GlycemiaPoint",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.lowerGlycemia"
+    ]
+  },
+  {
+    "name": "val measurements: List<DailyMeasurements>",
+    "description": "com.tecknobit.gluky.services.users.entity.GlukyUser.measurements",
+    "location": "backend/com.tecknobit.gluky.services.users.entity/-gluky-user/measurements.html",
+    "searchKeys": [
+      "measurements",
+      "val measurements: List<DailyMeasurements>",
+      "com.tecknobit.gluky.services.users.entity.GlukyUser.measurements"
+    ]
+  },
+  {
+    "name": "val postPrandialGlycemia: Int",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.Meal.postPrandialGlycemia",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-meal/post-prandial-glycemia.html",
+    "searchKeys": [
+      "postPrandialGlycemia",
+      "val postPrandialGlycemia: Int",
+      "com.tecknobit.gluky.services.measurements.entities.types.Meal.postPrandialGlycemia"
+    ]
+  },
+  {
+    "name": "val rawContent: String",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.Meal.rawContent",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-meal/raw-content.html",
+    "searchKeys": [
+      "rawContent",
+      "val rawContent: String",
+      "com.tecknobit.gluky.services.measurements.entities.types.Meal.rawContent"
+    ]
+  },
+  {
+    "name": "val to: Long",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.to",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/to.html",
+    "searchKeys": [
+      "to",
+      "val to: Long",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.to"
+    ]
+  },
+  {
+    "name": "val type: GlycemicTrendLabelType",
+    "description": "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.type",
+    "location": "backend/com.tecknobit.gluky.services.analyses.dtos/-glycemic-trend-data-container/-glycemic-trend-data/type.html",
+    "searchKeys": [
+      "type",
+      "val type: GlycemicTrendLabelType",
+      "com.tecknobit.gluky.services.analyses.dtos.GlycemicTrendDataContainer.GlycemicTrendData.type"
+    ]
+  },
+  {
+    "name": "val type: MeasurementType",
+    "description": "com.tecknobit.gluky.services.measurements.entities.types.Meal.type",
+    "location": "backend/com.tecknobit.gluky.services.measurements.entities.types/-meal/type.html",
+    "searchKeys": [
+      "type",
+      "val type: MeasurementType",
+      "com.tecknobit.gluky.services.measurements.entities.types.Meal.type"
+    ]
+  }
+]
