@@ -2,8 +2,8 @@ rootProject.name = "Gluky"
 
 pluginManagement {
     plugins {
-        kotlin("jvm") version "2.1.20"
-        kotlin("multiplatform") version "2.1.20"
+        kotlin("jvm") version "2.2.20"
+        kotlin("multiplatform") version "2.2.20"
     }
     repositories {
         google()
