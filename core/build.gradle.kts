@@ -1,4 +1,4 @@
-import org.jetbrains.kotlin.gradle.ExperimentalKotlinGradlePluginApi
+
 import org.jetbrains.kotlin.gradle.ExperimentalWasmDsl
 import org.jetbrains.kotlin.gradle.dsl.JvmTarget
 
@@ -10,7 +10,7 @@ plugins {
 }
 
 group = "com.tecknobit.gluky"
-version = "1.0.0"
+version = "1.0.1"
 
 repositories {
     google()
@@ -20,7 +20,6 @@ repositories {
 kotlin {
     jvm {
         compilations.all {
-            @OptIn(ExperimentalKotlinGradlePluginApi::class)
             this@jvm.compilerOptions {
                 jvmTarget.set(JvmTarget.JVM_18)
             }
@@ -28,7 +27,6 @@ kotlin {
     }
     androidTarget {
         publishLibraryVariants("release")
-        @OptIn(ExperimentalKotlinGradlePluginApi::class)
         compilerOptions {
             jvmTarget.set(JvmTarget.JVM_18)
         }
@@ -37,9 +35,11 @@ kotlin {
     listOf(
         iosX64(),
         iosArm64(),
-        iosSimulatorArm64()
-    ).forEach { iosTarget ->
-        iosTarget.binaries.framework {
+        iosSimulatorArm64(),
+        macosArm64(),
+        macosX64()
+    ).forEach { appleTarget ->
+        appleTarget.binaries.framework {
             baseName = "glukycore"
             isStatic = true
         }
@@ -50,8 +50,6 @@ kotlin {
         binaries.executable()
         browser {
             webpackTask {
-                dependencies {
-                }
             }
         }
     }
@@ -72,7 +70,7 @@ kotlin {
 
 android {
     namespace = "com.tecknobit.glukycore"
-    compileSdk = 35
+    compileSdk = 36
     defaultConfig {
         minSdk = 24
     }
@@ -84,7 +82,7 @@ afterEvaluate {
             create<MavenPublication>("maven") {
                 groupId = "com.tecknobit.glukycore"
                 artifactId = "glukycore"
-                version = "1.0.0"
+                version = "1.0.1"
                 from(components["kotlin"])
             }
         }

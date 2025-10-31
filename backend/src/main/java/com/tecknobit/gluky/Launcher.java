@@ -10,8 +10,8 @@ import org.springframework.context.annotation.PropertySource;
 import org.springframework.context.annotation.PropertySources;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
-import static com.tecknobit.equinoxbackend.resourcesutils.ResourcesProvider.CUSTOM_CONFIGURATION_FILE_PATH;
-import static com.tecknobit.equinoxbackend.resourcesutils.ResourcesProvider.DEFAULT_CONFIGURATION_FILE_PATH;
+import static com.tecknobit.equinoxbackend.apis.resources.ResourcesProvider.CUSTOM_CONFIGURATION_FILE_PATH;
+import static com.tecknobit.equinoxbackend.apis.resources.ResourcesProvider.DEFAULT_CONFIGURATION_FILE_PATH;
 
 /**
  * The {@code Launcher} class is useful to launch <b>Gluky's backend service</b>

@@ -1181,32 +1181,12 @@
   },
   {
     "name": "constructor()",
-    "description": "com.tecknobit.gluky.services.users.controller.GlukyUsersController.GlukyUsersController",
-    "location": "backend/com.tecknobit.gluky.services.users.controller/-gluky-users-controller/-gluky-users-controller.html",
-    "searchKeys": [
-      "GlukyUsersController",
-      "constructor()",
-      "com.tecknobit.gluky.services.users.controller.GlukyUsersController.GlukyUsersController"
-    ]
-  },
-  {
-    "name": "constructor()",
     "description": "com.tecknobit.gluky.services.users.entity.GlukyUser.GlukyUser",
     "location": "backend/com.tecknobit.gluky.services.users.entity/-gluky-user/-gluky-user.html",
     "searchKeys": [
       "GlukyUser",
       "constructor()",
       "com.tecknobit.gluky.services.users.entity.GlukyUser.GlukyUser"
-    ]
-  },
-  {
-    "name": "constructor()",
-    "description": "com.tecknobit.gluky.services.users.service.GlukyUsersService.GlukyUsersService",
-    "location": "backend/com.tecknobit.gluky.services.users.service/-gluky-users-service/-gluky-users-service.html",
-    "searchKeys": [
-      "GlukyUsersService",
-      "constructor()",
-      "com.tecknobit.gluky.services.users.service.GlukyUsersService.GlukyUsersService"
     ]
   },
   {
@@ -1397,6 +1377,26 @@
       "ReportCreator",
       "constructor(user: GlukyUser, period: GlycemicTrendPeriod, from: Long, to: Long, dailyMeasurements: List<DailyMeasurements>, reportId: String)",
       "com.tecknobit.gluky.services.analyses.helpers.ReportCreator.ReportCreator"
+    ]
+  },
+  {
+    "name": "constructor(usersRepository: GlukyUsersRepository)",
+    "description": "com.tecknobit.gluky.services.users.service.GlukyUsersService.GlukyUsersService",
+    "location": "backend/com.tecknobit.gluky.services.users.service/-gluky-users-service/-gluky-users-service.html",
+    "searchKeys": [
+      "GlukyUsersService",
+      "constructor(usersRepository: GlukyUsersRepository)",
+      "com.tecknobit.gluky.services.users.service.GlukyUsersService.GlukyUsersService"
+    ]
+  },
+  {
+    "name": "constructor(usersService: GlukyUsersService)",
+    "description": "com.tecknobit.gluky.services.users.controller.GlukyUsersController.GlukyUsersController",
+    "location": "backend/com.tecknobit.gluky.services.users.controller/-gluky-users-controller/-gluky-users-controller.html",
+    "searchKeys": [
+      "GlukyUsersController",
+      "constructor(usersService: GlukyUsersService)",
+      "com.tecknobit.gluky.services.users.controller.GlukyUsersController.GlukyUsersController"
     ]
   },
   {

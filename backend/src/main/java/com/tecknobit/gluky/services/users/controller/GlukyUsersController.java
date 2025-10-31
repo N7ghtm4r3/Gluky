@@ -5,6 +5,7 @@ import com.tecknobit.equinoxbackend.environment.services.users.controller.Equino
 import com.tecknobit.gluky.services.users.entity.GlukyUser;
 import com.tecknobit.gluky.services.users.repository.GlukyUsersRepository;
 import com.tecknobit.gluky.services.users.service.GlukyUsersService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RestController;
 
 /**
@@ -17,5 +18,14 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class GlukyUsersController extends EquinoxUsersController<GlukyUser, GlukyUsersRepository, GlukyUsersService> {
 
+    /**
+     * Constructor to init the controller
+     *
+     * @param usersService The helper to manage the users database operations
+     */
+    @Autowired
+    public GlukyUsersController(GlukyUsersService usersService) {
+        super(usersService);
+    }
 
 }
